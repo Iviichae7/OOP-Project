@@ -4,13 +4,13 @@ package goodhealthwellbeing;
 import java.awt.event.ActionEvent;
 
 public class Register extends javax.swing.JFrame {
-
+    
     public Register() {
         initComponents();
         this.setLocationRelativeTo(null);
         
         registerBackBtn.addActionListener((ActionEvent e) -> {
-            Login login = new Login();
+            LoginRegister login = new LoginRegister();
             login.setVisible(true);
             Register.this.setVisible(false);
         });
@@ -26,7 +26,7 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         registerBackBtn = new javax.swing.JButton();
-        RegisterString = new javax.swing.JLabel();
+        registerString = new javax.swing.JLabel();
         registerNameString = new javax.swing.JLabel();
         registerAgeString = new javax.swing.JLabel();
         registerEmailString = new javax.swing.JLabel();
@@ -34,11 +34,12 @@ public class Register extends javax.swing.JFrame {
         registerEmailInput = new javax.swing.JTextField();
         registerAgeInput = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
+        registerLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
 
-        registerBackBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        registerBackBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         registerBackBtn.setText("Back");
         registerBackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,50 +47,54 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        RegisterString.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        RegisterString.setText("Register");
+        registerString.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        registerString.setText("Register");
 
-        registerNameString.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        registerNameString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         registerNameString.setText("Full Name");
 
-        registerAgeString.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        registerAgeString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         registerAgeString.setText("Age");
 
-        registerEmailString.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        registerEmailString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         registerEmailString.setText("Email");
 
-        registerBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        registerBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         registerBtn.setText("Register");
+
+        registerLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GHWBLogo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerBackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(registerBackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(registerNameString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(registerAgeString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerEmailString, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerAgeInput, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerEmailInput, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerNameInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(registerEmailString, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(registerString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(registerEmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(registerAgeInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(registerNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(registerLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(RegisterString)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(RegisterString, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(registerLogo)
+                    .addComponent(registerString, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registerNameInput)
                     .addComponent(registerNameString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,11 +106,11 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registerEmailString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(registerEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerBackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addComponent(registerBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -149,14 +154,15 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel RegisterString;
     private javax.swing.JTextField registerAgeInput;
     private javax.swing.JLabel registerAgeString;
     private javax.swing.JButton registerBackBtn;
     private javax.swing.JButton registerBtn;
     private javax.swing.JTextField registerEmailInput;
     private javax.swing.JLabel registerEmailString;
+    private javax.swing.JLabel registerLogo;
     private javax.swing.JTextField registerNameInput;
     private javax.swing.JLabel registerNameString;
+    private javax.swing.JLabel registerString;
     // End of variables declaration//GEN-END:variables
 }
