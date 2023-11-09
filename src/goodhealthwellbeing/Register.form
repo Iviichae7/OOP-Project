@@ -87,16 +87,16 @@
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="registerBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="signupBtn" min="-2" pref="140" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="registerBackBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="signupLoginBtn" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPasswordField1" max="32767" attributes="0"/>
-                          <Component id="registerAgeInput" alignment="1" max="32767" attributes="0"/>
+                          <Component id="signupPasswordInput" max="32767" attributes="0"/>
+                          <Component id="signupEmailInput" alignment="1" max="32767" attributes="0"/>
                           <Component id="registerEmailString" alignment="1" max="32767" attributes="0"/>
-                          <Component id="registerNameString" alignment="1" max="32767" attributes="0"/>
-                          <Component id="registerNameInput" alignment="1" min="-2" pref="330" max="-2" attributes="0"/>
-                          <Component id="registerAgeString" alignment="1" min="-2" pref="330" max="-2" attributes="0"/>
+                          <Component id="signupNameString" alignment="1" max="32767" attributes="0"/>
+                          <Component id="signupNameInput" alignment="1" min="-2" pref="330" max="-2" attributes="0"/>
+                          <Component id="signupPasswordString" alignment="1" min="-2" pref="330" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
@@ -108,21 +108,21 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="registerString" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="registerNameString" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="signupNameString" min="-2" pref="23" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="registerNameInput" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="signupNameInput" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="registerEmailString" min="-2" pref="23" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="registerAgeInput" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="signupEmailInput" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="registerAgeString" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="signupPasswordString" min="-2" pref="23" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="signupPasswordInput" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="registerBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="registerBackBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="signupBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="signupLoginBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="74" max="32767" attributes="0"/>
                   </Group>
@@ -130,7 +130,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="registerBackBtn">
+            <Component class="javax.swing.JButton" name="signupLoginBtn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -138,7 +138,7 @@
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBackBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupLoginBtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="registerString">
@@ -149,7 +149,7 @@
                 <Property name="text" type="java.lang.String" value="SIGN UP"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="registerNameString">
+            <Component class="javax.swing.JLabel" name="signupNameString">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="15" style="0"/>
@@ -157,7 +157,7 @@
                 <Property name="text" type="java.lang.String" value="Full Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="registerAgeString">
+            <Component class="javax.swing.JLabel" name="signupPasswordString">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="15" style="0"/>
@@ -173,11 +173,11 @@
                 <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="registerNameInput">
+            <Component class="javax.swing.JTextField" name="signupNameInput">
             </Component>
-            <Component class="javax.swing.JTextField" name="registerAgeInput">
+            <Component class="javax.swing.JTextField" name="signupEmailInput">
             </Component>
-            <Component class="javax.swing.JButton" name="registerBtn">
+            <Component class="javax.swing.JButton" name="signupBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="0" type="rgb"/>
@@ -188,7 +188,7 @@
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="signupPasswordInput">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>

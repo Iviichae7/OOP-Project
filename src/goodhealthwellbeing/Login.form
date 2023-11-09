@@ -115,9 +115,9 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="loginBackBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="loginSignupBtn" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jPasswordField1" pref="341" max="32767" attributes="0"/>
+                              <Component id="loginPasswordInput" pref="341" max="32767" attributes="0"/>
                               <Component id="loginEmailLabel" max="32767" attributes="0"/>
                               <Component id="loginPasswordLabel" alignment="0" max="32767" attributes="0"/>
                               <Component id="loginEmailInput" alignment="0" max="32767" attributes="0"/>
@@ -139,12 +139,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="loginPasswordLabel" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="loginPasswordInput" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="loginBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="loginBackBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="loginSignupBtn" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -177,7 +177,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="loginEmailInput">
             </Component>
-            <Component class="javax.swing.JButton" name="loginBackBtn">
+            <Component class="javax.swing.JButton" name="loginSignupBtn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -185,7 +185,7 @@
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBackBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginSignupBtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="loginPasswordLabel">
@@ -196,7 +196,7 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="loginPasswordInput">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>

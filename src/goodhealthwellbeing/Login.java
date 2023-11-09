@@ -10,9 +10,14 @@ public class Login extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         
-        loginBackBtn.addActionListener((ActionEvent e) -> {
+        loginSignupBtn.addActionListener((ActionEvent e) -> {
             Login.this.dispose();
             new Register().setVisible(true);
+        });
+        
+        loginBtn.addActionListener((ActionEvent e) -> {
+            Login.this.dispose();
+            new Modules().setVisible(true);
         });
     }
 
@@ -26,9 +31,9 @@ public class Login extends javax.swing.JFrame {
         loginLoginLabel = new javax.swing.JLabel();
         loginEmailLabel = new javax.swing.JLabel();
         loginEmailInput = new javax.swing.JTextField();
-        loginBackBtn = new javax.swing.JButton();
+        loginSignupBtn = new javax.swing.JButton();
         loginPasswordLabel = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        loginPasswordInput = new javax.swing.JPasswordField();
         loginBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -67,18 +72,18 @@ public class Login extends javax.swing.JFrame {
         loginEmailLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginEmailLabel.setText("Email");
 
-        loginBackBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        loginBackBtn.setText("Sign Up");
-        loginBackBtn.addActionListener(new java.awt.event.ActionListener() {
+        loginSignupBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loginSignupBtn.setText("Sign Up");
+        loginSignupBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBackBtnActionPerformed(evt);
+                loginSignupBtnActionPerformed(evt);
             }
         });
 
         loginPasswordLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginPasswordLabel.setText("Password");
 
-        jPasswordField1.setText("jPasswordField1");
+        loginPasswordInput.setText("jPasswordField1");
 
         loginBtn.setBackground(new java.awt.Color(0, 102, 102));
         loginBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -108,8 +113,8 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginRightPanelLayout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loginBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                            .addComponent(loginSignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(loginPasswordInput, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
                         .addComponent(loginEmailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(loginPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(loginEmailInput)))
@@ -127,12 +132,12 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginSignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(55, 55, 55))
         );
@@ -159,41 +164,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
-    private void loginBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBackBtnActionPerformed
+    private void loginSignupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginSignupBtnActionPerformed
         
-    }//GEN-LAST:event_loginBackBtnActionPerformed
+    }//GEN-LAST:event_loginSignupBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
         });
@@ -201,15 +179,15 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JButton loginBackBtn;
     private javax.swing.JButton loginBtn;
     private javax.swing.JTextField loginEmailInput;
     private javax.swing.JLabel loginEmailLabel;
     private javax.swing.JPanel loginLeftPanel;
     private javax.swing.JLabel loginLoginLabel;
     private javax.swing.JPanel loginMainPanel;
+    private javax.swing.JPasswordField loginPasswordInput;
     private javax.swing.JLabel loginPasswordLabel;
     private javax.swing.JPanel loginRightPanel;
+    private javax.swing.JButton loginSignupBtn;
     // End of variables declaration//GEN-END:variables
 }
