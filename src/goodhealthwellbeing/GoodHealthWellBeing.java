@@ -11,7 +11,7 @@ public class GoodHealthWellBeing {
     public static void main(String[] args) {
         
         java.awt.EventQueue.invokeLater(() -> {
-            new LoginRegister().setVisible(true);
+            new Login().setVisible(true);
         });
     }
     

@@ -10,7 +10,7 @@ public class Register extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         registerBackBtn.addActionListener((ActionEvent e) -> {
-            LoginRegister login = new LoginRegister();
+            Login login = new Login();
             login.setVisible(true);
             Register.this.setVisible(false);
         });
@@ -25,92 +25,137 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        signupRightPanel = new javax.swing.JPanel();
         registerBackBtn = new javax.swing.JButton();
         registerString = new javax.swing.JLabel();
         registerNameString = new javax.swing.JLabel();
         registerAgeString = new javax.swing.JLabel();
         registerEmailString = new javax.swing.JLabel();
         registerNameInput = new javax.swing.JTextField();
-        registerEmailInput = new javax.swing.JTextField();
         registerAgeInput = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
-        registerLogo = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        signupLeftPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
 
-        registerBackBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        registerBackBtn.setText("Back");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
+        jPanel1.setLayout(null);
+
+        signupRightPanel.setBackground(new java.awt.Color(255, 255, 255));
+        signupRightPanel.setPreferredSize(new java.awt.Dimension(400, 500));
+
+        registerBackBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        registerBackBtn.setText("Login");
         registerBackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBackBtnActionPerformed(evt);
             }
         });
 
-        registerString.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        registerString.setText("Register");
+        registerString.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        registerString.setText("SIGN UP");
 
-        registerNameString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        registerNameString.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         registerNameString.setText("Full Name");
 
-        registerAgeString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        registerAgeString.setText("Age");
+        registerAgeString.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        registerAgeString.setText("Password");
 
-        registerEmailString.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        registerEmailString.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         registerEmailString.setText("Email");
 
-        registerBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        registerBtn.setText("Register");
+        registerBtn.setBackground(new java.awt.Color(0, 102, 102));
+        registerBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        registerBtn.setText("Sign Up");
 
-        registerLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GHWBLogo.png"))); // NOI18N
+        jPasswordField1.setText("jPasswordField1");
+
+        javax.swing.GroupLayout signupRightPanelLayout = new javax.swing.GroupLayout(signupRightPanel);
+        signupRightPanel.setLayout(signupRightPanelLayout);
+        signupRightPanelLayout.setHorizontalGroup(
+            signupRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signupRightPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registerString, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131))
+            .addGroup(signupRightPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(signupRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(signupRightPanelLayout.createSequentialGroup()
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1)
+                    .addComponent(registerAgeInput, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(registerEmailString, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registerNameString, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registerNameInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerAgeString, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        signupRightPanelLayout.setVerticalGroup(
+            signupRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(signupRightPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(registerString, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(registerNameString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerEmailString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(registerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registerAgeString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(signupRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(signupRightPanel);
+        signupRightPanel.setBounds(400, 0, 400, 500);
+
+        signupLeftPanel.setBackground(new java.awt.Color(0, 102, 102));
+        signupLeftPanel.setPreferredSize(new java.awt.Dimension(400, 500));
+
+        javax.swing.GroupLayout signupLeftPanelLayout = new javax.swing.GroupLayout(signupLeftPanel);
+        signupLeftPanel.setLayout(signupLeftPanelLayout);
+        signupLeftPanelLayout.setHorizontalGroup(
+            signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        signupLeftPanelLayout.setVerticalGroup(
+            signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(signupLeftPanel);
+        signupLeftPanel.setBounds(0, 0, 400, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerBackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(registerNameString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerAgeString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(registerEmailString, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(registerString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(registerEmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(registerAgeInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(registerNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(registerLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(38, 38, 38))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(registerLogo)
-                    .addComponent(registerString, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerNameInput)
-                    .addComponent(registerNameString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerAgeInput)
-                    .addComponent(registerAgeString, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerEmailString, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registerEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerBackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 119, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,9 +165,6 @@ public class Register extends javax.swing.JFrame {
        
     }//GEN-LAST:event_registerBackBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -154,15 +196,17 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField registerAgeInput;
     private javax.swing.JLabel registerAgeString;
     private javax.swing.JButton registerBackBtn;
     private javax.swing.JButton registerBtn;
-    private javax.swing.JTextField registerEmailInput;
     private javax.swing.JLabel registerEmailString;
-    private javax.swing.JLabel registerLogo;
     private javax.swing.JTextField registerNameInput;
     private javax.swing.JLabel registerNameString;
     private javax.swing.JLabel registerString;
+    private javax.swing.JPanel signupLeftPanel;
+    private javax.swing.JPanel signupRightPanel;
     // End of variables declaration//GEN-END:variables
 }
