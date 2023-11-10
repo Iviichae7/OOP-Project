@@ -67,6 +67,7 @@ public class Register extends javax.swing.JFrame {
 
         signupBtn.setBackground(new java.awt.Color(0, 102, 102));
         signupBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        signupBtn.setForeground(new java.awt.Color(255, 255, 255));
         signupBtn.setText("Sign Up");
 
         signupPasswordInput.setText("jPasswordField1");
