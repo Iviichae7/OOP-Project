@@ -1,5 +1,5 @@
 
-package goodhealthwellbeing;
+package goodhealthwellbeing.view;
 
 public class Modules extends javax.swing.JFrame {
 
@@ -21,7 +21,7 @@ public class Modules extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        modulesMainPanel.setBackground(new java.awt.Color(204, 204, 204));
+        modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
         modulesMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
         modulesMainPanel.setLayout(null);
 

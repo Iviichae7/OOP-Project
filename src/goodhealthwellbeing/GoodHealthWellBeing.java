@@ -1,6 +1,8 @@
 
 package goodhealthwellbeing;
 
+import goodhealthwellbeing.view.Login;
+
 /**
  * @author Michael Babik
  * @author Md Hassan
