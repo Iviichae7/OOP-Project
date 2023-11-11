@@ -37,7 +37,7 @@ public class Nutrition extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        modulesMainPanel = new javax.swing.JPanel();
+        nutrtionMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
         calorieTrackerButton = new javax.swing.JButton();
@@ -46,9 +46,9 @@ public class Nutrition extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        modulesMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
-        modulesMainPanel.setLayout(null);
+        nutrtionMainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        nutrtionMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
+        nutrtionMainPanel.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -64,7 +64,7 @@ public class Nutrition extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        modulesMainPanel.add(jPanel1);
+        nutrtionMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
         homeButton.setText("HOME");
@@ -73,8 +73,8 @@ public class Nutrition extends javax.swing.JFrame {
                 homeButtonActionPerformed(evt);
             }
         });
-        modulesMainPanel.add(homeButton);
-        homeButton.setBounds(440, 40, 72, 23);
+        nutrtionMainPanel.add(homeButton);
+        homeButton.setBounds(420, 30, 72, 23);
 
         calorieTrackerButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         calorieTrackerButton.setText("Calorie Tracker");
@@ -83,7 +83,7 @@ public class Nutrition extends javax.swing.JFrame {
                 calorieTrackerButtonActionPerformed(evt);
             }
         });
-        modulesMainPanel.add(calorieTrackerButton);
+        nutrtionMainPanel.add(calorieTrackerButton);
         calorieTrackerButton.setBounds(430, 340, 160, 60);
 
         macroInfoButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -93,28 +93,28 @@ public class Nutrition extends javax.swing.JFrame {
                 macroInfoButtonActionPerformed(evt);
             }
         });
-        modulesMainPanel.add(macroInfoButton);
+        nutrtionMainPanel.add(macroInfoButton);
         macroInfoButton.setBounds(610, 340, 160, 60);
 
         nutritionPrompt.setForeground(new java.awt.Color(0, 0, 0));
         nutritionPrompt.setText("Welcome to your Nutrition hub! Please select the service you wish to use.");
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        modulesMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(410, 180, 390, 16);
+        nutrtionMainPanel.add(nutritionPrompt);
+        nutritionPrompt.setBounds(410, 180, 390, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nutrtionMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nutrtionMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -175,7 +175,7 @@ public class Nutrition extends javax.swing.JFrame {
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton macroInfoButton;
-    private javax.swing.JPanel modulesMainPanel;
     private javax.swing.JLabel nutritionPrompt;
+    private javax.swing.JPanel nutrtionMainPanel;
     // End of variables declaration//GEN-END:variables
 }
