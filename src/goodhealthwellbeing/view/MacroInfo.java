@@ -35,6 +35,9 @@ public class MacroInfo extends javax.swing.JFrame {
         modulesMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
+        fatButton = new javax.swing.JButton();
+        carbButton = new javax.swing.JButton();
+        proteinButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +71,24 @@ public class MacroInfo extends javax.swing.JFrame {
         modulesMainPanel.add(homeButton);
         homeButton.setBounds(440, 40, 72, 23);
 
+        fatButton.setText("Fats");
+        modulesMainPanel.add(fatButton);
+        fatButton.setBounds(520, 350, 150, 60);
+        fatButton.getAccessibleContext().setAccessibleName("Fats");
+
+        carbButton.setText("Carbohydrates");
+        modulesMainPanel.add(carbButton);
+        carbButton.setBounds(520, 170, 150, 60);
+
+        proteinButton.setText("Proteins");
+        proteinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proteinButtonActionPerformed(evt);
+            }
+        });
+        modulesMainPanel.add(proteinButton);
+        proteinButton.setBounds(520, 260, 150, 60);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,6 +110,10 @@ public class MacroInfo extends javax.swing.JFrame {
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void proteinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proteinButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,8 +151,11 @@ public class MacroInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton carbButton;
+    private javax.swing.JButton fatButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel modulesMainPanel;
+    private javax.swing.JButton proteinButton;
     // End of variables declaration//GEN-END:variables
 }
