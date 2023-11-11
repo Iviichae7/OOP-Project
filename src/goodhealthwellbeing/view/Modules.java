@@ -1,12 +1,20 @@
 
 package goodhealthwellbeing.view;
 
+import java.awt.event.ActionEvent;
+
 public class Modules extends javax.swing.JFrame {
 
     public Modules() {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        
+        modulesHealthMetricsBtn.addActionListener((ActionEvent e) -> {
+            HealthMetrics healthmetrics = new HealthMetrics();
+            healthmetrics.setVisible(true);
+            Modules.this.setVisible(false);
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -20,6 +28,8 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
 
         modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
         modulesMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -65,13 +75,13 @@ public class Modules extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 70, Short.MAX_VALUE))
         );
 
         pack();
