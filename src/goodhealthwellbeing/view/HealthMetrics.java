@@ -28,6 +28,23 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsMainLabel = new javax.swing.JLabel();
         healthmetricsRecommendationsLabel = new javax.swing.JLabel();
         seperator0 = new javax.swing.JSeparator();
+        duration = new javax.swing.JLabel();
+        weight = new javax.swing.JLabel();
+        steps = new javax.swing.JLabel();
+        target = new javax.swing.JLabel();
+        weightOutput = new javax.swing.JLabel();
+        durationOutput = new javax.swing.JLabel();
+        stepsOutput = new javax.swing.JLabel();
+        targetOutput = new javax.swing.JLabel();
+        targetGoal = new javax.swing.JLabel();
+        stepsGoal = new javax.swing.JLabel();
+        weightGoal = new javax.swing.JLabel();
+        durationGoal = new javax.swing.JLabel();
+        durationGoalOutput = new javax.swing.JLabel();
+        weightGoalOutput = new javax.swing.JLabel();
+        targetGoalOutput = new javax.swing.JLabel();
+        stepsGoalOutput = new javax.swing.JLabel();
+        seperator4 = new javax.swing.JSeparator();
         healthmetricsRightPanel = new javax.swing.JPanel();
         healthmetricsHistoryLabel = new javax.swing.JLabel();
         healthmetricHistoryBtn = new javax.swing.JButton();
@@ -68,6 +85,40 @@ public class HealthMetrics extends javax.swing.JFrame {
         seperator0.setForeground(new java.awt.Color(204, 204, 204));
         seperator0.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        duration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/duration.png"))); // NOI18N
+
+        weight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/weight.png"))); // NOI18N
+
+        steps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/steps.png"))); // NOI18N
+
+        target.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/goal.png"))); // NOI18N
+
+        weightOutput.setText("Weight ");
+
+        durationOutput.setText("Duration");
+
+        stepsOutput.setText("Steps");
+
+        targetOutput.setText("Target");
+
+        targetGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recGoal.png"))); // NOI18N
+
+        stepsGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recSteps.png"))); // NOI18N
+
+        weightGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recWeight.png"))); // NOI18N
+
+        durationGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recDuration.png"))); // NOI18N
+
+        durationGoalOutput.setText("TargetDuration");
+
+        weightGoalOutput.setText("TaregetWeight");
+
+        targetGoalOutput.setText("TargetGoal");
+
+        stepsGoalOutput.setText("TargetSteps");
+
+        seperator4.setForeground(new java.awt.Color(204, 204, 204));
+
         javax.swing.GroupLayout healthmetricLeftPanelLayout = new javax.swing.GroupLayout(healthmetricLeftPanel);
         healthmetricLeftPanel.setLayout(healthmetricLeftPanelLayout);
         healthmetricLeftPanelLayout.setHorizontalGroup(
@@ -75,9 +126,53 @@ public class HealthMetrics extends javax.swing.JFrame {
             .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthmetricsMainLabel)
-                    .addComponent(healthmetricsRecommendationsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(duration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(steps, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(target, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(weight))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(durationOutput)
+                                            .addComponent(targetOutput)
+                                            .addComponent(stepsOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(weightOutput)))
+                                    .addComponent(healthmetricsRecommendationsLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(seperator4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                                .addComponent(targetGoal)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(targetGoalOutput))
+                                            .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                                .addComponent(stepsGoal)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(stepsGoalOutput)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, healthmetricLeftPanelLayout.createSequentialGroup()
+                                                .addComponent(weightGoal)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(weightGoalOutput))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, healthmetricLeftPanelLayout.createSequentialGroup()
+                                                .addComponent(durationGoal)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(durationGoalOutput)))))
+                                .addGap(24, 24, 24))))
+                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                        .addComponent(healthmetricsMainLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(seperator0, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -86,14 +181,43 @@ public class HealthMetrics extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, healthmetricLeftPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
-                        .addComponent(seperator0)
-                        .addGap(73, 73, 73))
+                    .addComponent(seperator0)
                     .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
                         .addComponent(healthmetricsMainLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(weightOutput)
+                            .addComponent(weight))
+                        .addGap(19, 19, 19)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(duration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(durationOutput))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(steps)
+                            .addComponent(stepsOutput))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(target)
+                            .addComponent(targetOutput))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(seperator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(healthmetricsRecommendationsLabel)
-                        .addGap(147, 147, 147))))
+                        .addGap(27, 27, 27)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(targetGoal, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(durationGoal, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(durationGoalOutput, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(targetGoalOutput, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(30, 30, 30)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(stepsGoalOutput)
+                            .addComponent(stepsGoal)
+                            .addComponent(weightGoal)
+                            .addComponent(weightGoalOutput))
+                        .addGap(5, 5, 5)))
+                .addGap(58, 58, 58))
         );
 
         healthmetricMainPanel.add(healthmetricLeftPanel);
@@ -297,6 +421,10 @@ public class HealthMetrics extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel duration;
+    private javax.swing.JLabel durationGoal;
+    private javax.swing.JLabel durationGoalOutput;
+    private javax.swing.JLabel durationOutput;
     private javax.swing.JButton healthmetricHistoryBtn;
     private javax.swing.JPanel healthmetricLeftPanel;
     private javax.swing.JPanel healthmetricMainPanel;
@@ -321,5 +449,18 @@ public class HealthMetrics extends javax.swing.JFrame {
     private javax.swing.JSeparator seperator1;
     private javax.swing.JSeparator seperator2;
     private javax.swing.JSeparator seperator3;
+    private javax.swing.JSeparator seperator4;
+    private javax.swing.JLabel steps;
+    private javax.swing.JLabel stepsGoal;
+    private javax.swing.JLabel stepsGoalOutput;
+    private javax.swing.JLabel stepsOutput;
+    private javax.swing.JLabel target;
+    private javax.swing.JLabel targetGoal;
+    private javax.swing.JLabel targetGoalOutput;
+    private javax.swing.JLabel targetOutput;
+    private javax.swing.JLabel weight;
+    private javax.swing.JLabel weightGoal;
+    private javax.swing.JLabel weightGoalOutput;
+    private javax.swing.JLabel weightOutput;
     // End of variables declaration//GEN-END:variables
 }
