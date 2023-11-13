@@ -17,8 +17,8 @@ public class CalorieTracker extends javax.swing.JFrame {
         initComponents();
         
         homeButton.addActionListener((ActionEvent e) -> {
-            Modules module = new Modules();
-            module.setVisible(true);
+            Nutrition nutrition = new Nutrition();
+            nutrition.setVisible(true);
             CalorieTracker.this.setVisible(false);
         });
     }
@@ -32,15 +32,21 @@ public class CalorieTracker extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        modulesMainPanel = new javax.swing.JPanel();
+        calorieTrackerMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
+        calorieAddButton = new javax.swing.JButton();
+        prompt1 = new javax.swing.JLabel();
+        prompt2 = new javax.swing.JLabel();
+        prompt3 = new javax.swing.JLabel();
+        calorieInput = new javax.swing.JFormattedTextField();
+        totalCalories = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        modulesMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
-        modulesMainPanel.setLayout(null);
+        calorieTrackerMainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        calorieTrackerMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
+        calorieTrackerMainPanel.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -56,39 +62,95 @@ public class CalorieTracker extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        modulesMainPanel.add(jPanel1);
+        calorieTrackerMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("HOME");
+        homeButton.setText("BACK");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
-        modulesMainPanel.add(homeButton);
+        calorieTrackerMainPanel.add(homeButton);
         homeButton.setBounds(440, 40, 72, 23);
+
+        calorieAddButton.setText("Add");
+        calorieAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calorieAddButtonActionPerformed(evt);
+            }
+        });
+        calorieTrackerMainPanel.add(calorieAddButton);
+        calorieAddButton.setBounds(560, 260, 72, 23);
+
+        prompt1.setBackground(new java.awt.Color(0, 0, 0));
+        prompt1.setForeground(new java.awt.Color(0, 0, 0));
+        prompt1.setText("Enter the amount of calories you wish to add to your");
+        calorieTrackerMainPanel.add(prompt1);
+        prompt1.setBounds(460, 110, 290, 30);
+
+        prompt2.setForeground(new java.awt.Color(0, 0, 0));
+        prompt2.setText("daily total then press add.");
+        calorieTrackerMainPanel.add(prompt2);
+        prompt2.setBounds(530, 140, 140, 16);
+
+        prompt3.setForeground(new java.awt.Color(0, 0, 0));
+        prompt3.setText("Total Calories Today");
+        calorieTrackerMainPanel.add(prompt3);
+        prompt3.setBounds(540, 330, 120, 16);
+
+        calorieInput.setOpaque(true);
+        calorieInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calorieInputActionPerformed(evt);
+            }
+        });
+        calorieTrackerMainPanel.add(calorieInput);
+        calorieInput.setBounds(480, 180, 240, 50);
+
+        totalCalories.setEditable(false);
+        totalCalories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalCaloriesActionPerformed(evt);
+            }
+        });
+        calorieTrackerMainPanel.add(totalCalories);
+        totalCalories.setBounds(480, 360, 240, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(calorieTrackerMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(calorieTrackerMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void calorieAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieAddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calorieAddButtonActionPerformed
+
+    private void calorieInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_calorieInputActionPerformed
+
+    private void totalCaloriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCaloriesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalCaloriesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,8 +188,14 @@ public class CalorieTracker extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton calorieAddButton;
+    private javax.swing.JFormattedTextField calorieInput;
+    private javax.swing.JPanel calorieTrackerMainPanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel modulesMainPanel;
+    private javax.swing.JLabel prompt1;
+    private javax.swing.JLabel prompt2;
+    private javax.swing.JLabel prompt3;
+    private javax.swing.JFormattedTextField totalCalories;
     // End of variables declaration//GEN-END:variables
 }

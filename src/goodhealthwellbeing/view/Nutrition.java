@@ -14,6 +14,12 @@ public class Nutrition extends javax.swing.JFrame {
         
         initComponents();
         
+        bmrButton.addActionListener((ActionEvent e) -> {
+            BmrCalc bmr = new BmrCalc();
+            bmr.setVisible(true);
+            Nutrition.this.setVisible(false);
+        });
+        
         macroInfoButton.addActionListener((ActionEvent e) -> {
             MacroInfo macro = new MacroInfo();
             macro.setVisible(true);
@@ -43,6 +49,8 @@ public class Nutrition extends javax.swing.JFrame {
         calorieTrackerButton = new javax.swing.JButton();
         macroInfoButton = new javax.swing.JButton();
         nutritionPrompt = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        bmrButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +92,7 @@ public class Nutrition extends javax.swing.JFrame {
             }
         });
         nutrtionMainPanel.add(calorieTrackerButton);
-        calorieTrackerButton.setBounds(430, 340, 160, 60);
+        calorieTrackerButton.setBounds(520, 380, 160, 60);
 
         macroInfoButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         macroInfoButton.setText("Macro Info");
@@ -94,14 +102,30 @@ public class Nutrition extends javax.swing.JFrame {
             }
         });
         nutrtionMainPanel.add(macroInfoButton);
-        macroInfoButton.setBounds(610, 340, 160, 60);
+        macroInfoButton.setBounds(520, 290, 160, 60);
 
+        nutritionPrompt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nutritionPrompt.setForeground(new java.awt.Color(0, 0, 0));
-        nutritionPrompt.setText("Welcome to your Nutrition hub! Please select the service you wish to use.");
+        nutritionPrompt.setText("Welcome to your Nutrition hub! ");
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(410, 180, 390, 50);
+        nutritionPrompt.setBounds(500, 90, 210, 20);
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Please select the service you wish to use.");
+        nutrtionMainPanel.add(jLabel1);
+        jLabel1.setBounds(490, 130, 230, 20);
+
+        bmrButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bmrButton.setText("BMR Calc");
+        bmrButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmrButtonActionPerformed(evt);
+            }
+        });
+        nutrtionMainPanel.add(bmrButton);
+        bmrButton.setBounds(520, 200, 160, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +143,7 @@ public class Nutrition extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
@@ -132,6 +157,10 @@ public class Nutrition extends javax.swing.JFrame {
     private void macroInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macroInfoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_macroInfoButtonActionPerformed
+
+    private void bmrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmrButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bmrButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,8 +200,10 @@ public class Nutrition extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bmrButton;
     private javax.swing.JButton calorieTrackerButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton macroInfoButton;
     private javax.swing.JLabel nutritionPrompt;
