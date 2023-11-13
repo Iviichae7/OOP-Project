@@ -45,6 +45,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         targetGoalOutput = new javax.swing.JLabel();
         stepsGoalOutput = new javax.swing.JLabel();
         seperator4 = new javax.swing.JSeparator();
+        hmBackBtn = new javax.swing.JButton();
         healthmetricsRightPanel = new javax.swing.JPanel();
         healthmetricsHistoryLabel = new javax.swing.JLabel();
         healthmetricHistoryBtn = new javax.swing.JButton();
@@ -119,6 +120,14 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         seperator4.setForeground(new java.awt.Color(204, 204, 204));
 
+        hmBackBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        hmBackBtn.setBorder(null);
+        hmBackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hmBackBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout healthmetricLeftPanelLayout = new javax.swing.GroupLayout(healthmetricLeftPanel);
         healthmetricLeftPanel.setLayout(healthmetricLeftPanelLayout);
         healthmetricLeftPanelLayout.setHorizontalGroup(
@@ -145,9 +154,12 @@ public class HealthMetrics extends javax.swing.JFrame {
                                             .addComponent(stepsOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(weightOutput)))
                                     .addComponent(healthmetricsRecommendationsLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, healthmetricLeftPanelLayout.createSequentialGroup()
                                 .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(hmBackBtn))
                                     .addComponent(seperator4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
                                         .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +184,7 @@ public class HealthMetrics extends javax.swing.JFrame {
                                 .addGap(24, 24, 24))))
                     .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
                         .addComponent(healthmetricsMainLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(seperator0, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -183,12 +195,14 @@ public class HealthMetrics extends javax.swing.JFrame {
                 .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(seperator0)
                     .addGroup(healthmetricLeftPanelLayout.createSequentialGroup()
-                        .addComponent(healthmetricsMainLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(healthmetricsMainLabel)
+                            .addComponent(hmBackBtn))
+                        .addGap(15, 15, 15)
                         .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(weightOutput)
                             .addComponent(weight))
-                        .addGap(19, 19, 19)
+                        .addGap(20, 20, 20)
                         .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(duration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(durationOutput))
@@ -200,7 +214,7 @@ public class HealthMetrics extends javax.swing.JFrame {
                         .addGroup(healthmetricLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(target)
                             .addComponent(targetOutput))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(seperator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(healthmetricsRecommendationsLabel)
@@ -346,9 +360,9 @@ public class HealthMetrics extends javax.swing.JFrame {
                     .addComponent(healthmetricsCurrentWeightLabel)
                     .addComponent(healthmetricsStepsLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(healthmetricsCurrentWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(healthmetricsStepsInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(healthmetricsCurrentWeightInput)
+                    .addComponent(healthmetricsStepsInput))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(healthmetricsTargetWeightLabel)
@@ -413,6 +427,13 @@ public class HealthMetrics extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_healthmetricsRadioStayHealthyActionPerformed
 
+    private void hmBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmBackBtnActionPerformed
+        Modules modules = new Modules();
+        modules.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_hmBackBtnActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(() -> {
@@ -445,6 +466,7 @@ public class HealthMetrics extends javax.swing.JFrame {
     private javax.swing.JTextField healthmetricsTargetWeightInput;
     private javax.swing.JLabel healthmetricsTargetWeightLabel;
     private javax.swing.JLabel healthmetricsUserLabel;
+    private javax.swing.JButton hmBackBtn;
     private javax.swing.JSeparator seperator0;
     private javax.swing.JSeparator seperator1;
     private javax.swing.JSeparator seperator2;

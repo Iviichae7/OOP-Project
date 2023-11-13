@@ -33,6 +33,8 @@ public class Register extends javax.swing.JFrame {
         signupPasswordInput = new javax.swing.JPasswordField();
         signupIcon = new javax.swing.JLabel();
         signupLeftPanel = new javax.swing.JPanel();
+        singupLogo = new javax.swing.JLabel();
+        signupRights = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -137,15 +139,31 @@ public class Register extends javax.swing.JFrame {
         signupLeftPanel.setBackground(new java.awt.Color(0, 102, 102));
         signupLeftPanel.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        singupLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+
+        signupRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        signupRights.setForeground(new java.awt.Color(255, 255, 255));
+        signupRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+
         javax.swing.GroupLayout signupLeftPanelLayout = new javax.swing.GroupLayout(signupLeftPanel);
         signupLeftPanel.setLayout(signupLeftPanelLayout);
         signupLeftPanelLayout.setHorizontalGroup(
             signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(signupLeftPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(signupRights)
+                    .addComponent(singupLogo))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         signupLeftPanelLayout.setVerticalGroup(
             signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(signupLeftPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(singupLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(signupRights)
+                .addGap(52, 52, 52))
         );
 
         jPanel1.add(signupLeftPanel);
@@ -194,5 +212,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField signupPasswordInput;
     private javax.swing.JLabel signupPasswordString;
     private javax.swing.JPanel signupRightPanel;
+    private javax.swing.JLabel signupRights;
+    private javax.swing.JLabel singupLogo;
     // End of variables declaration//GEN-END:variables
 }
