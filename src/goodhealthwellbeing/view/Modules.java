@@ -15,6 +15,12 @@ public class Modules extends javax.swing.JFrame {
             healthmetrics.setVisible(true);
             Modules.this.setVisible(false);
         });
+        
+        modulesNutritionsBtn.addActionListener((ActionEvent e) -> {
+            Nutrition nutrition = new Nutrition();
+            nutrition.setVisible(true);
+            Modules.this.setVisible(false);
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -104,7 +110,7 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(550, 30, 105, 30);
+        modulesWelcome.setBounds(550, 30, 106, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

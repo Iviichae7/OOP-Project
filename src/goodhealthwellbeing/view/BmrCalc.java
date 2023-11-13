@@ -35,6 +35,8 @@ public class BmrCalc extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         bmrCalcMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        loginLogo = new javax.swing.JLabel();
+        logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -55,15 +57,31 @@ public class BmrCalc extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+
+        logoRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        logoRights.setForeground(new java.awt.Color(255, 255, 255));
+        logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginLogo))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(loginLogo)
+                .addGap(18, 18, 18)
+                .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         bmrCalcMainPanel.add(jPanel1);
@@ -201,5 +219,7 @@ public class BmrCalc extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel loginLogo;
+    private javax.swing.JLabel logoRights;
     // End of variables declaration//GEN-END:variables
 }

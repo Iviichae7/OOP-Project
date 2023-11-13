@@ -45,6 +45,8 @@ public class Nutrition extends javax.swing.JFrame {
 
         nutrtionMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        loginLogo = new javax.swing.JLabel();
+        logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         calorieTrackerButton = new javax.swing.JButton();
         macroInfoButton = new javax.swing.JButton();
@@ -61,15 +63,31 @@ public class Nutrition extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+
+        logoRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        logoRights.setForeground(new java.awt.Color(255, 255, 255));
+        logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginLogo)
+                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(loginLogo)
+                .addGap(37, 37, 37)
+                .addComponent(logoRights)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         nutrtionMainPanel.add(jPanel1);
@@ -205,6 +223,8 @@ public class Nutrition extends javax.swing.JFrame {
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel loginLogo;
+    private javax.swing.JLabel logoRights;
     private javax.swing.JButton macroInfoButton;
     private javax.swing.JLabel nutritionPrompt;
     private javax.swing.JPanel nutrtionMainPanel;

@@ -34,6 +34,8 @@ public class CalorieTracker extends javax.swing.JFrame {
 
         calorieTrackerMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        loginLogo = new javax.swing.JLabel();
+        logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         calorieAddButton = new javax.swing.JButton();
         prompt1 = new javax.swing.JLabel();
@@ -51,15 +53,31 @@ public class CalorieTracker extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+
+        logoRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        logoRights.setForeground(new java.awt.Color(255, 255, 255));
+        logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginLogo))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(loginLogo)
+                .addGap(27, 27, 27)
+                .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         calorieTrackerMainPanel.add(jPanel1);
@@ -193,6 +211,8 @@ public class CalorieTracker extends javax.swing.JFrame {
     private javax.swing.JPanel calorieTrackerMainPanel;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel loginLogo;
+    private javax.swing.JLabel logoRights;
     private javax.swing.JLabel prompt1;
     private javax.swing.JLabel prompt2;
     private javax.swing.JLabel prompt3;
