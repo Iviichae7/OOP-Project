@@ -34,6 +34,8 @@ public class MacroInfo extends javax.swing.JFrame {
 
         macroInfoMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        loginLogo = new javax.swing.JLabel();
+        logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         fatButton = new javax.swing.JButton();
         carbButton = new javax.swing.JButton();
@@ -48,15 +50,31 @@ public class MacroInfo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
+        loginLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+
+        logoRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        logoRights.setForeground(new java.awt.Color(255, 255, 255));
+        logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginLogo))
+                .addGap(9, 9, 9))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(loginLogo)
+                .addGap(32, 32, 32)
+                .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         macroInfoMainPanel.add(jPanel1);
@@ -155,6 +173,8 @@ public class MacroInfo extends javax.swing.JFrame {
     private javax.swing.JButton fatButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel loginLogo;
+    private javax.swing.JLabel logoRights;
     private javax.swing.JPanel macroInfoMainPanel;
     private javax.swing.JButton proteinButton;
     // End of variables declaration//GEN-END:variables
