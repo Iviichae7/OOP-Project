@@ -28,7 +28,7 @@ public class Modules extends javax.swing.JFrame {
     private void initComponents() {
 
         modulesMainPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        loginLeftPanel = new javax.swing.JPanel();
         modulesLogo = new javax.swing.JLabel();
         modulesRights = new javax.swing.JLabel();
         modulesWellBeingBtn = new javax.swing.JButton();
@@ -45,38 +45,22 @@ public class Modules extends javax.swing.JFrame {
         modulesMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
         modulesMainPanel.setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
+        loginLeftPanel.setBackground(new java.awt.Color(0, 102, 102));
+        loginLeftPanel.setPreferredSize(new java.awt.Dimension(400, 500));
+        loginLeftPanel.setLayout(null);
 
         modulesLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+        loginLeftPanel.add(modulesLogo);
+        modulesLogo.setBounds(25, 33, 350, 350);
 
         modulesRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
+        loginLeftPanel.add(modulesRights);
+        modulesRights.setBounds(30, 431, 345, 17);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(modulesRights)
-                    .addComponent(modulesLogo))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(modulesLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(modulesRights)
-                .addGap(52, 52, 52))
-        );
-
-        modulesMainPanel.add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 500);
+        modulesMainPanel.add(loginLeftPanel);
+        loginLeftPanel.setBounds(0, 0, 400, 500);
 
         modulesWellBeingBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_well-being.png"))); // NOI18N
         modulesWellBeingBtn.setBorder(null);
@@ -110,7 +94,7 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(550, 30, 106, 30);
+        modulesWelcome.setBounds(550, 30, 105, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,7 +125,7 @@ public class Modules extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel loginLeftPanel;
     private javax.swing.JButton modulesHealthMetricsBtn;
     private javax.swing.JLabel modulesLogo;
     private javax.swing.JPanel modulesMainPanel;

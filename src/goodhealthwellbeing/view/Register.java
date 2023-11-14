@@ -130,33 +130,17 @@ public class Register extends javax.swing.JFrame {
 
         signupLeftPanel.setBackground(new java.awt.Color(0, 102, 102));
         signupLeftPanel.setPreferredSize(new java.awt.Dimension(400, 500));
+        signupLeftPanel.setLayout(null);
 
         singupLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ApplicationLogo.png"))); // NOI18N
+        signupLeftPanel.add(singupLogo);
+        singupLogo.setBounds(25, 33, 350, 350);
 
         signupRights.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         signupRights.setForeground(new java.awt.Color(255, 255, 255));
         signupRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
-
-        javax.swing.GroupLayout signupLeftPanelLayout = new javax.swing.GroupLayout(signupLeftPanel);
-        signupLeftPanel.setLayout(signupLeftPanelLayout);
-        signupLeftPanelLayout.setHorizontalGroup(
-            signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(signupLeftPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(signupRights)
-                    .addComponent(singupLogo))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        signupLeftPanelLayout.setVerticalGroup(
-            signupLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(signupLeftPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(singupLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(signupRights)
-                .addGap(52, 52, 52))
-        );
+        signupLeftPanel.add(signupRights);
+        signupRights.setBounds(30, 431, 345, 17);
 
         signupMainPanel.add(signupLeftPanel);
         signupLeftPanel.setBounds(0, 0, 400, 500);
