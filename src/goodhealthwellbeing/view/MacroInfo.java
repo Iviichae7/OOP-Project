@@ -1,11 +1,13 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package goodhealthwellbeing.view;
 
 import java.awt.event.ActionEvent;
 
-/*
- * 11/11/23
- * Nutrition.java
+/**
+ *
  * @author ryans
  */
 public class MacroInfo extends javax.swing.JFrame {
@@ -17,8 +19,8 @@ public class MacroInfo extends javax.swing.JFrame {
         initComponents();
         
         homeButton.addActionListener((ActionEvent e) -> {
-            Nutrition nutrition = new Nutrition();
-            nutrition.setVisible(true);
+            MacroSelect macroSelect = new MacroSelect();
+            macroSelect.setVisible(true);
             MacroInfo.this.setVisible(false);
         });
     }
@@ -37,9 +39,13 @@ public class MacroInfo extends javax.swing.JFrame {
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
-        fatButton = new javax.swing.JButton();
-        carbButton = new javax.swing.JButton();
-        proteinButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,21 +66,21 @@ public class MacroInfo extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginLogo))
-                .addGap(9, 9, 9))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(loginLogo)
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         macroInfoMainPanel.add(jPanel1);
@@ -87,24 +93,43 @@ public class MacroInfo extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(homeButton);
-        homeButton.setBounds(440, 40, 72, 23);
+        homeButton.setBounds(420, 30, 72, 23);
 
-        fatButton.setText("Fats");
-        macroInfoMainPanel.add(fatButton);
-        fatButton.setBounds(520, 350, 150, 60);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Selected Macro Nutrient");
+        macroInfoMainPanel.add(jLabel1);
+        jLabel1.setBounds(440, 80, 210, 30);
 
-        carbButton.setText("Carbohydrates");
-        macroInfoMainPanel.add(carbButton);
-        carbButton.setBounds(520, 170, 150, 60);
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Energy Per Gram");
+        macroInfoMainPanel.add(jLabel2);
+        jLabel2.setBounds(440, 120, 120, 30);
 
-        proteinButton.setText("Proteins");
-        proteinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinButtonActionPerformed(evt);
-            }
+        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Description\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        macroInfoMainPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(440, 160, 240, 140);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
         });
-        macroInfoMainPanel.add(proteinButton);
-        proteinButton.setBounds(520, 260, 150, 60);
+        jScrollPane2.setViewportView(jList1);
+
+        macroInfoMainPanel.add(jScrollPane2);
+        jScrollPane2.setBounds(440, 340, 240, 120);
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Sources");
+        macroInfoMainPanel.add(jLabel3);
+        jLabel3.setBounds(440, 310, 100, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,16 +147,11 @@ public class MacroInfo extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
-
-    private void proteinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_proteinButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,13 +189,17 @@ public class MacroInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton carbButton;
-    private javax.swing.JButton fatButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
     private javax.swing.JPanel macroInfoMainPanel;
-    private javax.swing.JButton proteinButton;
     // End of variables declaration//GEN-END:variables
 }

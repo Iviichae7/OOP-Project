@@ -73,9 +73,9 @@ public class CalorieTracker extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addComponent(loginLogo)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(65, Short.MAX_VALUE))
         );
@@ -90,7 +90,7 @@ public class CalorieTracker extends javax.swing.JFrame {
             }
         });
         calorieTrackerMainPanel.add(homeButton);
-        homeButton.setBounds(440, 40, 72, 23);
+        homeButton.setBounds(420, 30, 72, 23);
 
         calorieAddButton.setText("Add");
         calorieAddButton.addActionListener(new java.awt.event.ActionListener() {
@@ -105,17 +105,17 @@ public class CalorieTracker extends javax.swing.JFrame {
         prompt1.setForeground(new java.awt.Color(0, 0, 0));
         prompt1.setText("Enter the amount of calories you wish to add to your");
         calorieTrackerMainPanel.add(prompt1);
-        prompt1.setBounds(460, 110, 290, 30);
+        prompt1.setBounds(460, 110, 320, 30);
 
         prompt2.setForeground(new java.awt.Color(0, 0, 0));
         prompt2.setText("daily total then press add.");
         calorieTrackerMainPanel.add(prompt2);
-        prompt2.setBounds(530, 140, 140, 16);
+        prompt2.setBounds(530, 140, 170, 16);
 
         prompt3.setForeground(new java.awt.Color(0, 0, 0));
         prompt3.setText("Total Calories Today");
         calorieTrackerMainPanel.add(prompt3);
-        prompt3.setBounds(540, 330, 120, 16);
+        prompt3.setBounds(540, 330, 150, 16);
 
         calorieInput.setOpaque(true);
         calorieInput.addActionListener(new java.awt.event.ActionListener() {

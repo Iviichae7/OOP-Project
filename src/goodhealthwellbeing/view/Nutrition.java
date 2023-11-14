@@ -21,7 +21,7 @@ public class Nutrition extends javax.swing.JFrame {
         });
         
         macroInfoButton.addActionListener((ActionEvent e) -> {
-            MacroInfo macro = new MacroInfo();
+            MacroSelect macro = new MacroSelect();
             macro.setVisible(true);
             Nutrition.this.setVisible(false);
         });
@@ -93,7 +93,7 @@ public class Nutrition extends javax.swing.JFrame {
         nutrtionMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("HOME");
+        homeButton.setText("BACK");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
@@ -128,12 +128,12 @@ public class Nutrition extends javax.swing.JFrame {
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(500, 90, 210, 20);
+        nutritionPrompt.setBounds(500, 90, 240, 20);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Please select the service you wish to use.");
         nutrtionMainPanel.add(jLabel1);
-        jLabel1.setBounds(490, 130, 230, 20);
+        jLabel1.setBounds(490, 130, 250, 20);
 
         bmrButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         bmrButton.setText("BMR Calc");
