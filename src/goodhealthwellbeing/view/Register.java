@@ -19,7 +19,7 @@ public class Register extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         
-        signupLoginBtn.setVisible(false);
+//        signupLoginBtn.setVisible(false);
         
         signupLoginBtn.addActionListener((ActionEvent e) -> {
             Login login = new Login();
@@ -118,7 +118,7 @@ public class Register extends javax.swing.JFrame {
         signupErrorLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         signupErrorLabel.setForeground(new java.awt.Color(255, 51, 0));
         signupRightPanel.add(signupErrorLabel);
-        signupErrorLabel.setBounds(37, 360, 0, 0);
+        signupErrorLabel.setBounds(37, 360, 330, 20);
 
         signupWelcomeLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         signupWelcomeLabel.setForeground(new java.awt.Color(0, 102, 102));

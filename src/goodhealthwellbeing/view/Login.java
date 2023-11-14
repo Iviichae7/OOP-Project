@@ -134,7 +134,7 @@ public class Login extends javax.swing.JFrame {
         loginErrorMessage.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         loginErrorMessage.setForeground(new java.awt.Color(255, 51, 0));
         loginRightPanel.add(loginErrorMessage);
-        loginErrorMessage.setBounds(33, 339, 124, 0);
+        loginErrorMessage.setBounds(40, 340, 170, 20);
 
         loginMainPanel.add(loginRightPanel);
         loginRightPanel.setBounds(400, 0, 400, 500);
