@@ -2,19 +2,22 @@ package goodhealthwellbeing;
 
 /**
  * @author Michael Babik
- */
+*/
 public class User {
     
     private String fullName;
     private String email;
     private String password;
-
+    
+    
+    // Constructor
     public User(String fullName, String email, String password) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
     }
 
+    // Setters & Getters
     public String getFullName() {
         return fullName;
     }
@@ -39,6 +42,7 @@ public class User {
         this.password = password;
     }
     
+    // A method to verify if the password equals to user input password
     public boolean checkPassword(String loginPasswordInput){
         return this.password.equals(loginPasswordInput);
     }
