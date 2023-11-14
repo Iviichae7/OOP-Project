@@ -6,34 +6,33 @@ import goodhealthwellbeing.UserManager;
 import java.awt.event.ActionEvent;
 
 public class Register extends javax.swing.JFrame {
-    
+
     private final UserManager userManager;
     private final SignupUser signupUser;
-    
+
     public Register() {
-        
-        userManager = new UserManager();
+
+        userManager = UserManager.getUser();
         signupUser = new SignupUser(userManager);
-        
+
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
-        
-//        signupLoginBtn.setVisible(false);
-        
+
         signupLoginBtn.addActionListener((ActionEvent e) -> {
             Login login = new Login();
             login.setVisible(true);
             Register.this.setVisible(false);
         });
-        
+
         signupBtn.addActionListener((ActionEvent e) -> {
             signupLoginBtnActionPerformed(e);
         });
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         signupMainPanel = new javax.swing.JPanel();
@@ -148,29 +147,29 @@ public class Register extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void signupLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupLoginBtnActionPerformed
-       
-       String fullName = signupNameInput.getText();
-       String email = signupEmailInput.getText();
-       String password = new String(signupPasswordInput.getPassword());
-       
+    private void signupLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_signupLoginBtnActionPerformed
+
+        String fullName = signupNameInput.getText();
+        String email = signupEmailInput.getText();
+        String password = new String(signupPasswordInput.getPassword());
+
         boolean success = signupUser.signupNewUser(fullName, email, password);
-        
+
         if (success) {
             hideRegistrationComponents();
             signupWelcomeLabel.setText("Registration successful! Please log in.");
@@ -181,12 +180,13 @@ public class Register extends javax.swing.JFrame {
             int buttonWidth = signupLoginBtn.getWidth();
             int buttonHeight = signupLoginBtn.getHeight();
 
-            signupLoginBtn.setBounds((panelWidth - buttonWidth) / 2, (panelHeight - buttonHeight) / 2, buttonWidth, buttonHeight);
+            signupLoginBtn.setBounds((panelWidth - buttonWidth) / 2, (panelHeight - buttonHeight) / 2, buttonWidth,
+                    buttonHeight);
             signupLoginBtn.setVisible(true);
         } else {
             signupErrorLabel.setText("Registration failed. User already exists or invalid input.");
         }
-    }//GEN-LAST:event_signupLoginBtnActionPerformed
+    }// GEN-LAST:event_signupLoginBtnActionPerformed
 
     private void hideRegistrationComponents() {
         registerEmailString.setVisible(false);
@@ -199,7 +199,7 @@ public class Register extends javax.swing.JFrame {
         signupPasswordString.setVisible(false);
         signupErrorLabel.setVisible(false);
     }
-    
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(() -> {

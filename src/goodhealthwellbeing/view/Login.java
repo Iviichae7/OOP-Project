@@ -5,31 +5,30 @@ import goodhealthwellbeing.UserManager;
 import java.awt.event.ActionEvent;
 
 public class Login extends javax.swing.JFrame {
-    
+
     private final UserManager userManager;
 
     public Login() {
-        
-        userManager = new UserManager();
-        
-        userManager.addUser(new User("Test", "test@gmail.com", "password12345678"));
-        
+
+        userManager = UserManager.getUser();
+
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
-        
+
         loginSignupBtn.addActionListener((ActionEvent e) -> {
             Login.this.dispose();
             new Register().setVisible(true);
         });
-        
+
         loginBtn.addActionListener((ActionEvent e) -> {
             loginBtnActionPerformed(e);
-    });
+        });
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         loginMainPanel = new javax.swing.JPanel();
@@ -142,25 +141,25 @@ public class Login extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(loginMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(loginMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(loginMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(loginMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginBtnActionPerformed
         String inputEmail = loginEmailInput.getText();
         String inputPassword = new String(loginPasswordInput.getPassword());
-        
+
         if (userManager.validateUser(inputEmail, inputPassword)) {
             loginErrorMessage.setText("");
             new Modules().setVisible(true);
@@ -168,11 +167,11 @@ public class Login extends javax.swing.JFrame {
         } else {
             loginErrorMessage.setText("Incorrect login details");
         }
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }// GEN-LAST:event_loginBtnActionPerformed
 
-    private void loginSignupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginSignupBtnActionPerformed
-        
-    }//GEN-LAST:event_loginSignupBtnActionPerformed
+    private void loginSignupBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginSignupBtnActionPerformed
+
+    }// GEN-LAST:event_loginSignupBtnActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
