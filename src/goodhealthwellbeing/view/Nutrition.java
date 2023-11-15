@@ -33,8 +33,8 @@ public class Nutrition extends javax.swing.JFrame {
         });
         
         homeButton.addActionListener((ActionEvent e) -> {
-            Modules module = new Modules();
-            module.setVisible(true);
+            Modules modules = Modules.getInstance();
+            modules.setVisible(true);
             Nutrition.this.setVisible(false);
         });
     }

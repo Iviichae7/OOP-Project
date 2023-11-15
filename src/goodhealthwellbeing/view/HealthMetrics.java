@@ -306,7 +306,7 @@ public class HealthMetrics extends javax.swing.JFrame {
     }//GEN-LAST:event_healthmetricsRadioStayHealthyActionPerformed
 
     private void hmBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmBackBtnActionPerformed
-        Modules modules = new Modules();
+        Modules modules = Modules.getInstance();
         modules.setVisible(true);
         
         this.dispose();

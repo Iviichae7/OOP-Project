@@ -1,11 +1,12 @@
-
 package goodhealthwellbeing.view;
 
 import java.awt.event.ActionEvent;
 
 public class Modules extends javax.swing.JFrame {
+    
+    private static Modules instance;
 
-    public Modules() {
+    private Modules() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -21,6 +22,13 @@ public class Modules extends javax.swing.JFrame {
             nutrition.setVisible(true);
             Modules.this.setVisible(false);
         });
+    }
+    
+    public static Modules getInstance() {
+        if (instance == null) {
+            instance = new Modules();
+        }
+        return instance;
     }
 
     @SuppressWarnings("unchecked")
@@ -57,7 +65,7 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 341, 17);
+        modulesRights.setBounds(30, 431, 345, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
@@ -126,11 +134,11 @@ public class Modules extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new Modules().setVisible(true);
-        });
-    }
+//    public static void main(String args[]) {
+//        java.awt.EventQueue.invokeLater(() -> {
+//            new Modules().setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel loginLeftPanel;
