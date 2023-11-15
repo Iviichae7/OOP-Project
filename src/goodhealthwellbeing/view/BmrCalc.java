@@ -87,14 +87,17 @@ public class BmrCalc extends javax.swing.JFrame {
         bmrCalcMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("BACK");
+        homeButton.setBackground(new java.awt.Color(255, 255, 255));
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
         bmrCalcMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 72, 23);
+        homeButton.setBounds(420, 30, 50, 30);
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -137,10 +140,11 @@ public class BmrCalc extends javax.swing.JFrame {
         bmrCalcMainPanel.add(jLabel2);
         jLabel2.setBounds(570, 240, 80, 16);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Basal Metabolic Rate");
         bmrCalcMainPanel.add(jLabel3);
-        jLabel3.setBounds(550, 380, 130, 16);
+        jLabel3.setBounds(550, 375, 130, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

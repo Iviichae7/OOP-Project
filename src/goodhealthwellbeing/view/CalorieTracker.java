@@ -83,23 +83,31 @@ public class CalorieTracker extends javax.swing.JFrame {
         calorieTrackerMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("BACK");
+        homeButton.setBackground(new java.awt.Color(255, 255, 255));
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
         calorieTrackerMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 72, 23);
+        homeButton.setBounds(420, 30, 50, 30);
 
-        calorieAddButton.setText("Add");
+        calorieAddButton.setBackground(new java.awt.Color(255, 255, 255));
+        calorieAddButton.setForeground(new java.awt.Color(255, 255, 255));
+        calorieAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_add.png"))); // NOI18N
+        calorieAddButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        calorieAddButton.setContentAreaFilled(false);
+        calorieAddButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         calorieAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calorieAddButtonActionPerformed(evt);
             }
         });
         calorieTrackerMainPanel.add(calorieAddButton);
-        calorieAddButton.setBounds(560, 260, 72, 23);
+        calorieAddButton.setBounds(570, 250, 60, 30);
 
         prompt1.setBackground(new java.awt.Color(0, 0, 0));
         prompt1.setForeground(new java.awt.Color(0, 0, 0));

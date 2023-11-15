@@ -57,26 +57,34 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 345, 17);
+        modulesRights.setBounds(30, 431, 341, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
 
+        modulesWellBeingBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesWellBeingBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_well-being.png"))); // NOI18N
         modulesWellBeingBtn.setBorder(null);
+        modulesWellBeingBtn.setBorderPainted(false);
+        modulesWellBeingBtn.setContentAreaFilled(false);
         modulesWellBeingBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesMainPanel.add(modulesWellBeingBtn);
         modulesWellBeingBtn.setBounds(510, 340, 190, 90);
 
+        modulesHealthMetricsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesHealthMetricsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_health-metrics.png"))); // NOI18N
         modulesHealthMetricsBtn.setBorder(null);
         modulesHealthMetricsBtn.setBorderPainted(false);
+        modulesHealthMetricsBtn.setContentAreaFilled(false);
         modulesHealthMetricsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesMainPanel.add(modulesHealthMetricsBtn);
         modulesHealthMetricsBtn.setBounds(510, 140, 190, 90);
 
+        modulesNutritionsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesNutritionsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_nutrition.png"))); // NOI18N
         modulesNutritionsBtn.setBorder(null);
+        modulesNutritionsBtn.setBorderPainted(false);
+        modulesNutritionsBtn.setContentAreaFilled(false);
         modulesNutritionsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesNutritionsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +102,7 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(550, 30, 105, 30);
+        modulesWelcome.setBounds(540, 30, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

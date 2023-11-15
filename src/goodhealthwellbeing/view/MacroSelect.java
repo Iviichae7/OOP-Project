@@ -99,40 +99,56 @@ public class MacroSelect extends javax.swing.JFrame {
         macroInfoMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("BACK");
+        homeButton.setBackground(new java.awt.Color(255, 255, 255));
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        homeButton.setBorder(null);
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
         macroInfoMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 72, 23);
+        homeButton.setBounds(420, 30, 50, 30);
 
+        fatButton.setBackground(new java.awt.Color(255, 255, 255));
         fatButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        fatButton.setText("Fats");
+        fatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_fats.png"))); // NOI18N
+        fatButton.setBorder(null);
+        fatButton.setBorderPainted(false);
+        fatButton.setContentAreaFilled(false);
         macroInfoMainPanel.add(fatButton);
-        fatButton.setBounds(520, 370, 160, 60);
+        fatButton.setBounds(500, 370, 190, 90);
 
+        carbButton.setBackground(new java.awt.Color(255, 255, 255));
         carbButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        carbButton.setText("Carbohydrates");
+        carbButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_carbohydrates.png"))); // NOI18N
+        carbButton.setBorder(null);
+        carbButton.setBorderPainted(false);
+        carbButton.setContentAreaFilled(false);
         macroInfoMainPanel.add(carbButton);
-        carbButton.setBounds(520, 190, 160, 60);
+        carbButton.setBounds(500, 150, 190, 90);
 
+        proteinButton.setBackground(new java.awt.Color(255, 255, 255));
         proteinButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        proteinButton.setText("Proteins");
+        proteinButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_protein.png"))); // NOI18N
+        proteinButton.setBorder(null);
+        proteinButton.setBorderPainted(false);
+        proteinButton.setContentAreaFilled(false);
         proteinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proteinButtonActionPerformed(evt);
             }
         });
         macroInfoMainPanel.add(proteinButton);
-        proteinButton.setBounds(520, 280, 160, 60);
+        proteinButton.setBounds(500, 260, 190, 90);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Select which Macronutrient you want to learn more about!");
         macroInfoMainPanel.add(jLabel1);
-        jLabel1.setBounds(420, 130, 410, 16);
+        jLabel1.setBounds(420, 100, 410, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

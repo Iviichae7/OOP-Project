@@ -85,42 +85,51 @@ public class Nutrition extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(loginLogo)
-                .addGap(37, 37, 37)
+                .addGap(46, 46, 46)
                 .addComponent(logoRights)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         nutrtionMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setText("BACK");
+        homeButton.setBackground(new java.awt.Color(255, 255, 255));
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
         nutrtionMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 72, 23);
+        homeButton.setBounds(420, 30, 50, 30);
 
+        calorieTrackerButton.setBackground(new java.awt.Color(255, 255, 255));
         calorieTrackerButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        calorieTrackerButton.setText("Calorie Tracker");
+        calorieTrackerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calorie-tracker.png"))); // NOI18N
+        calorieTrackerButton.setBorderPainted(false);
+        calorieTrackerButton.setContentAreaFilled(false);
         calorieTrackerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calorieTrackerButtonActionPerformed(evt);
             }
         });
         nutrtionMainPanel.add(calorieTrackerButton);
-        calorieTrackerButton.setBounds(520, 380, 160, 60);
+        calorieTrackerButton.setBounds(500, 360, 190, 90);
 
+        macroInfoButton.setBackground(new java.awt.Color(255, 255, 255));
         macroInfoButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        macroInfoButton.setText("Macro Info");
+        macroInfoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_macro-info.png"))); // NOI18N
+        macroInfoButton.setBorderPainted(false);
+        macroInfoButton.setContentAreaFilled(false);
         macroInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 macroInfoButtonActionPerformed(evt);
             }
         });
         nutrtionMainPanel.add(macroInfoButton);
-        macroInfoButton.setBounds(520, 290, 160, 60);
+        macroInfoButton.setBounds(500, 260, 190, 90);
 
         nutritionPrompt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nutritionPrompt.setForeground(new java.awt.Color(0, 0, 0));
@@ -128,22 +137,26 @@ public class Nutrition extends javax.swing.JFrame {
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(500, 90, 240, 20);
+        nutritionPrompt.setBounds(500, 80, 220, 20);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Please select the service you wish to use.");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(jLabel1);
-        jLabel1.setBounds(490, 130, 250, 20);
+        jLabel1.setBounds(490, 110, 230, 20);
 
+        bmrButton.setBackground(new java.awt.Color(255, 255, 255));
         bmrButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bmrButton.setText("BMR Calc");
+        bmrButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc (3).png"))); // NOI18N
+        bmrButton.setBorderPainted(false);
+        bmrButton.setContentAreaFilled(false);
         bmrButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bmrButtonActionPerformed(evt);
             }
         });
         nutrtionMainPanel.add(bmrButton);
-        bmrButton.setBounds(520, 200, 160, 60);
+        bmrButton.setBounds(500, 160, 190, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
