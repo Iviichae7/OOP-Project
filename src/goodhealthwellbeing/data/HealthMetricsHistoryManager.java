@@ -27,13 +27,18 @@ public class HealthMetricsHistoryManager {
 
     public String readMetricsFromFile() throws IOException {
         Path path = Paths.get(FILE_PATH);
+        if (!Files.exists(path)) {
+            throw new FileNotFoundException("The file " + FILE_PATH + " does not exist.");
+        }
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             return reader.lines().collect(Collectors.joining("\n"));
         }
     }
 
     private String buildContent(HealthMetricsOutput output, String healthGoal) {
-        return "User Input\n" +
+        return 
+               "_".repeat(40) + "\n" +
+               "User Input\n" +
                "Weight: " + output.weightOutput + "\n" +
                "Steps: " + output.stepsOutput + "\n" +
                "Target Weight: " + output.targetOutput + "\n" +
@@ -42,7 +47,8 @@ public class HealthMetricsHistoryManager {
                "Health Goal: " + healthGoal + "\n" +
                "Target Weight: " + output.targetWeight + "\n" +
                "Target Steps: " + output.targetSteps + "\n" +
-               "Target Duration: " + output.targetDuration + "\n";
+               "Target Duration: " + output.targetDuration + "\n" +
+               "_".repeat(40) + "\n";
     }
     
 }

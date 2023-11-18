@@ -342,7 +342,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         }
 
         try {
-            File file = new File("OOP-Project/src/goodhealthwellbeing/history/healthmetrics_history.txt");
+            File file = new File("OOP-Project/src/goodhealthwellbeing/data/healthmetrics_history.txt");
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
                 Desktop.getDesktop().open(file);
             } else {
