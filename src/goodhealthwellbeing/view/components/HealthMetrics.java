@@ -1,7 +1,9 @@
 
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.components;
 
 import javax.swing.ButtonGroup;
+
+import goodhealthwellbeing.view.ui.Modules;
 
 public class HealthMetrics extends javax.swing.JFrame {
     

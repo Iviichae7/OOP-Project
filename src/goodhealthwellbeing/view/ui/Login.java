@@ -1,7 +1,8 @@
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.ui;
 
-import goodhealthwellbeing.UserManager;
 import java.awt.event.ActionEvent;
+
+import goodhealthwellbeing.model.UserManager;
 
 public class Login extends javax.swing.JFrame {
 

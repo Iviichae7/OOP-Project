@@ -1,5 +1,5 @@
 
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.components;
 
 import java.awt.event.ActionEvent;
 
@@ -8,18 +8,36 @@ import java.awt.event.ActionEvent;
  * Nutrition.java
  * @author ryans
  */
-public class BmrCalc extends javax.swing.JFrame {
+public class MacroSelect extends javax.swing.JFrame {
 
     /**
      * Creates new form MacroInfo
      */
-    public BmrCalc() {
+    public MacroSelect() {
         initComponents();
         
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
-            BmrCalc.this.setVisible(false);
+            MacroSelect.this.setVisible(false);
+        });
+        
+        carbButton.addActionListener((ActionEvent e) -> {
+            MacroInfo macroInfo = new MacroInfo();
+            macroInfo.setVisible(true);
+            MacroSelect.this.setVisible(false);
+        });
+        
+        proteinButton.addActionListener((ActionEvent e) -> {
+            MacroInfo macroInfo = new MacroInfo();
+            macroInfo.setVisible(true);
+            MacroSelect.this.setVisible(false);
+        });
+        
+        fatButton.addActionListener((ActionEvent e) -> {
+            MacroInfo macroInfo = new MacroInfo();
+            macroInfo.setVisible(true);
+            MacroSelect.this.setVisible(false);
         });
     }
 
@@ -32,27 +50,21 @@ public class BmrCalc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        bmrCalcMainPanel = new javax.swing.JPanel();
+        macroInfoMainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        fatButton = new javax.swing.JButton();
+        carbButton = new javax.swing.JButton();
+        proteinButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bmrCalcMainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        bmrCalcMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
-        bmrCalcMainPanel.setLayout(null);
+        macroInfoMainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        macroInfoMainPanel.setPreferredSize(new java.awt.Dimension(800, 500));
+        macroInfoMainPanel.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -68,27 +80,28 @@ public class BmrCalc extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginLogo))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(loginLogo)
-                .addGap(18, 18, 18)
-                .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(logoRights, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        bmrCalcMainPanel.add(jPanel1);
+        macroInfoMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
         homeButton.setBackground(new java.awt.Color(255, 255, 255));
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
         homeButton.setContentAreaFilled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,68 +109,59 @@ public class BmrCalc extends javax.swing.JFrame {
                 homeButtonActionPerformed(evt);
             }
         });
-        bmrCalcMainPanel.add(homeButton);
+        macroInfoMainPanel.add(homeButton);
         homeButton.setBounds(420, 30, 50, 30);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("Male");
-        bmrCalcMainPanel.add(jRadioButton1);
-        jRadioButton1.setBounds(460, 110, 49, 21);
+        fatButton.setBackground(new java.awt.Color(255, 255, 255));
+        fatButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        fatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_fats.png"))); // NOI18N
+        fatButton.setBorder(null);
+        fatButton.setBorderPainted(false);
+        fatButton.setContentAreaFilled(false);
+        macroInfoMainPanel.add(fatButton);
+        fatButton.setBounds(500, 370, 190, 90);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton2.setText("Female");
-        bmrCalcMainPanel.add(jRadioButton2);
-        jRadioButton2.setBounds(660, 110, 61, 21);
-        bmrCalcMainPanel.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(500, 190, 210, 40);
+        carbButton.setBackground(new java.awt.Color(255, 255, 255));
+        carbButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        carbButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_carbohydrates.png"))); // NOI18N
+        carbButton.setBorder(null);
+        carbButton.setBorderPainted(false);
+        carbButton.setContentAreaFilled(false);
+        macroInfoMainPanel.add(carbButton);
+        carbButton.setBounds(500, 150, 190, 90);
 
-        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+        proteinButton.setBackground(new java.awt.Color(255, 255, 255));
+        proteinButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        proteinButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_protein.png"))); // NOI18N
+        proteinButton.setBorder(null);
+        proteinButton.setBorderPainted(false);
+        proteinButton.setContentAreaFilled(false);
+        proteinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField2ActionPerformed(evt);
+                proteinButtonActionPerformed(evt);
             }
         });
-        bmrCalcMainPanel.add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(500, 270, 210, 40);
+        macroInfoMainPanel.add(proteinButton);
+        proteinButton.setBounds(500, 260, 190, 90);
 
-        jTextField1.setEditable(false);
-        bmrCalcMainPanel.add(jTextField1);
-        jTextField1.setBounds(500, 400, 220, 50);
-
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.setText("Active");
-        bmrCalcMainPanel.add(jCheckBox1);
-        jCheckBox1.setBounds(460, 340, 85, 20);
-
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Height (cm)");
-        bmrCalcMainPanel.add(jLabel1);
-        jLabel1.setBounds(570, 160, 80, 16);
-
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Weight (kg)");
-        bmrCalcMainPanel.add(jLabel2);
-        jLabel2.setBounds(570, 240, 80, 16);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Basal Metabolic Rate");
-        bmrCalcMainPanel.add(jLabel3);
-        jLabel3.setBounds(550, 375, 130, 16);
+        jLabel1.setText("Select which Macronutrient you want to learn more about!");
+        macroInfoMainPanel.add(jLabel1);
+        jLabel1.setBounds(420, 100, 410, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bmrCalcMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(macroInfoMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bmrCalcMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(macroInfoMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -169,9 +173,9 @@ public class BmrCalc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    private void proteinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+    }//GEN-LAST:event_proteinButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,13 +194,13 @@ public class BmrCalc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BmrCalc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MacroSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BmrCalc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MacroSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BmrCalc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MacroSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BmrCalc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MacroSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -204,26 +208,20 @@ public class BmrCalc extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BmrCalc().setVisible(true);
+                new MacroSelect().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bmrCalcMainPanel;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton carbButton;
+    private javax.swing.JButton fatButton;
     private javax.swing.JButton homeButton;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
+    private javax.swing.JPanel macroInfoMainPanel;
+    private javax.swing.JButton proteinButton;
     // End of variables declaration//GEN-END:variables
 }

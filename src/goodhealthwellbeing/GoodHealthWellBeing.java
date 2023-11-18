@@ -1,7 +1,7 @@
 
 package goodhealthwellbeing;
 
-import goodhealthwellbeing.view.Login;
+import goodhealthwellbeing.view.ui.Login;
 
 /**
  * @author Michael Babik

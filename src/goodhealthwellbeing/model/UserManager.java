@@ -1,4 +1,4 @@
-package goodhealthwellbeing;
+package goodhealthwellbeing.model;
 
 import java.util.ArrayList;
 

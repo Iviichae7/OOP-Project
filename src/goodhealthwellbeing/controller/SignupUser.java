@@ -1,4 +1,7 @@
-package goodhealthwellbeing;
+package goodhealthwellbeing.controller;
+
+import goodhealthwellbeing.model.User;
+import goodhealthwellbeing.model.UserManager;
 
 /**
  * @author Michael Babik

@@ -1,6 +1,9 @@
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.ui;
 
 import java.awt.event.ActionEvent;
+
+import goodhealthwellbeing.view.components.HealthMetrics;
+import goodhealthwellbeing.view.components.Nutrition;
 
 public class Modules extends javax.swing.JFrame {
     
