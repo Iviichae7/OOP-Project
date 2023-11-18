@@ -1,10 +1,10 @@
 
 package goodhealthwellbeing.view.ui;
 
+import java.awt.event.ActionEvent;
+
 import goodhealthwellbeing.controller.SignupUser;
 import goodhealthwellbeing.model.UserManager;
-
-import java.awt.event.ActionEvent;
 
 public class Register extends javax.swing.JFrame {
 

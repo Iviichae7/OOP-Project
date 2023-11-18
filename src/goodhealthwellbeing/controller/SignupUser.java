@@ -6,6 +6,7 @@ import goodhealthwellbeing.model.UserManager;
 /**
  * @author Michael Babik
  */
+
 public class SignupUser {
     
     private final UserManager userManager;

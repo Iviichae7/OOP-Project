@@ -2,6 +2,8 @@ package goodhealthwellbeing.view.ui;
 
 import java.awt.event.ActionEvent;
 
+import goodhealthwellbeing.model.User;
+import goodhealthwellbeing.model.UserManager;
 import goodhealthwellbeing.view.components.HealthMetrics;
 import goodhealthwellbeing.view.components.Nutrition;
 
@@ -15,8 +17,10 @@ public class Modules extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         modulesHealthMetricsBtn.addActionListener((ActionEvent e) -> {
-            HealthMetrics healthmetrics = new HealthMetrics();
-            healthmetrics.setVisible(true);
+            User currentUser = UserManager.getUser().getCurrentUser();
+            HealthMetrics healthMetrics = new HealthMetrics(currentUser);
+            
+            healthMetrics.setVisible(true);
             Modules.this.setVisible(false);
         });
         
@@ -31,7 +35,16 @@ public class Modules extends javax.swing.JFrame {
         if (instance == null) {
             instance = new Modules();
         }
+        
+        instance.updateUI();
         return instance;
+    }
+    
+     private void updateUI() {
+        User currentUser = UserManager.getUser().getCurrentUser();
+        if (currentUser != null) {
+            currentUserLabel.setText(currentUser.getFullName());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -47,6 +60,7 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn = new javax.swing.JButton();
         modulesOption = new javax.swing.JLabel();
         modulesWelcome = new javax.swing.JLabel();
+        currentUserLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -114,6 +128,8 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
         modulesWelcome.setBounds(540, 30, 110, 30);
+        modulesMainPanel.add(currentUserLabel);
+        currentUserLabel.setBounds(660, 30, 130, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +160,7 @@ public class Modules extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel currentUserLabel;
     private javax.swing.JPanel loginLeftPanel;
     private javax.swing.JButton modulesHealthMetricsBtn;
     private javax.swing.JLabel modulesLogo;

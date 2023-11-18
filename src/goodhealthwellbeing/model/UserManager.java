@@ -10,6 +10,7 @@ public class UserManager {
 
     private static UserManager userInstance;
     private final ArrayList<User> users = new ArrayList<>();
+    private User currentUser;
 
     // Private constructor
     private UserManager() {
@@ -72,10 +73,20 @@ public class UserManager {
      */
     public boolean validateUser(String email, String password) {
         User user = getUserByEmail(email);
-        if (user != null) {
-            return user.checkPassword(password);
+        if (user != null && user.checkPassword(password)) {
+            setCurrentUser(user);
+            return true;
         }
         return false;
     }
+    
+    // Method to set the current user
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
 
+    // Method to get the current user
+    public User getCurrentUser() {
+        return currentUser;
+    }
 }

@@ -1,15 +1,28 @@
-
 package goodhealthwellbeing.view.components;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 
+import goodhealthwellbeing.data.HealthMetricsHistoryManager;
+import goodhealthwellbeing.model.HealthMetricsProcessor;
+import goodhealthwellbeing.model.User;
+import goodhealthwellbeing.model.UserHealthMetricsManager;
+import goodhealthwellbeing.output.HealthMetricsOutput;
 import goodhealthwellbeing.view.ui.Modules;
 
 public class HealthMetrics extends javax.swing.JFrame {
     
     private final ButtonGroup buttonGroup;
+    private User currentUser; // The logged-in user
+    private HealthMetricsProcessor processor = new HealthMetricsProcessor();
+    private UserHealthMetricsManager metricsManager = new UserHealthMetricsManager();
+    private HealthMetricsHistoryManager historyManager = new HealthMetricsHistoryManager();
 
-    public HealthMetrics() {
+    public HealthMetrics(User user) {
+        this.currentUser = user;
         initComponents();
         
         buttonGroup = new ButtonGroup();
@@ -18,7 +31,15 @@ public class HealthMetrics extends javax.swing.JFrame {
         buttonGroup.add(healthmetricsRadioStayHealthy);
         healthmetricsRadioLoseWeight.setSelected(true);
         
+        if (currentUser != null) {
+            currentUserLabel2.setText(currentUser.getFullName());
+        }
+        
         this.setLocationRelativeTo(null);
+
+        healthmetricsSaveBtn.addActionListener((java.awt.event.ActionEvent evt) -> {
+            healthmetricsSaveBtnActionPerformed(evt);
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +75,6 @@ public class HealthMetrics extends javax.swing.JFrame {
         seperator1 = new javax.swing.JSeparator();
         seperator2 = new javax.swing.JSeparator();
         seperator3 = new javax.swing.JSeparator();
-        healthmetricsUserLabel = new javax.swing.JLabel();
         healthmetricsCurrentWeightLabel = new javax.swing.JLabel();
         healthmetricsCurrentWeightInput = new javax.swing.JTextField();
         healthmetricsTargetWeightLabel = new javax.swing.JLabel();
@@ -67,9 +87,9 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsRadioGainWeight = new javax.swing.JRadioButton();
         healthmetricsRadioStayHealthy = new javax.swing.JRadioButton();
         healthmetricsSaveBtn = new javax.swing.JButton();
+        currentUserLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         healthmetricMainPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -113,19 +133,19 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         weightOutput.setText("Weight ");
         healthmetricLeftPanel.add(weightOutput);
-        weightOutput.setBounds(83, 84, 41, 16);
+        weightOutput.setBounds(83, 84, 110, 16);
 
         durationOutput.setText("Duration");
         healthmetricLeftPanel.add(durationOutput);
-        durationOutput.setBounds(83, 144, 47, 16);
+        durationOutput.setBounds(83, 144, 110, 16);
 
         stepsOutput.setText("Steps");
         healthmetricLeftPanel.add(stepsOutput);
-        stepsOutput.setBounds(83, 190, 49, 16);
+        stepsOutput.setBounds(83, 190, 120, 16);
 
         targetOutput.setText("Target");
         healthmetricLeftPanel.add(targetOutput);
-        targetOutput.setBounds(83, 242, 35, 16);
+        targetOutput.setBounds(83, 242, 110, 16);
 
         targetGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recGoal.png"))); // NOI18N
         healthmetricLeftPanel.add(targetGoal);
@@ -137,27 +157,28 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         weightGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recWeight.png"))); // NOI18N
         healthmetricLeftPanel.add(weightGoal);
-        weightGoal.setBounds(148, 402, 35, 35);
+        weightGoal.setBounds(170, 400, 35, 35);
 
         durationGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recDuration.png"))); // NOI18N
         healthmetricLeftPanel.add(durationGoal);
-        durationGoal.setBounds(148, 337, 35, 35);
+        durationGoal.setBounds(170, 340, 35, 35);
 
         durationGoalOutput.setText("TargetDuration");
         healthmetricLeftPanel.add(durationGoalOutput);
-        durationGoalOutput.setBounds(195, 356, 82, 16);
+        durationGoalOutput.setBounds(210, 360, 90, 16);
 
         weightGoalOutput.setText("TaregetWeight");
         healthmetricLeftPanel.add(weightGoalOutput);
-        weightGoalOutput.setBounds(195, 421, 80, 16);
+        weightGoalOutput.setBounds(210, 420, 90, 16);
 
-        targetGoalOutput.setText("TargetGoal");
+        targetGoalOutput.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        targetGoalOutput.setText("Lose Weight");
         healthmetricLeftPanel.add(targetGoalOutput);
-        targetGoalOutput.setBounds(66, 356, 61, 16);
+        targetGoalOutput.setBounds(66, 356, 70, 15);
 
         stepsGoalOutput.setText("TargetSteps");
         healthmetricLeftPanel.add(stepsGoalOutput);
-        stepsGoalOutput.setBounds(66, 421, 67, 16);
+        stepsGoalOutput.setBounds(66, 421, 80, 16);
 
         seperator4.setForeground(new java.awt.Color(204, 204, 204));
         healthmetricLeftPanel.add(seperator4);
@@ -165,6 +186,8 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         hmBackBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
         hmBackBtn.setBorder(null);
+        hmBackBtn.setBorderPainted(false);
+        hmBackBtn.setContentAreaFilled(false);
         hmBackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hmBackBtnActionPerformed(evt);
@@ -187,6 +210,8 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         healthmetricHistoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         healthmetricHistoryBtn.setBorder(null);
+        healthmetricHistoryBtn.setBorderPainted(false);
+        healthmetricHistoryBtn.setContentAreaFilled(false);
         healthmetricHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 healthmetricHistoryBtnActionPerformed(evt);
@@ -199,14 +224,9 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsRightPanel.add(seperator1);
         seperator1.setBounds(112, 349, 331, 19);
         healthmetricsRightPanel.add(seperator2);
-        seperator2.setBounds(36, 17, 164, 13);
+        seperator2.setBounds(36, 17, 140, 13);
         healthmetricsRightPanel.add(seperator3);
-        seperator3.setBounds(265, 17, 180, 13);
-
-        healthmetricsUserLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        healthmetricsUserLabel.setText("User");
-        healthmetricsRightPanel.add(healthmetricsUserLabel);
-        healthmetricsUserLabel.setBounds(218, 6, 29, 17);
+        seperator3.setBounds(295, 17, 150, 13);
 
         healthmetricsCurrentWeightLabel.setText("Current Weight");
         healthmetricsRightPanel.add(healthmetricsCurrentWeightLabel);
@@ -222,15 +242,16 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         healthmetricsStepsLabel.setText("Steps per Day");
         healthmetricsRightPanel.add(healthmetricsStepsLabel);
-        healthmetricsStepsLabel.setBounds(368, 56, 77, 16);
+        healthmetricsStepsLabel.setBounds(365, 56, 80, 16);
 
         healthmetricsStepsInput.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        healthmetricsStepsInput.setMinimumSize(new java.awt.Dimension(15, 24));
         healthmetricsRightPanel.add(healthmetricsStepsInput);
         healthmetricsStepsInput.setBounds(265, 78, 180, 24);
 
         healthmetricsExcerciseLabel.setText("Excercise Duration");
         healthmetricsRightPanel.add(healthmetricsExcerciseLabel);
-        healthmetricsExcerciseLabel.setBounds(342, 108, 103, 16);
+        healthmetricsExcerciseLabel.setBounds(335, 108, 110, 16);
 
         healthmetricsTargetWeightInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,12 +269,12 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
         healthmetricsRightPanel.add(healthmetricsRadioLoseWeight);
-        healthmetricsRadioLoseWeight.setBounds(36, 190, 101, 28);
+        healthmetricsRadioLoseWeight.setBounds(36, 190, 130, 28);
 
         healthmetricsRadioGainWeight.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioGainWeight.setText("Gain Weight");
         healthmetricsRightPanel.add(healthmetricsRadioGainWeight);
-        healthmetricsRadioGainWeight.setBounds(204, 190, 99, 28);
+        healthmetricsRadioGainWeight.setBounds(204, 190, 130, 28);
 
         healthmetricsRadioStayHealthy.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioStayHealthy.setText("Stay Healthy");
@@ -263,12 +284,22 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
         healthmetricsRightPanel.add(healthmetricsRadioStayHealthy);
-        healthmetricsRadioStayHealthy.setBounds(346, 190, 99, 28);
+        healthmetricsRadioStayHealthy.setBounds(346, 190, 120, 28);
 
         healthmetricsSaveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_save-goal.png"))); // NOI18N
         healthmetricsSaveBtn.setBorder(null);
+        healthmetricsSaveBtn.setContentAreaFilled(false);
+        healthmetricsSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                healthmetricsSaveBtnActionPerformed(evt);
+            }
+        });
         healthmetricsRightPanel.add(healthmetricsSaveBtn);
         healthmetricsSaveBtn.setBounds(320, 293, 125, 38);
+
+        currentUserLabel2.setText("Michael Babik");
+        healthmetricsRightPanel.add(currentUserLabel2);
+        currentUserLabel2.setBounds(200, 10, 110, 20);
 
         healthmetricMainPanel.add(healthmetricsRightPanel);
         healthmetricsRightPanel.setBounds(320, 0, 480, 500);
@@ -279,20 +310,45 @@ public class HealthMetrics extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(healthmetricMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(healthmetricMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void healthmetricHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricHistoryBtnActionPerformed
-        
+        HealthMetricsOutput output = new HealthMetricsOutput(
+            weightOutput.getText(), 
+            stepsOutput.getText(), 
+            targetOutput.getText(), 
+            durationOutput.getText(),
+            weightGoalOutput.getText(),
+            stepsGoalOutput.getText(), 
+            durationGoalOutput.getText()
+        );
+        String healthGoal = getSelectedHealthGoal();
+
+        try {
+            historyManager.writeMetricsToFile(output, healthGoal);
+
+            String fileContent = historyManager.readMetricsFromFile();
+        } catch (IOException e) {
+        }
+
+        try {
+            File file = new File("OOP-Project/src/goodhealthwellbeing/history/healthmetrics_history.txt");
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+                Desktop.getDesktop().open(file);
+            } else {
+            }
+        } catch (IOException e) {
+        }
     }//GEN-LAST:event_healthmetricHistoryBtnActionPerformed
 
     private void healthmetricsTargetWeightInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricsTargetWeightInputActionPerformed
@@ -314,14 +370,47 @@ public class HealthMetrics extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_hmBackBtnActionPerformed
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(() -> {
-            new HealthMetrics().setVisible(true);
-        });
+    private String getSelectedHealthGoal() {
+        if (healthmetricsRadioLoseWeight.isSelected()) {
+            return "Lose Weight";
+        } else if (healthmetricsRadioGainWeight.isSelected()) {
+            return "Gain Weight";
+        } else if (healthmetricsRadioStayHealthy.isSelected()) {
+            return "Stay Healthy";
+        }
+        return "";
     }
 
+    private void displayOutputs(HealthMetricsOutput output) {
+        weightOutput.setText(output.weightOutput);
+        stepsOutput.setText(output.stepsOutput);
+        targetOutput.setText(output.targetOutput);
+        durationOutput.setText(output.durationOutput);
+
+        weightGoalOutput.setText(healthmetricsTargetWeightInput.getText() + " kg");
+
+        targetGoalOutput.setText(getSelectedHealthGoal());
+
+        durationGoalOutput.setText(output.targetDuration);
+        stepsGoalOutput.setText(output.targetSteps);
+    }
+
+    private void healthmetricsSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricsSaveBtnActionPerformed
+        String currentWeight = healthmetricsCurrentWeightInput.getText();
+        String steps = healthmetricsStepsInput.getText();
+        String targetWeight = healthmetricsTargetWeightInput.getText();
+        String exerciseMinutes = healthmetricsExcerciseInput.getText();
+        String healthGoal = getSelectedHealthGoal();
+
+        HealthMetricsOutput output = processor.processInputs(currentWeight, steps, targetWeight, healthGoal, exerciseMinutes);
+
+        displayOutputs(output);
+
+        metricsManager.saveUserMetrics(currentUser, output);
+    }//GEN-LAST:event_healthmetricsSaveBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel currentUserLabel2;
     private javax.swing.JLabel duration;
     private javax.swing.JLabel durationGoal;
     private javax.swing.JLabel durationGoalOutput;
@@ -345,7 +434,6 @@ public class HealthMetrics extends javax.swing.JFrame {
     private javax.swing.JLabel healthmetricsStepsLabel;
     private javax.swing.JTextField healthmetricsTargetWeightInput;
     private javax.swing.JLabel healthmetricsTargetWeightLabel;
-    private javax.swing.JLabel healthmetricsUserLabel;
     private javax.swing.JButton hmBackBtn;
     private javax.swing.JSeparator seperator0;
     private javax.swing.JSeparator seperator1;

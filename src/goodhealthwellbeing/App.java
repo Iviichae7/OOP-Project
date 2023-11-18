@@ -8,7 +8,7 @@ import goodhealthwellbeing.view.ui.Login;
  * @author Md Hassan
  * @author Ryan Stokes
  */
-public class GoodHealthWellBeing {
+public class App {
 
     public static void main(String[] args) {
         

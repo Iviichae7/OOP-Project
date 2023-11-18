@@ -3,6 +3,7 @@ package goodhealthwellbeing.model;
 /**
  * @author Michael Babik
 */
+
 public class User {
     
     private String fullName;
