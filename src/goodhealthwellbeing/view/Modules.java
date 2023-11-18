@@ -6,7 +6,7 @@ public class Modules extends javax.swing.JFrame {
     
     private static Modules instance;
 
-    private Modules() {
+    Modules() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -65,21 +65,24 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 345, 17);
+        modulesRights.setBounds(30, 431, 346, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
 
-        modulesWellBeingBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesWellBeingBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_well-being.png"))); // NOI18N
         modulesWellBeingBtn.setBorder(null);
         modulesWellBeingBtn.setBorderPainted(false);
         modulesWellBeingBtn.setContentAreaFilled(false);
         modulesWellBeingBtn.setPreferredSize(new java.awt.Dimension(105, 25));
+        modulesWellBeingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modulesWellBeingBtnActionPerformed(evt);
+            }
+        });
         modulesMainPanel.add(modulesWellBeingBtn);
         modulesWellBeingBtn.setBounds(510, 340, 190, 90);
 
-        modulesHealthMetricsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesHealthMetricsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_health-metrics.png"))); // NOI18N
         modulesHealthMetricsBtn.setBorder(null);
         modulesHealthMetricsBtn.setBorderPainted(false);
@@ -88,7 +91,6 @@ public class Modules extends javax.swing.JFrame {
         modulesMainPanel.add(modulesHealthMetricsBtn);
         modulesHealthMetricsBtn.setBounds(510, 140, 190, 90);
 
-        modulesNutritionsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesNutritionsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_nutrition.png"))); // NOI18N
         modulesNutritionsBtn.setBorder(null);
         modulesNutritionsBtn.setBorderPainted(false);
@@ -133,6 +135,14 @@ public class Modules extends javax.swing.JFrame {
     private void modulesNutritionsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesNutritionsBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
+
+    private void modulesWellBeingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesWellBeingBtnActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MentalHealth mentalHealth =new MentalHealth();
+        mentalHealth.setVisible(true); 
+        
+    }//GEN-LAST:event_modulesWellBeingBtnActionPerformed
 
 //    public static void main(String args[]) {
 //        java.awt.EventQueue.invokeLater(() -> {
