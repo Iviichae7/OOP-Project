@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 
 import goodhealthwellbeing.controller.SignupUser;
 import goodhealthwellbeing.model.UserManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Register extends javax.swing.JFrame {
 
@@ -29,11 +31,57 @@ public class Register extends javax.swing.JFrame {
         signupBtn.addActionListener((ActionEvent e) -> {
             signupLoginBtnActionPerformed(e);
         });
+        
+        signupNameInput.addKeyListener(new KeyAdapter() {
+        
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+                String name = signupNameInput.getText();
+                boolean isInvalid = name.matches(".*\\d.*");
+                
+                invalidName.setVisible(isInvalid);
+                if (isInvalid) {
+                    invalidName.setText("Invalid Name!");
+                }
+            }
+        
+        });
+        
+        signupEmailInput.addKeyListener(new KeyAdapter(){
+            
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+                String email = signupEmailInput.getText();
+                boolean isInvalid = !email.contains("@") || !email.contains(".") || email.lastIndexOf('.') >= email.length() - 1;
+                
+                invalidEmail.setVisible(isInvalid);
+                if (isInvalid) {
+                    invalidEmail.setText("Invalid email!");
+                }
+            }
+        });
+        
+        signupPasswordInput.addKeyListener(new KeyAdapter(){
+        
+            @Override
+            public void keyReleased(KeyEvent e){
+                
+                String password = signupPasswordInput.getText();
+                boolean isInvalid = password.length() < 6;
+                
+                invalidPassword.setVisible(isInvalid);
+                if(isInvalid){
+                    invalidPassword.setText("Password must be 6 characters long!");
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         signupMainPanel = new javax.swing.JPanel();
@@ -50,13 +98,15 @@ public class Register extends javax.swing.JFrame {
         signupIcon = new javax.swing.JLabel();
         signupErrorLabel = new javax.swing.JLabel();
         signupWelcomeLabel = new javax.swing.JLabel();
+        invalidPassword = new javax.swing.JLabel();
+        invalidName = new javax.swing.JLabel();
+        invalidEmail = new javax.swing.JLabel();
         signupLeftPanel = new javax.swing.JPanel();
         singupLogo = new javax.swing.JLabel();
         signupRights = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         signupMainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -91,7 +141,7 @@ public class Register extends javax.swing.JFrame {
         signupPasswordString.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         signupPasswordString.setText("Password");
         signupRightPanel.add(signupPasswordString);
-        signupPasswordString.setBounds(37, 289, 330, 23);
+        signupPasswordString.setBounds(37, 289, 180, 23);
 
         registerEmailString.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         registerEmailString.setText("Email");
@@ -118,12 +168,27 @@ public class Register extends javax.swing.JFrame {
         signupErrorLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         signupErrorLabel.setForeground(new java.awt.Color(255, 51, 0));
         signupRightPanel.add(signupErrorLabel);
-        signupErrorLabel.setBounds(37, 360, 330, 20);
+        signupErrorLabel.setBounds(40, 360, 290, 20);
 
         signupWelcomeLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         signupWelcomeLabel.setForeground(new java.awt.Color(0, 102, 102));
         signupRightPanel.add(signupWelcomeLabel);
         signupWelcomeLabel.setBounds(30, 180, 370, 22);
+
+        invalidPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        invalidPassword.setForeground(new java.awt.Color(255, 0, 0));
+        signupRightPanel.add(invalidPassword);
+        invalidPassword.setBounds(160, 360, 220, 20);
+
+        invalidName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        invalidName.setForeground(new java.awt.Color(255, 0, 0));
+        signupRightPanel.add(invalidName);
+        invalidName.setBounds(290, 220, 80, 20);
+
+        invalidEmail.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        invalidEmail.setForeground(new java.awt.Color(255, 0, 0));
+        signupRightPanel.add(invalidEmail);
+        invalidEmail.setBounds(290, 290, 80, 20);
 
         signupMainPanel.add(signupRightPanel);
         signupRightPanel.setBounds(400, 0, 400, 500);
@@ -140,7 +205,7 @@ public class Register extends javax.swing.JFrame {
         signupRights.setForeground(new java.awt.Color(255, 255, 255));
         signupRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         signupLeftPanel.add(signupRights);
-        signupRights.setBounds(30, 431, 345, 17);
+        signupRights.setBounds(30, 431, 346, 17);
 
         signupMainPanel.add(signupLeftPanel);
         signupLeftPanel.setBounds(0, 0, 400, 500);
@@ -148,17 +213,17 @@ public class Register extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(signupMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,7 +250,7 @@ public class Register extends javax.swing.JFrame {
                     buttonHeight);
             signupLoginBtn.setVisible(true);
         } else {
-            signupErrorLabel.setText("Registration failed. User already exists or invalid input.");
+            signupErrorLabel.setText("Registration failed.");
         }
     }// GEN-LAST:event_signupLoginBtnActionPerformed
 
@@ -199,6 +264,8 @@ public class Register extends javax.swing.JFrame {
         signupNameString.setVisible(false);
         signupPasswordString.setVisible(false);
         signupErrorLabel.setVisible(false);
+        invalidName.setVisible(false);
+        invalidPassword.setVisible(false);
     }
 
     public static void main(String args[]) {
@@ -209,6 +276,9 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel invalidEmail;
+    private javax.swing.JLabel invalidName;
+    private javax.swing.JLabel invalidPassword;
     private javax.swing.JLabel registerEmailString;
     private javax.swing.JLabel registerString;
     private javax.swing.JButton signupBtn;

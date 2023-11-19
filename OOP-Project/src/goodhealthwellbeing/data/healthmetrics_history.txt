@@ -1,0 +1,14 @@
+________________________________________
+User Input
+Weight: 55 kg
+Steps: 2222 Steps
+Target Weight: 40 kg
+Exercise Duration: 0 hrs 45 mins
+
+Recommendations for User
+Health Goal: Lose Weight
+Target Weight: 40 kg
+Target Steps: 2666 Steps
+Target Duration: 1 hrs 7 mins
+________________________________________
+

@@ -108,7 +108,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsRecommendationsLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         healthmetricsRecommendationsLabel.setText("Recommendations");
         healthmetricLeftPanel.add(healthmetricsRecommendationsLabel);
-        healthmetricsRecommendationsLabel.setBounds(25, 288, 165, 22);
+        healthmetricsRecommendationsLabel.setBounds(25, 288, 161, 22);
 
         seperator0.setForeground(new java.awt.Color(204, 204, 204));
         seperator0.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -133,19 +133,19 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         weightOutput.setText("Weight ");
         healthmetricLeftPanel.add(weightOutput);
-        weightOutput.setBounds(83, 84, 110, 16);
+        weightOutput.setBounds(83, 84, 110, 17);
 
         durationOutput.setText("Duration");
         healthmetricLeftPanel.add(durationOutput);
-        durationOutput.setBounds(83, 144, 110, 16);
+        durationOutput.setBounds(83, 144, 110, 17);
 
         stepsOutput.setText("Steps");
         healthmetricLeftPanel.add(stepsOutput);
-        stepsOutput.setBounds(83, 190, 120, 16);
+        stepsOutput.setBounds(83, 190, 120, 17);
 
         targetOutput.setText("Target");
         healthmetricLeftPanel.add(targetOutput);
-        targetOutput.setBounds(83, 242, 110, 16);
+        targetOutput.setBounds(83, 242, 110, 17);
 
         targetGoal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recGoal.png"))); // NOI18N
         healthmetricLeftPanel.add(targetGoal);
@@ -165,20 +165,20 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         durationGoalOutput.setText("TargetDuration");
         healthmetricLeftPanel.add(durationGoalOutput);
-        durationGoalOutput.setBounds(210, 360, 90, 16);
+        durationGoalOutput.setBounds(210, 360, 90, 17);
 
         weightGoalOutput.setText("TaregetWeight");
         healthmetricLeftPanel.add(weightGoalOutput);
-        weightGoalOutput.setBounds(210, 420, 90, 16);
+        weightGoalOutput.setBounds(210, 420, 90, 17);
 
         targetGoalOutput.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         targetGoalOutput.setText("Lose Weight");
         healthmetricLeftPanel.add(targetGoalOutput);
-        targetGoalOutput.setBounds(66, 356, 70, 15);
+        targetGoalOutput.setBounds(66, 356, 70, 14);
 
         stepsGoalOutput.setText("TargetSteps");
         healthmetricLeftPanel.add(stepsGoalOutput);
-        stepsGoalOutput.setBounds(66, 421, 80, 16);
+        stepsGoalOutput.setBounds(66, 421, 80, 17);
 
         seperator4.setForeground(new java.awt.Color(204, 204, 204));
         healthmetricLeftPanel.add(seperator4);
@@ -230,19 +230,19 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         healthmetricsCurrentWeightLabel.setText("Current Weight");
         healthmetricsRightPanel.add(healthmetricsCurrentWeightLabel);
-        healthmetricsCurrentWeightLabel.setBounds(36, 56, 164, 16);
+        healthmetricsCurrentWeightLabel.setBounds(36, 56, 164, 17);
         healthmetricsRightPanel.add(healthmetricsCurrentWeightInput);
-        healthmetricsCurrentWeightInput.setBounds(36, 78, 164, 24);
+        healthmetricsCurrentWeightInput.setBounds(36, 78, 164, 27);
 
         healthmetricsTargetWeightLabel.setText("Target Weight");
         healthmetricsRightPanel.add(healthmetricsTargetWeightLabel);
-        healthmetricsTargetWeightLabel.setBounds(36, 108, 164, 16);
+        healthmetricsTargetWeightLabel.setBounds(36, 108, 164, 17);
         healthmetricsRightPanel.add(healthmetricsExcerciseInput);
-        healthmetricsExcerciseInput.setBounds(265, 136, 180, 24);
+        healthmetricsExcerciseInput.setBounds(265, 136, 180, 27);
 
         healthmetricsStepsLabel.setText("Steps per Day");
         healthmetricsRightPanel.add(healthmetricsStepsLabel);
-        healthmetricsStepsLabel.setBounds(365, 56, 80, 16);
+        healthmetricsStepsLabel.setBounds(355, 56, 100, 17);
 
         healthmetricsStepsInput.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         healthmetricsStepsInput.setMinimumSize(new java.awt.Dimension(15, 24));
@@ -251,7 +251,7 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         healthmetricsExcerciseLabel.setText("Excercise Duration");
         healthmetricsRightPanel.add(healthmetricsExcerciseLabel);
-        healthmetricsExcerciseLabel.setBounds(335, 108, 110, 16);
+        healthmetricsExcerciseLabel.setBounds(335, 108, 130, 17);
 
         healthmetricsTargetWeightInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +259,7 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
         healthmetricsRightPanel.add(healthmetricsTargetWeightInput);
-        healthmetricsTargetWeightInput.setBounds(36, 136, 164, 24);
+        healthmetricsTargetWeightInput.setBounds(36, 136, 164, 27);
 
         healthmetricsRadioLoseWeight.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioLoseWeight.setText("Lose Weight");
@@ -269,12 +269,12 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
         healthmetricsRightPanel.add(healthmetricsRadioLoseWeight);
-        healthmetricsRadioLoseWeight.setBounds(36, 190, 130, 28);
+        healthmetricsRadioLoseWeight.setBounds(36, 190, 130, 21);
 
         healthmetricsRadioGainWeight.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioGainWeight.setText("Gain Weight");
         healthmetricsRightPanel.add(healthmetricsRadioGainWeight);
-        healthmetricsRadioGainWeight.setBounds(204, 190, 130, 28);
+        healthmetricsRadioGainWeight.setBounds(204, 190, 130, 21);
 
         healthmetricsRadioStayHealthy.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioStayHealthy.setText("Stay Healthy");
@@ -284,7 +284,7 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
         healthmetricsRightPanel.add(healthmetricsRadioStayHealthy);
-        healthmetricsRadioStayHealthy.setBounds(346, 190, 120, 28);
+        healthmetricsRadioStayHealthy.setBounds(346, 190, 120, 21);
 
         healthmetricsSaveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_save-goal.png"))); // NOI18N
         healthmetricsSaveBtn.setBorder(null);
@@ -297,9 +297,11 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsRightPanel.add(healthmetricsSaveBtn);
         healthmetricsSaveBtn.setBounds(320, 293, 125, 38);
 
+        currentUserLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        currentUserLabel2.setForeground(new java.awt.Color(0, 0, 0));
         currentUserLabel2.setText("Michael Babik");
         healthmetricsRightPanel.add(currentUserLabel2);
-        currentUserLabel2.setBounds(200, 10, 110, 20);
+        currentUserLabel2.setBounds(190, 10, 110, 20);
 
         healthmetricMainPanel.add(healthmetricsRightPanel);
         healthmetricsRightPanel.setBounds(320, 0, 480, 500);

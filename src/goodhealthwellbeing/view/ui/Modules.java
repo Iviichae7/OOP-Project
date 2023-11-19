@@ -82,7 +82,7 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 345, 17);
+        modulesRights.setBounds(30, 431, 346, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
@@ -127,9 +127,12 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(540, 30, 110, 30);
+        modulesWelcome.setBounds(550, 30, 110, 30);
+
+        currentUserLabel.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        currentUserLabel.setForeground(new java.awt.Color(0, 0, 0));
         modulesMainPanel.add(currentUserLabel);
-        currentUserLabel.setBounds(660, 30, 130, 30);
+        currentUserLabel.setBounds(680, 30, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
