@@ -12,3 +12,31 @@ Target Steps: 2666 Steps
 Target Duration: 1 hrs 7 mins
 ________________________________________
 
+________________________________________
+User Input
+Weight: 65 kg
+Steps: 2222 Steps
+Target Weight: 60 kg
+Exercise Duration: 0 hrs 35 mins
+
+Recommendations for User
+Health Goal: Lose Weight
+Target Weight: 60 kg
+Target Steps: 2900 Steps
+Target Duration: 0 hrs 56 mins
+________________________________________
+
+________________________________________
+User Input
+Weight: 55 kg
+Steps: 2000 Steps
+Target Weight: 45 kg
+Exercise Duration: 0 hrs 23 mins
+
+Recommendations for User
+Health Goal: Lose Weight
+Target Weight: 45 kg
+Target Steps: 2600 Steps
+Target Duration: 0 hrs 45 mins
+________________________________________
+

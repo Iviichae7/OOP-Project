@@ -86,11 +86,6 @@ public class Login extends javax.swing.JFrame {
         loginSignupBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         loginSignupBtn.setText("Sign Up");
         loginSignupBtn.setPreferredSize(new java.awt.Dimension(75, 25));
-        loginSignupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginSignupBtnActionPerformed(evt);
-            }
-        });
 
         loginPasswordLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginPasswordLabel.setText("Password");
@@ -100,11 +95,6 @@ public class Login extends javax.swing.JFrame {
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Log In");
         loginBtn.setPreferredSize(new java.awt.Dimension(75, 25));
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("I don't have an account");
@@ -206,16 +196,6 @@ public class Login extends javax.swing.JFrame {
             loginErrorMessage.setText("Incorrect login details");
         }
     }// GEN-LAST:event_loginBtnActionPerformed
-
-    private void loginSignupBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginSignupBtnActionPerformed
-
-    }// GEN-LAST:event_loginSignupBtnActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

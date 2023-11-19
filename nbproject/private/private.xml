@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/components/HealthMetrics.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/ui/Register.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/ui/Modules.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/ui/Modules.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/util/ExerciseDurationCalculator.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/ui/Register.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/components/HealthMetrics.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/util/TargetStepCalculator.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/controller/SignupUser.java</file>
         </group>
     </open-files>
 </project-private>

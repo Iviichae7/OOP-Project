@@ -111,11 +111,6 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn.setBorderPainted(false);
         modulesNutritionsBtn.setContentAreaFilled(false);
         modulesNutritionsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
-        modulesNutritionsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modulesNutritionsBtnActionPerformed(evt);
-            }
-        });
         modulesMainPanel.add(modulesNutritionsBtn);
         modulesNutritionsBtn.setBounds(510, 240, 190, 90);
 
@@ -151,16 +146,6 @@ public class Modules extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void modulesNutritionsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesNutritionsBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
-
-//    public static void main(String args[]) {
-//        java.awt.EventQueue.invokeLater(() -> {
-//            new Modules().setVisible(true);
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel currentUserLabel;
