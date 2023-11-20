@@ -21,6 +21,18 @@ public class SignupUser {
             return false;
         }
         
+        if(fullName.matches(".*\\d.*")){
+            return false;
+        }
+        
+        if(!email.contains("@") || !email.contains(".") || email.lastIndexOf('.') >= email.length() - 1){
+            return false;
+        }
+        
+        if(password.length() < 6){
+            return false;
+        }
+        
         if(userManager.getUserByEmail(email) != null){
             return false;
         }

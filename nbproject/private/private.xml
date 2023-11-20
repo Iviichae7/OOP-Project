@@ -3,9 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/components/HealthMetrics.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/ui/Register.java</file>
-            <file>file:/C:/Users/Administrator/Desktop/OOPProject/OOP-Project/src/goodhealthwellbeing/view/ui/Modules.java</file>
+<<<<<<< HEAD
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/Depression.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/MentalHealth.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/HealthMetrics.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/StressAndAnxiety.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/FindSupport.java</file>
+=======
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/ui/Modules.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/util/ExerciseDurationCalculator.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/ui/Register.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/components/HealthMetrics.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/util/TargetStepCalculator.java</file>
+            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/controller/SignupUser.java</file>
+>>>>>>> main
         </group>
     </open-files>
 </project-private>

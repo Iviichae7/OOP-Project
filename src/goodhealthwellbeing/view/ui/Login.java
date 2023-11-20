@@ -74,69 +74,96 @@ public class Login extends javax.swing.JFrame {
 
         loginRightPanel.setBackground(new java.awt.Color(255, 255, 255));
         loginRightPanel.setMinimumSize(new java.awt.Dimension(400, 500));
-        loginRightPanel.setLayout(null);
 
         loginLoginLabel.setBackground(new java.awt.Color(255, 255, 255));
         loginLoginLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         loginLoginLabel.setForeground(new java.awt.Color(0, 102, 102));
         loginLoginLabel.setText("LOGIN");
-        loginRightPanel.add(loginLoginLabel);
-        loginLoginLabel.setBounds(162, 28, 75, 28);
 
         loginEmailLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginEmailLabel.setText("Email");
-        loginRightPanel.add(loginEmailLabel);
-        loginEmailLabel.setBounds(33, 155, 341, 34);
-        loginRightPanel.add(loginEmailInput);
-        loginEmailInput.setBounds(33, 195, 341, 40);
 
         loginSignupBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         loginSignupBtn.setText("Sign Up");
         loginSignupBtn.setPreferredSize(new java.awt.Dimension(75, 25));
-        loginSignupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginSignupBtnActionPerformed(evt);
-            }
-        });
-        loginRightPanel.add(loginSignupBtn);
-        loginSignupBtn.setBounds(264, 399, 110, 40);
 
         loginPasswordLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginPasswordLabel.setText("Password");
-        loginRightPanel.add(loginPasswordLabel);
-        loginPasswordLabel.setBounds(33, 241, 341, 34);
-        loginRightPanel.add(loginPasswordInput);
-        loginPasswordInput.setBounds(33, 281, 341, 40);
 
         loginBtn.setBackground(new java.awt.Color(0, 102, 102));
         loginBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Log In");
         loginBtn.setPreferredSize(new java.awt.Dimension(75, 25));
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
-            }
-        });
-        loginRightPanel.add(loginBtn);
-        loginBtn.setBounds(264, 339, 110, 40);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("I don't have an account");
-        loginRightPanel.add(jLabel1);
-        jLabel1.setBounds(33, 413, 123, 14);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
-        loginRightPanel.add(jLabel2);
-        jLabel2.setBounds(162, 68, 75, 75);
 
         loginErrorMessage.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         loginErrorMessage.setForeground(new java.awt.Color(255, 51, 0));
-        loginRightPanel.add(loginErrorMessage);
-        loginErrorMessage.setBounds(40, 340, 170, 20);
+
+        javax.swing.GroupLayout loginRightPanelLayout = new javax.swing.GroupLayout(loginRightPanel);
+        loginRightPanel.setLayout(loginRightPanelLayout);
+        loginRightPanelLayout.setHorizontalGroup(
+            loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(loginLoginLabel))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jLabel2))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(loginEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(loginEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(loginPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(106, 106, 106)
+                .addComponent(loginSignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginRightPanelLayout.createSequentialGroup()
+                        .addComponent(loginErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        loginRightPanelLayout.setVerticalGroup(
+            loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginRightPanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(loginLoginLabel)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel2)
+                .addGap(12, 12, 12)
+                .addComponent(loginEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(loginEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(loginPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(loginPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(loginRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginSignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)))
+        );
 
         loginMainPanel.add(loginRightPanel);
-        loginRightPanel.setBounds(400, 0, 400, 500);
+        loginRightPanel.setBounds(400, 0, 374, 439);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,16 +196,6 @@ public class Login extends javax.swing.JFrame {
             loginErrorMessage.setText("Incorrect login details");
         }
     }// GEN-LAST:event_loginBtnActionPerformed
-
-    private void loginSignupBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginSignupBtnActionPerformed
-
-    }// GEN-LAST:event_loginSignupBtnActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

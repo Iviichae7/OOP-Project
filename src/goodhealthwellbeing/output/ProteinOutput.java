@@ -1,12 +1,14 @@
-package goodhealthwellbeing.util;
+package goodhealthwellbeing.output;
+
+import goodhealthwellbeing.util.Macro;
 
 /**
  *
  * @author Ryan Stokes
  */
-public class Protein extends Macro {
+public class ProteinOutput extends Macro {
 
-    public Protein(String macronutrient, String energy, String description, String[] sources) {
+    public ProteinOutput(String macronutrient, String energy, String description, String[] sources) {
         
         this.macronutrient = macronutrient;
         this.description = description;
@@ -14,7 +16,7 @@ public class Protein extends Macro {
         this.sources = sources;
     }
 
-    public Protein() {
+    public ProteinOutput() {
         
         macronutrient = "Protein";
         energy = "4 cals / gram";

@@ -1,6 +1,9 @@
 
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.output.ProteinOutput;
+import goodhealthwellbeing.output.FatOutput;
+import goodhealthwellbeing.output.CarbohydrateOutput;
 import goodhealthwellbeing.util.*;
 import java.awt.event.ActionEvent;
 
@@ -26,19 +29,19 @@ public class MacroSelect extends javax.swing.JFrame {
         });
         
         carbButton.addActionListener((ActionEvent e) -> {
-            Macro macro = new Carbohydrate();
+            Macro macro = new CarbohydrateOutput();
             lblEnergy.setText(macro.getEnergy());
             txtDescription.setText(macro.getDescription());
         });
         
         proteinButton.addActionListener((ActionEvent e) -> {
-            Macro macro = new Protein();
+            Macro macro = new ProteinOutput();
             lblEnergy.setText(macro.getEnergy());
             txtDescription.setText(macro.getDescription());
         });
         
         fatButton.addActionListener((ActionEvent e) -> {
-            Macro macro = new Fat();
+            Macro macro = new FatOutput();
             lblEnergy.setText(macro.getEnergy());
             txtDescription.setText(macro.getDescription());
         });

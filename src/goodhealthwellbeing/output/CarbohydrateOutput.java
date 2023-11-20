@@ -1,14 +1,15 @@
-package goodhealthwellbeing.util;
+package goodhealthwellbeing.output;
 
+import goodhealthwellbeing.util.Macro;
 import java.util.ArrayList;
 
 /**
  *
  * @author ryans
  */
-public class Carbohydrate extends Macro {
+public class CarbohydrateOutput extends Macro {
 
-    public Carbohydrate(String macronutrient, String energy, String description, String[] sources){
+    public CarbohydrateOutput(String macronutrient, String energy, String description, String[] sources){
         
         this.macronutrient = macronutrient;
         this.energy = energy;
@@ -16,7 +17,7 @@ public class Carbohydrate extends Macro {
         this.sources = sources;
     }
 
-    public Carbohydrate() {
+    public CarbohydrateOutput() {
         
         macronutrient = "Carbohydrate";
         energy = "9 cals / gram";

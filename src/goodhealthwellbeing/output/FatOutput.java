@@ -1,12 +1,14 @@
-package goodhealthwellbeing.util;
+package goodhealthwellbeing.output;
+
+import goodhealthwellbeing.util.Macro;
 
 /**
  *
  * @author Ryan Stokes
  */
-public class Fat extends Macro {
+public class FatOutput extends Macro {
 
-    public Fat(String macronutrient, String energy, String description, String[] sources) {
+    public FatOutput(String macronutrient, String energy, String description, String[] sources) {
         
         this.macronutrient = macronutrient;
         this.energy = energy;
@@ -14,7 +16,7 @@ public class Fat extends Macro {
         this.sources = sources;
     }
 
-    public Fat() {
+    public FatOutput() {
         
         macronutrient = "Fats";
         energy = "9 cals / gram";

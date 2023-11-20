@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 
 import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserManager;
+import goodhealthwellbeing.view.components.MentalHealth;
 import goodhealthwellbeing.view.components.HealthMetrics;
 import goodhealthwellbeing.view.components.Nutrition;
 
@@ -11,7 +12,7 @@ public class Modules extends javax.swing.JFrame {
     
     private static Modules instance;
 
-    private Modules() {
+    Modules() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -63,7 +64,6 @@ public class Modules extends javax.swing.JFrame {
         currentUserLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -82,21 +82,24 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 341, 17);
+        modulesRights.setBounds(30, 431, 346, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
 
-        modulesWellBeingBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesWellBeingBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_well-being.png"))); // NOI18N
         modulesWellBeingBtn.setBorder(null);
         modulesWellBeingBtn.setBorderPainted(false);
         modulesWellBeingBtn.setContentAreaFilled(false);
         modulesWellBeingBtn.setPreferredSize(new java.awt.Dimension(105, 25));
+        modulesWellBeingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modulesWellBeingBtnActionPerformed(evt);
+            }
+        });
         modulesMainPanel.add(modulesWellBeingBtn);
         modulesWellBeingBtn.setBounds(510, 340, 190, 90);
 
-        modulesHealthMetricsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesHealthMetricsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_health-metrics.png"))); // NOI18N
         modulesHealthMetricsBtn.setBorder(null);
         modulesHealthMetricsBtn.setBorderPainted(false);
@@ -105,17 +108,11 @@ public class Modules extends javax.swing.JFrame {
         modulesMainPanel.add(modulesHealthMetricsBtn);
         modulesHealthMetricsBtn.setBounds(510, 140, 190, 90);
 
-        modulesNutritionsBtn.setBackground(new java.awt.Color(255, 255, 255));
         modulesNutritionsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_nutrition.png"))); // NOI18N
         modulesNutritionsBtn.setBorder(null);
         modulesNutritionsBtn.setBorderPainted(false);
         modulesNutritionsBtn.setContentAreaFilled(false);
         modulesNutritionsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
-        modulesNutritionsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modulesNutritionsBtnActionPerformed(evt);
-            }
-        });
         modulesMainPanel.add(modulesNutritionsBtn);
         modulesNutritionsBtn.setBounds(510, 240, 190, 90);
 
@@ -127,37 +124,38 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(540, 30, 110, 30);
+        modulesWelcome.setBounds(550, 30, 110, 30);
+
+        currentUserLabel.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         modulesMainPanel.add(currentUserLabel);
-        currentUserLabel.setBounds(660, 30, 130, 30);
+        currentUserLabel.setBounds(680, 30, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 86, Short.MAX_VALUE))
+            .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 70, Short.MAX_VALUE))
+            .addComponent(modulesMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void modulesNutritionsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesNutritionsBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
 
-//    public static void main(String args[]) {
-//        java.awt.EventQueue.invokeLater(() -> {
-//            new Modules().setVisible(true);
-//        });
-//    }
+    private void modulesWellBeingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesWellBeingBtnActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MentalHealth mentalHealth =new MentalHealth();
+        mentalHealth.setVisible(true);
+
+    }//GEN-LAST:event_modulesWellBeingBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel currentUserLabel;
