@@ -1,14 +1,14 @@
 
 package goodhealthwellbeing;
 
-import goodhealthwellbeing.view.Login;
+import goodhealthwellbeing.view.ui.Login;
 
 /**
  * @author Michael Babik
  * @author Md Hassan
  * @author Ryan Stokes
  */
-public class GoodHealthWellBeing {
+public class App {
 
     public static void main(String[] args) {
         

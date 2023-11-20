@@ -4,6 +4,8 @@
  */
 package goodhealthwellbeing.view;
 
+import goodhealthwellbeing.view.ui.Modules;
+
 /**
  *
  *MD MAHMUDUL HASAN
@@ -157,8 +159,9 @@ public class MentalHealth extends javax.swing.JFrame {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Modules modules=new Modules();
+        Modules modules = Modules.getInstance();
         modules.setVisible(true);
+        
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void meditationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meditationBtnActionPerformed

@@ -1,7 +1,9 @@
 
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.components;
 
 import java.awt.event.ActionEvent;
+
+import goodhealthwellbeing.view.ui.Modules;
 
 /*
  * 11/11/23

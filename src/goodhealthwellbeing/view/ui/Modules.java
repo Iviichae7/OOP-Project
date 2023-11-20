@@ -1,6 +1,12 @@
-package goodhealthwellbeing.view;
+package goodhealthwellbeing.view.ui;
 
 import java.awt.event.ActionEvent;
+
+import goodhealthwellbeing.model.User;
+import goodhealthwellbeing.model.UserManager;
+import goodhealthwellbeing.view.MentalHealth;
+import goodhealthwellbeing.view.components.HealthMetrics;
+import goodhealthwellbeing.view.components.Nutrition;
 
 public class Modules extends javax.swing.JFrame {
     
@@ -12,8 +18,10 @@ public class Modules extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         modulesHealthMetricsBtn.addActionListener((ActionEvent e) -> {
-            HealthMetrics healthmetrics = new HealthMetrics();
-            healthmetrics.setVisible(true);
+            User currentUser = UserManager.getUser().getCurrentUser();
+            HealthMetrics healthMetrics = new HealthMetrics(currentUser);
+            
+            healthMetrics.setVisible(true);
             Modules.this.setVisible(false);
         });
         
@@ -28,7 +36,16 @@ public class Modules extends javax.swing.JFrame {
         if (instance == null) {
             instance = new Modules();
         }
+        
+        instance.updateUI();
         return instance;
+    }
+    
+     private void updateUI() {
+        User currentUser = UserManager.getUser().getCurrentUser();
+        if (currentUser != null) {
+            currentUserLabel.setText(currentUser.getFullName());
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -44,9 +61,9 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn = new javax.swing.JButton();
         modulesOption = new javax.swing.JLabel();
         modulesWelcome = new javax.swing.JLabel();
+        currentUserLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         modulesMainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -96,11 +113,6 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn.setBorderPainted(false);
         modulesNutritionsBtn.setContentAreaFilled(false);
         modulesNutritionsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
-        modulesNutritionsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modulesNutritionsBtnActionPerformed(evt);
-            }
-        });
         modulesMainPanel.add(modulesNutritionsBtn);
         modulesNutritionsBtn.setBounds(510, 240, 190, 90);
 
@@ -112,7 +124,11 @@ public class Modules extends javax.swing.JFrame {
         modulesWelcome.setForeground(new java.awt.Color(0, 102, 102));
         modulesWelcome.setText("Welcome");
         modulesMainPanel.add(modulesWelcome);
-        modulesWelcome.setBounds(540, 30, 110, 30);
+        modulesWelcome.setBounds(550, 30, 110, 30);
+
+        currentUserLabel.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        modulesMainPanel.add(currentUserLabel);
+        currentUserLabel.setBounds(680, 30, 120, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,6 +148,7 @@ public class Modules extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void modulesNutritionsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesNutritionsBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
@@ -140,17 +157,15 @@ public class Modules extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         MentalHealth mentalHealth =new MentalHealth();
-        mentalHealth.setVisible(true); 
-        
+        mentalHealth.setVisible(true);
+
     }//GEN-LAST:event_modulesWellBeingBtnActionPerformed
 
-//    public static void main(String args[]) {
-//        java.awt.EventQueue.invokeLater(() -> {
-//            new Modules().setVisible(true);
-//        });
-//    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel currentUserLabel;
     private javax.swing.JPanel loginLeftPanel;
     private javax.swing.JButton modulesHealthMetricsBtn;
     private javax.swing.JLabel modulesLogo;
