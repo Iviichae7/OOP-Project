@@ -53,6 +53,7 @@ public class FindSupport extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Call Emergency ");
+        jButton1.setBorder(null);
         jButton1.setOpaque(true);
 
         jLabel4.setBackground(new java.awt.Color(0, 102, 102));
