@@ -171,7 +171,7 @@ public class MentalHealth extends javax.swing.JFrame {
     private void supportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        FindSupport findSupport=new FindSuppot();
+        FindSupport findSupport=new FindSupport();
         findSupport.setVisible(true);
     }//GEN-LAST:event_supportBtnActionPerformed
 
