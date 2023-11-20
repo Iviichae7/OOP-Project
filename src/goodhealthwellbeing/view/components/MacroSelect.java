@@ -1,9 +1,10 @@
 
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.util.*;
 import java.awt.event.ActionEvent;
 
-/*
+/**
  * 11/11/23
  * Nutrition.java
  * @author ryans
@@ -13,31 +14,33 @@ public class MacroSelect extends javax.swing.JFrame {
     /**
      * Creates new form MacroInfo
      */
+    
     public MacroSelect() {
         initComponents();
-        
+          
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
             MacroSelect.this.setVisible(false);
+            
         });
         
         carbButton.addActionListener((ActionEvent e) -> {
-            MacroInfo macroInfo = new MacroInfo();
-            macroInfo.setVisible(true);
-            MacroSelect.this.setVisible(false);
+            Macro macro = new Carbohydrate();
+            lblEnergy.setText(macro.getEnergy());
+            txtDescription.setText(macro.getDescription());
         });
         
         proteinButton.addActionListener((ActionEvent e) -> {
-            MacroInfo macroInfo = new MacroInfo();
-            macroInfo.setVisible(true);
-            MacroSelect.this.setVisible(false);
+            Macro macro = new Protein();
+            lblEnergy.setText(macro.getEnergy());
+            txtDescription.setText(macro.getDescription());
         });
         
         fatButton.addActionListener((ActionEvent e) -> {
-            MacroInfo macroInfo = new MacroInfo();
-            macroInfo.setVisible(true);
-            MacroSelect.this.setVisible(false);
+            Macro macro = new Fat();
+            lblEnergy.setText(macro.getEnergy());
+            txtDescription.setText(macro.getDescription());
         });
     }
 
@@ -59,6 +62,10 @@ public class MacroSelect extends javax.swing.JFrame {
         carbButton = new javax.swing.JButton();
         proteinButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lblEnergy = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescription = new javax.swing.JTextArea();
+        lblSources = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,29 +117,39 @@ public class MacroSelect extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 50, 30);
+        homeButton.setBounds(420, 10, 50, 30);
 
         fatButton.setBackground(new java.awt.Color(255, 255, 255));
         fatButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        fatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_fats.png"))); // NOI18N
+        fatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_fats (2).png"))); // NOI18N
         fatButton.setBorder(null);
         fatButton.setBorderPainted(false);
         fatButton.setContentAreaFilled(false);
+        fatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fatButtonActionPerformed(evt);
+            }
+        });
         macroInfoMainPanel.add(fatButton);
-        fatButton.setBounds(500, 370, 190, 90);
+        fatButton.setBounds(650, 80, 170, 40);
 
         carbButton.setBackground(new java.awt.Color(255, 255, 255));
         carbButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        carbButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_carbohydrates.png"))); // NOI18N
+        carbButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_carbohydrate (1).png"))); // NOI18N
         carbButton.setBorder(null);
         carbButton.setBorderPainted(false);
         carbButton.setContentAreaFilled(false);
+        carbButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carbButtonActionPerformed(evt);
+            }
+        });
         macroInfoMainPanel.add(carbButton);
-        carbButton.setBounds(500, 150, 190, 90);
+        carbButton.setBounds(380, 80, 170, 40);
 
         proteinButton.setBackground(new java.awt.Color(255, 255, 255));
         proteinButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        proteinButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_protein.png"))); // NOI18N
+        proteinButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_protein (2).png"))); // NOI18N
         proteinButton.setBorder(null);
         proteinButton.setBorderPainted(false);
         proteinButton.setContentAreaFilled(false);
@@ -142,13 +159,34 @@ public class MacroSelect extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(proteinButton);
-        proteinButton.setBounds(500, 260, 190, 90);
+        proteinButton.setBounds(515, 80, 170, 40);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Select which Macronutrient you want to learn more about!");
         macroInfoMainPanel.add(jLabel1);
-        jLabel1.setBounds(420, 100, 410, 16);
+        jLabel1.setBounds(420, 50, 410, 16);
+
+        lblEnergy.setForeground(new java.awt.Color(0, 0, 0));
+        lblEnergy.setText("Energy Per Gram");
+        macroInfoMainPanel.add(lblEnergy);
+        lblEnergy.setBounds(420, 130, 220, 30);
+
+        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtDescription.setColumns(20);
+        txtDescription.setLineWrap(true);
+        txtDescription.setRows(5);
+        txtDescription.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(txtDescription);
+
+        macroInfoMainPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(420, 170, 360, 140);
+
+        lblSources.setForeground(new java.awt.Color(0, 0, 0));
+        lblSources.setText("Sources");
+        macroInfoMainPanel.add(lblSources);
+        lblSources.setBounds(420, 330, 100, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,6 +210,14 @@ public class MacroSelect extends javax.swing.JFrame {
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void carbButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carbButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carbButtonActionPerformed
+
+    private void fatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fatButtonActionPerformed
 
     private void proteinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinButtonActionPerformed
         // TODO add your handling code here:
@@ -207,6 +253,7 @@ public class MacroSelect extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MacroSelect().setVisible(true);
             }
@@ -219,9 +266,13 @@ public class MacroSelect extends javax.swing.JFrame {
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEnergy;
+    private javax.swing.JLabel lblSources;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
     private javax.swing.JPanel macroInfoMainPanel;
     private javax.swing.JButton proteinButton;
+    private javax.swing.JTextArea txtDescription;
     // End of variables declaration//GEN-END:variables
 }

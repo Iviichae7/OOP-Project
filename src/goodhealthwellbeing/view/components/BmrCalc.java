@@ -16,10 +16,14 @@ public class BmrCalc extends javax.swing.JFrame {
     public BmrCalc() {
         initComponents();
         
-        homeButton.addActionListener((ActionEvent e) -> {
+        btnBack.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
             BmrCalc.this.setVisible(false);
+        });
+        
+        btnBmrCalc.addActionListener((ActionEvent e) -> {
+            
         });
     }
 
@@ -37,16 +41,19 @@ public class BmrCalc extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
-        homeButton = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        btnBack = new javax.swing.JButton();
+        rdoMale = new javax.swing.JRadioButton();
+        rdoFemale = new javax.swing.JRadioButton();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        ChkActive = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnBmrCalc = new javax.swing.JButton();
+        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,31 +94,36 @@ public class BmrCalc extends javax.swing.JFrame {
         bmrCalcMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setBackground(new java.awt.Color(255, 255, 255));
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
-        homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false);
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        bmrCalcMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 50, 30);
+        bmrCalcMainPanel.add(btnBack);
+        btnBack.setBounds(420, 10, 50, 30);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("Male");
-        bmrCalcMainPanel.add(jRadioButton1);
-        jRadioButton1.setBounds(460, 110, 49, 21);
+        buttonGroup1.add(rdoMale);
+        rdoMale.setForeground(new java.awt.Color(0, 0, 0));
+        rdoMale.setText("Male");
+        bmrCalcMainPanel.add(rdoMale);
+        rdoMale.setBounds(460, 90, 49, 21);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton2.setText("Female");
-        bmrCalcMainPanel.add(jRadioButton2);
-        jRadioButton2.setBounds(660, 110, 61, 21);
+        buttonGroup1.add(rdoFemale);
+        rdoFemale.setForeground(new java.awt.Color(0, 0, 0));
+        rdoFemale.setText("Female");
+        rdoFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoFemaleActionPerformed(evt);
+            }
+        });
+        bmrCalcMainPanel.add(rdoFemale);
+        rdoFemale.setBounds(680, 90, 61, 21);
         bmrCalcMainPanel.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(500, 190, 210, 40);
+        jFormattedTextField1.setBounds(500, 150, 210, 40);
 
         jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,32 +131,49 @@ public class BmrCalc extends javax.swing.JFrame {
             }
         });
         bmrCalcMainPanel.add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(500, 270, 210, 40);
+        jFormattedTextField2.setBounds(500, 290, 210, 40);
 
         jTextField1.setEditable(false);
         bmrCalcMainPanel.add(jTextField1);
-        jTextField1.setBounds(500, 400, 220, 50);
+        jTextField1.setBounds(500, 420, 220, 50);
 
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.setText("Active");
-        bmrCalcMainPanel.add(jCheckBox1);
-        jCheckBox1.setBounds(460, 340, 85, 20);
+        ChkActive.setForeground(new java.awt.Color(0, 0, 0));
+        ChkActive.setText("Active");
+        bmrCalcMainPanel.add(ChkActive);
+        ChkActive.setBounds(460, 360, 85, 20);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Height (cm)");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Age");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bmrCalcMainPanel.add(jLabel1);
-        jLabel1.setBounds(570, 160, 80, 16);
+        jLabel1.setBounds(570, 130, 60, 16);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Weight (kg)");
         bmrCalcMainPanel.add(jLabel2);
-        jLabel2.setBounds(570, 240, 80, 16);
+        jLabel2.setBounds(560, 270, 80, 16);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Basal Metabolic Rate");
         bmrCalcMainPanel.add(jLabel3);
-        jLabel3.setBounds(550, 375, 130, 16);
+        jLabel3.setBounds(550, 400, 130, 16);
+
+        btnBmrCalc.setBackground(new java.awt.Color(255, 255, 255));
+        btnBmrCalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calculate.png"))); // NOI18N
+        btnBmrCalc.setContentAreaFilled(false);
+        bmrCalcMainPanel.add(btnBmrCalc);
+        btnBmrCalc.setBounds(660, 350, 90, 36);
+        bmrCalcMainPanel.add(jFormattedTextField3);
+        jFormattedTextField3.setBounds(500, 220, 210, 40);
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Height (cm)");
+        bmrCalcMainPanel.add(jLabel4);
+        jLabel4.setBounds(560, 200, 80, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,13 +194,17 @@ public class BmrCalc extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_homeButtonActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+
+    private void rdoFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoFemaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoFemaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,20 +243,23 @@ public class BmrCalc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox ChkActive;
     private javax.swing.JPanel bmrCalcMainPanel;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBmrCalc;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton homeButton;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
+    private javax.swing.JRadioButton rdoFemale;
+    private javax.swing.JRadioButton rdoMale;
     // End of variables declaration//GEN-END:variables
 }

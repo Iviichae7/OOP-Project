@@ -43,6 +43,7 @@ public class CalorieTracker extends javax.swing.JFrame {
         prompt3 = new javax.swing.JLabel();
         calorieInput = new javax.swing.JFormattedTextField();
         totalCalories = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,7 +124,7 @@ public class CalorieTracker extends javax.swing.JFrame {
         prompt3.setForeground(new java.awt.Color(0, 0, 0));
         prompt3.setText("Total Calories Today");
         calorieTrackerMainPanel.add(prompt3);
-        prompt3.setBounds(540, 330, 150, 16);
+        prompt3.setBounds(540, 310, 150, 16);
 
         calorieInput.setOpaque(true);
         calorieInput.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +142,16 @@ public class CalorieTracker extends javax.swing.JFrame {
             }
         });
         calorieTrackerMainPanel.add(totalCalories);
-        totalCalories.setBounds(480, 360, 240, 50);
+        totalCalories.setBounds(480, 340, 240, 50);
+
+        jButton1.setText("View History");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        calorieTrackerMainPanel.add(jButton1);
+        jButton1.setBounds(540, 420, 120, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,6 +187,10 @@ public class CalorieTracker extends javax.swing.JFrame {
     private void totalCaloriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCaloriesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalCaloriesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +232,7 @@ public class CalorieTracker extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField calorieInput;
     private javax.swing.JPanel calorieTrackerMainPanel;
     private javax.swing.JButton homeButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;

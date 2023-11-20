@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         logoRights.setForeground(new java.awt.Color(255, 255, 255));
         logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(logoRights);
-        logoRights.setBounds(30, 431, 345, 17);
+        logoRights.setBounds(30, 431, 341, 17);
 
         loginMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
@@ -81,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         loginLoginLabel.setForeground(new java.awt.Color(0, 102, 102));
         loginLoginLabel.setText("LOGIN");
         loginRightPanel.add(loginLoginLabel);
-        loginLoginLabel.setBounds(162, 28, 76, 28);
+        loginLoginLabel.setBounds(162, 28, 75, 28);
 
         loginEmailLabel.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         loginEmailLabel.setText("Email");
@@ -124,7 +124,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("I don't have an account");
         loginRightPanel.add(jLabel1);
-        jLabel1.setBounds(33, 413, 124, 14);
+        jLabel1.setBounds(33, 413, 123, 14);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/users.png"))); // NOI18N
         loginRightPanel.add(jLabel2);

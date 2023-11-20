@@ -16,25 +16,25 @@ public class Nutrition extends javax.swing.JFrame {
         
         initComponents();
         
-        bmrButton.addActionListener((ActionEvent e) -> {
+        btnBmr.addActionListener((ActionEvent e) -> {
             BmrCalc bmr = new BmrCalc();
             bmr.setVisible(true);
             Nutrition.this.setVisible(false);
         });
         
-        macroInfoButton.addActionListener((ActionEvent e) -> {
+        btnMacroInfo.addActionListener((ActionEvent e) -> {
             MacroSelect macro = new MacroSelect();
             macro.setVisible(true);
             Nutrition.this.setVisible(false);
         });
         
-        calorieTrackerButton.addActionListener((ActionEvent e) -> {
+        btnCalTrack.addActionListener((ActionEvent e) -> {
             CalorieTracker cal = new CalorieTracker();
             cal.setVisible(true);
             Nutrition.this.setVisible(false);
         });
         
-        homeButton.addActionListener((ActionEvent e) -> {
+        btnHome.addActionListener((ActionEvent e) -> {
             Modules modules = Modules.getInstance();
             modules.setVisible(true);
             Nutrition.this.setVisible(false);
@@ -49,12 +49,12 @@ public class Nutrition extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
-        homeButton = new javax.swing.JButton();
-        calorieTrackerButton = new javax.swing.JButton();
-        macroInfoButton = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        btnCalTrack = new javax.swing.JButton();
+        btnMacroInfo = new javax.swing.JButton();
         nutritionPrompt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        bmrButton = new javax.swing.JButton();
+        btnBmr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,43 +95,44 @@ public class Nutrition extends javax.swing.JFrame {
         nutrtionMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
 
-        homeButton.setBackground(new java.awt.Color(255, 255, 255));
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
-        homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false);
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setBackground(new java.awt.Color(255, 255, 255));
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
+        btnHome.setBorder(null);
+        btnHome.setBorderPainted(false);
+        btnHome.setContentAreaFilled(false);
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
-        nutrtionMainPanel.add(homeButton);
-        homeButton.setBounds(420, 30, 50, 30);
+        nutrtionMainPanel.add(btnHome);
+        btnHome.setBounds(420, 30, 50, 30);
 
-        calorieTrackerButton.setBackground(new java.awt.Color(255, 255, 255));
-        calorieTrackerButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        calorieTrackerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calorie-tracker.png"))); // NOI18N
-        calorieTrackerButton.setBorderPainted(false);
-        calorieTrackerButton.setContentAreaFilled(false);
-        calorieTrackerButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCalTrack.setBackground(new java.awt.Color(255, 255, 255));
+        btnCalTrack.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnCalTrack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calorie-tracker.png"))); // NOI18N
+        btnCalTrack.setBorderPainted(false);
+        btnCalTrack.setContentAreaFilled(false);
+        btnCalTrack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calorieTrackerButtonActionPerformed(evt);
+                btnCalTrackActionPerformed(evt);
             }
         });
-        nutrtionMainPanel.add(calorieTrackerButton);
-        calorieTrackerButton.setBounds(500, 360, 190, 90);
+        nutrtionMainPanel.add(btnCalTrack);
+        btnCalTrack.setBounds(500, 360, 190, 90);
 
-        macroInfoButton.setBackground(new java.awt.Color(255, 255, 255));
-        macroInfoButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        macroInfoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_macro-info.png"))); // NOI18N
-        macroInfoButton.setBorderPainted(false);
-        macroInfoButton.setContentAreaFilled(false);
-        macroInfoButton.addActionListener(new java.awt.event.ActionListener() {
+        btnMacroInfo.setBackground(new java.awt.Color(255, 255, 255));
+        btnMacroInfo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnMacroInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_macro-info.png"))); // NOI18N
+        btnMacroInfo.setBorderPainted(false);
+        btnMacroInfo.setContentAreaFilled(false);
+        btnMacroInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                macroInfoButtonActionPerformed(evt);
+                btnMacroInfoActionPerformed(evt);
             }
         });
-        nutrtionMainPanel.add(macroInfoButton);
-        macroInfoButton.setBounds(500, 260, 190, 90);
+        nutrtionMainPanel.add(btnMacroInfo);
+        btnMacroInfo.setBounds(500, 260, 190, 90);
 
         nutritionPrompt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nutritionPrompt.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,26 +140,26 @@ public class Nutrition extends javax.swing.JFrame {
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(500, 80, 220, 20);
+        nutritionPrompt.setBounds(500, 80, 260, 20);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Please select the service you wish to use.");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(jLabel1);
-        jLabel1.setBounds(490, 110, 230, 20);
+        jLabel1.setBounds(490, 110, 280, 20);
 
-        bmrButton.setBackground(new java.awt.Color(255, 255, 255));
-        bmrButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        bmrButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc (3).png"))); // NOI18N
-        bmrButton.setBorderPainted(false);
-        bmrButton.setContentAreaFilled(false);
-        bmrButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBmr.setBackground(new java.awt.Color(255, 255, 255));
+        btnBmr.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnBmr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc (3).png"))); // NOI18N
+        btnBmr.setBorderPainted(false);
+        btnBmr.setContentAreaFilled(false);
+        btnBmr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bmrButtonActionPerformed(evt);
+                btnBmrActionPerformed(evt);
             }
         });
-        nutrtionMainPanel.add(bmrButton);
-        bmrButton.setBounds(500, 160, 190, 90);
+        nutrtionMainPanel.add(btnBmr);
+        btnBmr.setBounds(500, 160, 190, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,21 +180,21 @@ public class Nutrition extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_homeButtonActionPerformed
+    }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void calorieTrackerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieTrackerButtonActionPerformed
+    private void btnCalTrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalTrackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_calorieTrackerButtonActionPerformed
+    }//GEN-LAST:event_btnCalTrackActionPerformed
 
-    private void macroInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_macroInfoButtonActionPerformed
+    private void btnMacroInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMacroInfoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_macroInfoButtonActionPerformed
+    }//GEN-LAST:event_btnMacroInfoActionPerformed
 
-    private void bmrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmrButtonActionPerformed
+    private void btnBmrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBmrActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bmrButtonActionPerformed
+    }//GEN-LAST:event_btnBmrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,14 +234,14 @@ public class Nutrition extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bmrButton;
-    private javax.swing.JButton calorieTrackerButton;
-    private javax.swing.JButton homeButton;
+    private javax.swing.JButton btnBmr;
+    private javax.swing.JButton btnCalTrack;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnMacroInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
-    private javax.swing.JButton macroInfoButton;
     private javax.swing.JLabel nutritionPrompt;
     private javax.swing.JPanel nutrtionMainPanel;
     // End of variables declaration//GEN-END:variables

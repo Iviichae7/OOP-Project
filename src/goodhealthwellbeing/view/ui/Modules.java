@@ -82,7 +82,7 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 345, 17);
+        modulesRights.setBounds(30, 431, 341, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
