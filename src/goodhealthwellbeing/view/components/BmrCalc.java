@@ -1,7 +1,11 @@
 
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.output.BmrFemaleOutput;
+import goodhealthwellbeing.output.BmrMaleOutput;
+import goodhealthwellbeing.util.Bmr;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 /*
  * 11/11/23
@@ -24,6 +28,24 @@ public class BmrCalc extends javax.swing.JFrame {
         
         btnBmrCalc.addActionListener((ActionEvent e) -> {
             
+            if(rdoMale.isSelected()){
+                
+                Bmr bmr = new BmrMaleOutput();
+                bmr.setAge(Integer.parseInt(txtAge.getText()));
+                bmr.setHeight(Integer.parseInt(txtHeight.getText()));
+                bmr.setWeight(Integer.parseInt(txtWeight.getText()));
+                txtBmrOutput.setText(Double.toString(bmr.getBmr()));
+                
+            }
+            else if(rdoFemale.isSelected()){
+                
+                Bmr bmr = new BmrFemaleOutput();
+                bmr.setAge(Integer.parseInt(txtAge.getText()));
+                bmr.setHeight(Integer.parseInt(txtHeight.getText()));
+                bmr.setWeight(Integer.parseInt(txtWeight.getText()));
+                txtBmrOutput.setText(Double.toString(bmr.getBmr()));
+            }
+                else{JOptionPane.showMessageDialog(null, "Please select Male or Female");}
         });
     }
 
@@ -44,15 +66,15 @@ public class BmrCalc extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         rdoMale = new javax.swing.JRadioButton();
         rdoFemale = new javax.swing.JRadioButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtAge = new javax.swing.JFormattedTextField();
+        txtWeight = new javax.swing.JFormattedTextField();
+        txtBmrOutput = new javax.swing.JTextField();
         ChkActive = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBmrCalc = new javax.swing.JButton();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        txtHeight = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,20 +144,20 @@ public class BmrCalc extends javax.swing.JFrame {
         });
         bmrCalcMainPanel.add(rdoFemale);
         rdoFemale.setBounds(680, 90, 61, 21);
-        bmrCalcMainPanel.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(500, 150, 210, 40);
+        bmrCalcMainPanel.add(txtAge);
+        txtAge.setBounds(500, 150, 210, 40);
 
-        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtWeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField2ActionPerformed(evt);
+                txtWeightActionPerformed(evt);
             }
         });
-        bmrCalcMainPanel.add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(500, 290, 210, 40);
+        bmrCalcMainPanel.add(txtWeight);
+        txtWeight.setBounds(500, 290, 210, 40);
 
-        jTextField1.setEditable(false);
-        bmrCalcMainPanel.add(jTextField1);
-        jTextField1.setBounds(500, 420, 220, 50);
+        txtBmrOutput.setEditable(false);
+        bmrCalcMainPanel.add(txtBmrOutput);
+        txtBmrOutput.setBounds(500, 420, 220, 50);
 
         ChkActive.setForeground(new java.awt.Color(0, 0, 0));
         ChkActive.setText("Active");
@@ -166,8 +188,8 @@ public class BmrCalc extends javax.swing.JFrame {
         btnBmrCalc.setContentAreaFilled(false);
         bmrCalcMainPanel.add(btnBmrCalc);
         btnBmrCalc.setBounds(660, 350, 90, 36);
-        bmrCalcMainPanel.add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(500, 220, 210, 40);
+        bmrCalcMainPanel.add(txtHeight);
+        txtHeight.setBounds(500, 220, 210, 40);
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -198,9 +220,9 @@ public class BmrCalc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+    }//GEN-LAST:event_txtWeightActionPerformed
 
     private void rdoFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoFemaleActionPerformed
         // TODO add your handling code here:
@@ -248,18 +270,18 @@ public class BmrCalc extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBmrCalc;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
     private javax.swing.JRadioButton rdoFemale;
     private javax.swing.JRadioButton rdoMale;
+    private javax.swing.JFormattedTextField txtAge;
+    private javax.swing.JTextField txtBmrOutput;
+    private javax.swing.JFormattedTextField txtHeight;
+    private javax.swing.JFormattedTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

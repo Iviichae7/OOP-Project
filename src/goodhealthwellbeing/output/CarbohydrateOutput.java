@@ -1,7 +1,6 @@
 package goodhealthwellbeing.output;
 
 import goodhealthwellbeing.util.Macro;
-import java.util.ArrayList;
 
 /**
  *
