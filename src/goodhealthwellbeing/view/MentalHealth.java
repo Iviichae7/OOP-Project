@@ -65,6 +65,11 @@ public class MentalHealth extends javax.swing.JFrame {
         supportBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_find_support.png"))); // NOI18N
         supportBtn.setBorder(null);
         supportBtn.setPreferredSize(new java.awt.Dimension(105, 25));
+        supportBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supportBtnActionPerformed(evt);
+            }
+        });
         modulesMainPanel.add(supportBtn);
         supportBtn.setBounds(510, 330, 190, 90);
 
@@ -88,6 +93,11 @@ public class MentalHealth extends javax.swing.JFrame {
         meditationBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_Meditation.png"))); // NOI18N
         meditationBtn.setBorder(null);
         meditationBtn.setPreferredSize(new java.awt.Dimension(105, 25));
+        meditationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meditationBtnActionPerformed(evt);
+            }
+        });
         modulesMainPanel.add(meditationBtn);
         meditationBtn.setBounds(510, 240, 190, 90);
 
@@ -132,10 +142,16 @@ public class MentalHealth extends javax.swing.JFrame {
 
     private void stressAndAnxietyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressAndAnxietyBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        StressAndAnxiety stressAndAnxiety=new StressAndAnxiety();
+        stressAndAnxiety.setVisible(true);
     }//GEN-LAST:event_stressAndAnxietyBtnActionPerformed
 
     private void depressionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depressionBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        Depression depression=new Depression();
+        depression.setVisible(true);
     }//GEN-LAST:event_depressionBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
@@ -144,6 +160,20 @@ public class MentalHealth extends javax.swing.JFrame {
         Modules modules=new Modules();
         modules.setVisible(true);
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void meditationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meditationBtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Meditation meditation=new Meditation();
+        meditation.setVisible(true);
+    }//GEN-LAST:event_meditationBtnActionPerformed
+
+    private void supportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportBtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        FindSupport findSupport=new FindSuppot();
+        findSupport.setVisible(true);
+    }//GEN-LAST:event_supportBtnActionPerformed
 
     /**
      * @param args the command line arguments
