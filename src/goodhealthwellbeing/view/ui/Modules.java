@@ -4,15 +4,21 @@ import java.awt.event.ActionEvent;
 
 import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserManager;
-import goodhealthwellbeing.view.components.MentalHealth;
 import goodhealthwellbeing.view.components.HealthMetrics;
+import goodhealthwellbeing.view.components.MentalHealth;
 import goodhealthwellbeing.view.components.Nutrition;
 
+
+/**
+ * This class manages different modules such as Health Metrics, Nutrition, and Mental Health, allowing
+ * users to navigate between these features.
+ */
 public class Modules extends javax.swing.JFrame {
     
+    // Static instance for implementing Singleton pattern.
     private static Modules instance;
 
-    Modules() {
+    private Modules() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -32,6 +38,12 @@ public class Modules extends javax.swing.JFrame {
         });
     }
     
+    /**
+     * Singleton method to ensure only one instance of Modules class is created.
+     * If the instance does not exist then it's created. Otherwise the existing instance
+     * is returned.
+     * @return 
+     */
     public static Modules getInstance() {
         if (instance == null) {
             instance = new Modules();
@@ -41,6 +53,10 @@ public class Modules extends javax.swing.JFrame {
         return instance;
     }
     
+    /**
+     * Updates the user interface elements.
+     * If a user is currently logged in their full name is displayed on the UI.
+     */
      private void updateUI() {
         User currentUser = UserManager.getUser().getCurrentUser();
         if (currentUser != null) {
@@ -82,7 +98,7 @@ public class Modules extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 346, 17);
+        modulesRights.setBounds(30, 431, 345, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
@@ -91,6 +107,7 @@ public class Modules extends javax.swing.JFrame {
         modulesWellBeingBtn.setBorder(null);
         modulesWellBeingBtn.setBorderPainted(false);
         modulesWellBeingBtn.setContentAreaFilled(false);
+        modulesWellBeingBtn.setFocusPainted(false);
         modulesWellBeingBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesWellBeingBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +121,7 @@ public class Modules extends javax.swing.JFrame {
         modulesHealthMetricsBtn.setBorder(null);
         modulesHealthMetricsBtn.setBorderPainted(false);
         modulesHealthMetricsBtn.setContentAreaFilled(false);
+        modulesHealthMetricsBtn.setFocusPainted(false);
         modulesHealthMetricsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesMainPanel.add(modulesHealthMetricsBtn);
         modulesHealthMetricsBtn.setBounds(510, 140, 190, 90);
@@ -112,6 +130,7 @@ public class Modules extends javax.swing.JFrame {
         modulesNutritionsBtn.setBorder(null);
         modulesNutritionsBtn.setBorderPainted(false);
         modulesNutritionsBtn.setContentAreaFilled(false);
+        modulesNutritionsBtn.setFocusPainted(false);
         modulesNutritionsBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         modulesMainPanel.add(modulesNutritionsBtn);
         modulesNutritionsBtn.setBounds(510, 240, 190, 90);
@@ -144,13 +163,7 @@ public class Modules extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void modulesNutritionsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesNutritionsBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modulesNutritionsBtnActionPerformed
-
     private void modulesWellBeingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesWellBeingBtnActionPerformed
-        // TODO add your handling code here:
         dispose();
         MentalHealth mentalHealth =new MentalHealth();
         mentalHealth.setVisible(true);
