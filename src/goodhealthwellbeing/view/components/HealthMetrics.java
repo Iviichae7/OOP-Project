@@ -595,6 +595,10 @@ public class HealthMetrics extends javax.swing.JFrame {
         metricsManager.saveUserMetrics(currentUser, output);
     }//GEN-LAST:event_healthmetricsSaveBtnActionPerformed
 
+    /**
+     * Validates the user input fields for current weight, steps, target weight and exercise minutes.
+     * Ensures that the inputs are within specified valid ranges and are in the correct format.
+     */
     private boolean validateInputs(String currentWeightStr, String stepsStr, String targetWeightStr, String exerciseMinutesStr) {
         try {
             int currentWeight = Integer.parseInt(currentWeightStr);

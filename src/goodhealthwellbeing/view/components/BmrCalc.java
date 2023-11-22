@@ -5,12 +5,13 @@ import goodhealthwellbeing.output.BmrFemaleOutput;
 import goodhealthwellbeing.output.BmrMaleOutput;
 import goodhealthwellbeing.util.Bmr;
 import java.awt.event.ActionEvent;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /*
  * 11/11/23
  * Nutrition.java
- * @author ryans
+ * @author Ryan Stokes
  */
 public class BmrCalc extends javax.swing.JFrame {
 
@@ -31,22 +32,36 @@ public class BmrCalc extends javax.swing.JFrame {
             if(rdoMale.isSelected()){
                 
                 Bmr bmr = new BmrMaleOutput();
-                bmr.setAge(Integer.parseInt(txtAge.getText()));
-                bmr.setHeight(Integer.parseInt(txtHeight.getText()));
-                bmr.setWeight(Integer.parseInt(txtWeight.getText()));
-                txtBmrOutput.setText(Double.toString(bmr.getBmr()));
+                setInfo(bmr);
+                activeCheck(bmr);
                 
             }
             else if(rdoFemale.isSelected()){
                 
                 Bmr bmr = new BmrFemaleOutput();
-                bmr.setAge(Integer.parseInt(txtAge.getText()));
-                bmr.setHeight(Integer.parseInt(txtHeight.getText()));
-                bmr.setWeight(Integer.parseInt(txtWeight.getText()));
-                txtBmrOutput.setText(Double.toString(bmr.getBmr()));
+                setInfo(bmr);
+                activeCheck(bmr);
+                
             }
                 else{JOptionPane.showMessageDialog(null, "Please select Male or Female");}
         });
+    }
+    
+    DecimalFormat fmt = new DecimalFormat("#");
+    
+    public void setInfo(Bmr bmr){
+        bmr.setAge(Integer.parseInt(txtAge.getText()));
+        bmr.setHeight(Integer.parseInt(txtHeight.getText()));
+        bmr.setWeight(Integer.parseInt(txtWeight.getText()));
+    }
+    
+    public void activeCheck(Bmr bmr){
+        if(chkActive.isSelected()){
+            txtBmrOutput.setText(fmt.format((bmr.getBmr() + 500)));
+        }
+        else{
+            txtBmrOutput.setText(fmt.format((bmr.getBmr())));
+        }
     }
 
     /**
@@ -69,13 +84,13 @@ public class BmrCalc extends javax.swing.JFrame {
         txtAge = new javax.swing.JFormattedTextField();
         txtWeight = new javax.swing.JFormattedTextField();
         txtBmrOutput = new javax.swing.JTextField();
-        ChkActive = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        chkActive = new javax.swing.JCheckBox();
+        lblAge = new javax.swing.JLabel();
+        lblHeight = new javax.swing.JLabel();
+        lblWeight = new javax.swing.JLabel();
+        lblBmr = new javax.swing.JLabel();
         btnBmrCalc = new javax.swing.JButton();
         txtHeight = new javax.swing.JFormattedTextField();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,7 +147,7 @@ public class BmrCalc extends javax.swing.JFrame {
         rdoMale.setForeground(new java.awt.Color(0, 0, 0));
         rdoMale.setText("Male");
         bmrCalcMainPanel.add(rdoMale);
-        rdoMale.setBounds(460, 90, 49, 21);
+        rdoMale.setBounds(460, 90, 110, 21);
 
         buttonGroup1.add(rdoFemale);
         rdoFemale.setForeground(new java.awt.Color(0, 0, 0));
@@ -143,7 +158,7 @@ public class BmrCalc extends javax.swing.JFrame {
             }
         });
         bmrCalcMainPanel.add(rdoFemale);
-        rdoFemale.setBounds(680, 90, 61, 21);
+        rdoFemale.setBounds(680, 90, 110, 21);
         bmrCalcMainPanel.add(txtAge);
         txtAge.setBounds(500, 150, 210, 40);
 
@@ -159,29 +174,35 @@ public class BmrCalc extends javax.swing.JFrame {
         bmrCalcMainPanel.add(txtBmrOutput);
         txtBmrOutput.setBounds(500, 420, 220, 50);
 
-        ChkActive.setForeground(new java.awt.Color(0, 0, 0));
-        ChkActive.setText("Active");
-        bmrCalcMainPanel.add(ChkActive);
-        ChkActive.setBounds(460, 360, 85, 20);
+        chkActive.setForeground(new java.awt.Color(0, 0, 0));
+        chkActive.setText("Active");
+        bmrCalcMainPanel.add(chkActive);
+        chkActive.setBounds(460, 360, 85, 20);
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Age");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bmrCalcMainPanel.add(jLabel1);
-        jLabel1.setBounds(570, 130, 60, 16);
+        lblAge.setForeground(new java.awt.Color(0, 0, 0));
+        lblAge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAge.setText("Age");
+        lblAge.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bmrCalcMainPanel.add(lblAge);
+        lblAge.setBounds(570, 130, 60, 16);
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Weight (kg)");
-        bmrCalcMainPanel.add(jLabel2);
-        jLabel2.setBounds(560, 270, 80, 16);
+        lblHeight.setForeground(new java.awt.Color(0, 0, 0));
+        lblHeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeight.setText("Height (cm)");
+        bmrCalcMainPanel.add(lblHeight);
+        lblHeight.setBounds(560, 200, 80, 16);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Basal Metabolic Rate");
-        bmrCalcMainPanel.add(jLabel3);
-        jLabel3.setBounds(550, 400, 130, 16);
+        lblWeight.setForeground(new java.awt.Color(0, 0, 0));
+        lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblWeight.setText("Weight (kg)");
+        bmrCalcMainPanel.add(lblWeight);
+        lblWeight.setBounds(560, 270, 80, 16);
+
+        lblBmr.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblBmr.setForeground(new java.awt.Color(0, 0, 0));
+        lblBmr.setText("Basal Metabolic Rate");
+        bmrCalcMainPanel.add(lblBmr);
+        lblBmr.setBounds(550, 400, 130, 16);
 
         btnBmrCalc.setBackground(new java.awt.Color(255, 255, 255));
         btnBmrCalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calculate.png"))); // NOI18N
@@ -190,12 +211,6 @@ public class BmrCalc extends javax.swing.JFrame {
         btnBmrCalc.setBounds(660, 350, 90, 36);
         bmrCalcMainPanel.add(txtHeight);
         txtHeight.setBounds(500, 220, 210, 40);
-
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Height (cm)");
-        bmrCalcMainPanel.add(jLabel4);
-        jLabel4.setBounds(560, 200, 80, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,16 +280,16 @@ public class BmrCalc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox ChkActive;
     private javax.swing.JPanel bmrCalcMainPanel;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBmrCalc;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JCheckBox chkActive;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblBmr;
+    private javax.swing.JLabel lblHeight;
+    private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
     private javax.swing.JRadioButton rdoFemale;

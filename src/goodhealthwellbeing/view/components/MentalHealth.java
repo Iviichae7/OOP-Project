@@ -59,13 +59,15 @@ public class MentalHealth extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 346, 17);
+        modulesRights.setBounds(30, 431, 345, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
 
         supportBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_find_support.png"))); // NOI18N
         supportBtn.setBorder(null);
+        supportBtn.setBorderPainted(false);
+        supportBtn.setFocusPainted(false);
         supportBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         supportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +79,8 @@ public class MentalHealth extends javax.swing.JFrame {
 
         stressAndAnxietyBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_Stress&anxiety.png"))); // NOI18N
         stressAndAnxietyBtn.setBorder(null);
+        stressAndAnxietyBtn.setBorderPainted(false);
+        stressAndAnxietyBtn.setFocusPainted(false);
         stressAndAnxietyBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         stressAndAnxietyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +98,8 @@ public class MentalHealth extends javax.swing.JFrame {
 
         meditationBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_Meditation.png"))); // NOI18N
         meditationBtn.setBorder(null);
+        meditationBtn.setBorderPainted(false);
+        meditationBtn.setFocusPainted(false);
         meditationBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         meditationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +111,8 @@ public class MentalHealth extends javax.swing.JFrame {
 
         depressionBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_depression.png"))); // NOI18N
         depressionBtn.setBorder(null);
+        depressionBtn.setBorderPainted(false);
+        depressionBtn.setFocusPainted(false);
         depressionBtn.setPreferredSize(new java.awt.Dimension(105, 25));
         depressionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

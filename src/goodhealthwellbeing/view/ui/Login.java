@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         logoRights.setForeground(new java.awt.Color(255, 255, 255));
         logoRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(logoRights);
-        logoRights.setBounds(30, 431, 341, 17);
+        logoRights.setBounds(30, 431, 346, 17);
 
         loginMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
