@@ -1,7 +1,7 @@
 package goodhealthwellbeing.util;
 
 /**
- *
+ * Macro.java
  * @author Ryan Stokes
  */
 public abstract class Macro {

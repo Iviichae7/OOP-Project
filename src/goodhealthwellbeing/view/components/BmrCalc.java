@@ -8,8 +8,7 @@ import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
-/*
- * 11/11/23
+/**
  * Nutrition.java
  * @author Ryan Stokes
  */
@@ -141,15 +140,17 @@ public class BmrCalc extends javax.swing.JFrame {
             }
         });
         bmrCalcMainPanel.add(btnBack);
-        btnBack.setBounds(420, 10, 50, 30);
+        btnBack.setBounds(420, 30, 50, 30);
 
         buttonGroup1.add(rdoMale);
+        rdoMale.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rdoMale.setForeground(new java.awt.Color(0, 0, 0));
         rdoMale.setText("Male");
         bmrCalcMainPanel.add(rdoMale);
-        rdoMale.setBounds(460, 90, 110, 21);
+        rdoMale.setBounds(450, 90, 110, 25);
 
         buttonGroup1.add(rdoFemale);
+        rdoFemale.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rdoFemale.setForeground(new java.awt.Color(0, 0, 0));
         rdoFemale.setText("Female");
         rdoFemale.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +159,7 @@ public class BmrCalc extends javax.swing.JFrame {
             }
         });
         bmrCalcMainPanel.add(rdoFemale);
-        rdoFemale.setBounds(680, 90, 110, 21);
+        rdoFemale.setBounds(680, 90, 110, 25);
         bmrCalcMainPanel.add(txtAge);
         txtAge.setBounds(500, 150, 210, 40);
 
@@ -172,37 +173,42 @@ public class BmrCalc extends javax.swing.JFrame {
 
         txtBmrOutput.setEditable(false);
         bmrCalcMainPanel.add(txtBmrOutput);
-        txtBmrOutput.setBounds(500, 420, 220, 50);
+        txtBmrOutput.setBounds(480, 420, 240, 50);
 
+        chkActive.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         chkActive.setForeground(new java.awt.Color(0, 0, 0));
         chkActive.setText("Active");
         bmrCalcMainPanel.add(chkActive);
-        chkActive.setBounds(460, 360, 85, 20);
+        chkActive.setBounds(460, 360, 85, 24);
 
+        lblAge.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAge.setForeground(new java.awt.Color(0, 0, 0));
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAge.setText("Age");
         lblAge.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bmrCalcMainPanel.add(lblAge);
-        lblAge.setBounds(570, 130, 60, 16);
+        lblAge.setBounds(570, 120, 60, 30);
 
+        lblHeight.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblHeight.setForeground(new java.awt.Color(0, 0, 0));
         lblHeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeight.setText("Height (cm)");
         bmrCalcMainPanel.add(lblHeight);
-        lblHeight.setBounds(560, 200, 80, 16);
+        lblHeight.setBounds(560, 190, 80, 30);
 
+        lblWeight.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblWeight.setForeground(new java.awt.Color(0, 0, 0));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWeight.setText("Weight (kg)");
         bmrCalcMainPanel.add(lblWeight);
-        lblWeight.setBounds(560, 270, 80, 16);
+        lblWeight.setBounds(560, 260, 80, 30);
 
-        lblBmr.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblBmr.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblBmr.setForeground(new java.awt.Color(0, 0, 0));
-        lblBmr.setText("Basal Metabolic Rate");
+        lblBmr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBmr.setText("Daily Recommended Calories");
         bmrCalcMainPanel.add(lblBmr);
-        lblBmr.setBounds(550, 400, 130, 16);
+        lblBmr.setBounds(480, 390, 240, 30);
 
         btnBmrCalc.setBackground(new java.awt.Color(255, 255, 255));
         btnBmrCalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_calculate.png"))); // NOI18N
