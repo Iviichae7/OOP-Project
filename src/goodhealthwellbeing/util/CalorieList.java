@@ -6,7 +6,7 @@ package goodhealthwellbeing.util;
  */
 public final class CalorieList {
     
-    private int calories[];
+    private final int calories[];
     private static int index;
     
     private CalorieList()
@@ -14,7 +14,7 @@ public final class CalorieList {
         calories = new int[10];
     }
     
-    private static CalorieList INSTANCE = new CalorieList();
+    private static final CalorieList INSTANCE = new CalorieList();
     
     public static CalorieList getInstance()
     {

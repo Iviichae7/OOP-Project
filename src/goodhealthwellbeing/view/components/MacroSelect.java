@@ -30,21 +30,26 @@ public class MacroSelect extends javax.swing.JFrame {
         
         carbButton.addActionListener((ActionEvent e) -> {
             Macro macro = new CarbohydrateOutput();
-            lblEnergy.setText(macro.getEnergy());
-            txtDescription.setText(macro.getDescription());
+            setInfo(macro);
         });
         
         proteinButton.addActionListener((ActionEvent e) -> {
             Macro macro = new ProteinOutput();
-            lblEnergy.setText(macro.getEnergy());
-            txtDescription.setText(macro.getDescription());
+            setInfo(macro);
         });
         
         fatButton.addActionListener((ActionEvent e) -> {
             Macro macro = new FatOutput();
-            lblEnergy.setText(macro.getEnergy());
-            txtDescription.setText(macro.getDescription());
+            setInfo(macro);
         });
+    }
+    
+    //Method to set the values depending on object created
+    
+    public void setInfo(Macro macro){
+        lblEnergy.setText(macro.getEnergy());
+        txtDescription.setText(macro.getDescription());
+        txtSources.setText(macro.getSources());
     }
 
     /**
@@ -69,6 +74,8 @@ public class MacroSelect extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
         lblSources = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtSources = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,7 +141,7 @@ public class MacroSelect extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(fatButton);
-        fatButton.setBounds(650, 80, 170, 40);
+        fatButton.setBounds(645, 90, 170, 40);
 
         carbButton.setBackground(new java.awt.Color(255, 255, 255));
         carbButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -148,7 +155,7 @@ public class MacroSelect extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(carbButton);
-        carbButton.setBounds(380, 80, 170, 40);
+        carbButton.setBounds(378, 90, 170, 40);
 
         proteinButton.setBackground(new java.awt.Color(255, 255, 255));
         proteinButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -162,34 +169,51 @@ public class MacroSelect extends javax.swing.JFrame {
             }
         });
         macroInfoMainPanel.add(proteinButton);
-        proteinButton.setBounds(515, 80, 170, 40);
+        proteinButton.setBounds(510, 90, 170, 40);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Select which Macronutrient you want to learn more about!");
         macroInfoMainPanel.add(jLabel1);
-        jLabel1.setBounds(420, 50, 410, 16);
+        jLabel1.setBounds(415, 60, 410, 16);
 
+        lblEnergy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEnergy.setForeground(new java.awt.Color(0, 0, 0));
         lblEnergy.setText("Energy Per Gram");
         macroInfoMainPanel.add(lblEnergy);
-        lblEnergy.setBounds(420, 130, 220, 30);
+        lblEnergy.setBounds(420, 140, 220, 30);
 
+        jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        txtDescription.setEditable(false);
         txtDescription.setColumns(20);
+        txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDescription.setLineWrap(true);
         txtDescription.setRows(5);
         txtDescription.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtDescription);
 
         macroInfoMainPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 170, 360, 140);
+        jScrollPane1.setBounds(420, 170, 360, 220);
 
+        lblSources.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSources.setForeground(new java.awt.Color(0, 0, 0));
         lblSources.setText("Sources");
         macroInfoMainPanel.add(lblSources);
-        lblSources.setBounds(420, 330, 100, 16);
+        lblSources.setBounds(420, 400, 100, 20);
+
+        jScrollPane2.setBorder(null);
+
+        txtSources.setEditable(false);
+        txtSources.setColumns(20);
+        txtSources.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSources.setRows(1);
+        jScrollPane2.setViewportView(txtSources);
+
+        macroInfoMainPanel.add(jScrollPane2);
+        jScrollPane2.setBounds(420, 440, 360, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,6 +294,7 @@ public class MacroSelect extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblEnergy;
     private javax.swing.JLabel lblSources;
     private javax.swing.JLabel loginLogo;
@@ -277,5 +302,6 @@ public class MacroSelect extends javax.swing.JFrame {
     private javax.swing.JPanel macroInfoMainPanel;
     private javax.swing.JButton proteinButton;
     private javax.swing.JTextArea txtDescription;
+    private javax.swing.JTextArea txtSources;
     // End of variables declaration//GEN-END:variables
 }

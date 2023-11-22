@@ -9,7 +9,7 @@ public abstract class Macro {
     protected String macronutrient;
     protected String energy;
     protected String description;
-    protected String[] sources;
+    protected String sources;
 
     
     public abstract String getMacronutrient();
@@ -18,6 +18,6 @@ public abstract class Macro {
     
     public abstract String getDescription();
     
-    public abstract String[] getSources();
+    public abstract String getSources();
              
 }

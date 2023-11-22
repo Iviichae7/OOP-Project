@@ -3,12 +3,12 @@ package goodhealthwellbeing.output;
 import goodhealthwellbeing.util.Macro;
 
 /**
- *
+ * FatOutput.java
  * @author Ryan Stokes
  */
 public class FatOutput extends Macro {
 
-    public FatOutput(String macronutrient, String energy, String description, String[] sources) {
+    public FatOutput(String macronutrient, String energy, String description, String sources) {
         
         this.macronutrient = macronutrient;
         this.energy = energy;
@@ -26,7 +26,7 @@ public class FatOutput extends Macro {
                 + "nutrient absorption and supporting cell structure. While healthy fats promote heart health "
                 + "and overall well-being, excessive intake of saturated and trans fats may pose health risks, "
                 + "emphasizing the importance of a balanced and mindful approach to dietary fat consumption.";
-        sources = new String[]{"Oils", "Butter", "Avocado", "Fatty Fish", "Full-Fat Dairy"};
+        sources = "Oils | Butter | Avocado | Fatty Fish | Full-Fat Dairy";
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FatOutput extends Macro {
     }
 
     @Override
-    public String[] getSources() {
+    public String getSources() {
         return sources;
     }
     

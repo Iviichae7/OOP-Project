@@ -106,7 +106,7 @@ public class Nutrition extends javax.swing.JFrame {
             }
         });
         nutrtionMainPanel.add(btnHome);
-        btnHome.setBounds(420, 30, 50, 30);
+        btnHome.setBounds(420, 10, 50, 30);
 
         btnCalTrack.setBackground(new java.awt.Color(255, 255, 255));
         btnCalTrack.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -134,23 +134,24 @@ public class Nutrition extends javax.swing.JFrame {
         nutrtionMainPanel.add(btnMacroInfo);
         btnMacroInfo.setBounds(500, 260, 190, 90);
 
-        nutritionPrompt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nutritionPrompt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nutritionPrompt.setForeground(new java.awt.Color(0, 0, 0));
         nutritionPrompt.setText("Welcome to your Nutrition hub! ");
         nutritionPrompt.setAlignmentY(0.0F);
         nutritionPrompt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(nutritionPrompt);
-        nutritionPrompt.setBounds(500, 80, 260, 20);
+        nutritionPrompt.setBounds(470, 80, 310, 20);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Please select the service you wish to use.");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nutrtionMainPanel.add(jLabel1);
-        jLabel1.setBounds(490, 110, 280, 20);
+        jLabel1.setBounds(480, 110, 280, 20);
 
         btnBmr.setBackground(new java.awt.Color(255, 255, 255));
         btnBmr.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnBmr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc.png"))); // NOI18N
+        btnBmr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc (3).png"))); // NOI18N
         btnBmr.setBorderPainted(false);
         btnBmr.setContentAreaFilled(false);
         btnBmr.addActionListener(new java.awt.event.ActionListener() {

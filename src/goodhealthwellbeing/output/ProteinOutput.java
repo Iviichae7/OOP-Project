@@ -3,12 +3,12 @@ package goodhealthwellbeing.output;
 import goodhealthwellbeing.util.Macro;
 
 /**
- *
+ * ProteinOutput.java
  * @author Ryan Stokes
  */
 public class ProteinOutput extends Macro {
 
-    public ProteinOutput(String macronutrient, String energy, String description, String[] sources) {
+    public ProteinOutput(String macronutrient, String energy, String description, String sources) {
         
         this.macronutrient = macronutrient;
         this.description = description;
@@ -23,10 +23,10 @@ public class ProteinOutput extends Macro {
         description = "Proteins are complex macromolecules comprised of amino acids,"
                 + " essential for the structure, function, and regulation of cells and tissues in living organisms."
                 + " Arranged in polypeptide chains, proteins exhibit diverse roles, acting as enzymes, antibodies,"
-                + " and structural components in cells. Found abundantly in meat, dairy, legumes, and nuts, proteins contribute "
+                + " and structural components in cells. Proteins contribute "
                 + "significantly to the growth, repair, and maintenance of body tissues, playing "
                 + "a vital role in overall health and functionality.";
-        sources = new String[]{"Red Meat", "Chicken", "Fish", "Dairy", "Nuts"};
+        sources = "Red Meat | Chicken | Fish | Dairy | Nuts";
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ProteinOutput extends Macro {
     }
 
     @Override
-    public String[] getSources() {
+    public String getSources() {
         return sources;
     }
     

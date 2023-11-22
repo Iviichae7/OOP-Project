@@ -3,12 +3,12 @@ package goodhealthwellbeing.output;
 import goodhealthwellbeing.util.Macro;
 
 /**
- *
- * @author ryans
+ * CarbohydrateOutput.java
+ * @author Ryan Stokes
  */
 public class CarbohydrateOutput extends Macro {
 
-    public CarbohydrateOutput(String macronutrient, String energy, String description, String[] sources){
+    public CarbohydrateOutput(String macronutrient, String energy, String description, String sources){
         
         this.macronutrient = macronutrient;
         this.energy = energy;
@@ -24,7 +24,7 @@ public class CarbohydrateOutput extends Macro {
                 + "hydrogen, and oxygen, serving as a primary source of energy for the human body. "
                 + "Classified into simple sugars, complex carbohydrates, and dietary fiber, "
                 + "they play a crucial role in fueling various physiological processes.";
-        sources = new String[]{"Pasta", "Rice", "Bread", "Potatoes", "Grains"};
+        sources = "Pasta | Rice | Bread | Potatoes | Grains";
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CarbohydrateOutput extends Macro {
     }
 
     @Override
-    public String[] getSources() {
+    public String getSources() {
         return sources;
     }
     
