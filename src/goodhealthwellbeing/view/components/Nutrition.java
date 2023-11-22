@@ -150,7 +150,7 @@ public class Nutrition extends javax.swing.JFrame {
 
         btnBmr.setBackground(new java.awt.Color(255, 255, 255));
         btnBmr.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnBmr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc (3).png"))); // NOI18N
+        btnBmr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_bmr-calc.png"))); // NOI18N
         btnBmr.setBorderPainted(false);
         btnBmr.setContentAreaFilled(false);
         btnBmr.addActionListener(new java.awt.event.ActionListener() {

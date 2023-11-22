@@ -1,6 +1,7 @@
 
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.util.CalorieList;
 import java.awt.event.ActionEvent;
 
 /*
@@ -21,6 +22,11 @@ public class CalorieTracker extends javax.swing.JFrame {
             nutrition.setVisible(true);
             CalorieTracker.this.setVisible(false);
         });
+        
+        btnCalorieAdd.addActionListener((ActionEvent e) -> {
+            CalorieList calList = CalorieList.getInstance();
+            calList.addCalories(Integer.parseInt(calorieInput.getText()));
+        });
     }
 
     /**
@@ -37,13 +43,14 @@ public class CalorieTracker extends javax.swing.JFrame {
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
-        calorieAddButton = new javax.swing.JButton();
+        btnCalorieAdd = new javax.swing.JButton();
         prompt1 = new javax.swing.JLabel();
         prompt2 = new javax.swing.JLabel();
         prompt3 = new javax.swing.JLabel();
         calorieInput = new javax.swing.JFormattedTextField();
         totalCalories = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
+        btnAddDay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,35 +103,41 @@ public class CalorieTracker extends javax.swing.JFrame {
         calorieTrackerMainPanel.add(homeButton);
         homeButton.setBounds(420, 30, 50, 30);
 
-        calorieAddButton.setBackground(new java.awt.Color(255, 255, 255));
-        calorieAddButton.setForeground(new java.awt.Color(255, 255, 255));
-        calorieAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_add.png"))); // NOI18N
-        calorieAddButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        calorieAddButton.setContentAreaFilled(false);
-        calorieAddButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        calorieAddButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCalorieAdd.setBackground(new java.awt.Color(255, 255, 255));
+        btnCalorieAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalorieAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_add-calories.png"))); // NOI18N
+        btnCalorieAdd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCalorieAdd.setContentAreaFilled(false);
+        btnCalorieAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCalorieAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calorieAddButtonActionPerformed(evt);
+                btnCalorieAddActionPerformed(evt);
             }
         });
-        calorieTrackerMainPanel.add(calorieAddButton);
-        calorieAddButton.setBounds(570, 250, 60, 30);
+        calorieTrackerMainPanel.add(btnCalorieAdd);
+        btnCalorieAdd.setBounds(540, 220, 120, 40);
 
         prompt1.setBackground(new java.awt.Color(0, 0, 0));
+        prompt1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         prompt1.setForeground(new java.awt.Color(0, 0, 0));
+        prompt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prompt1.setText("Enter the amount of calories you wish to add to your");
         calorieTrackerMainPanel.add(prompt1);
-        prompt1.setBounds(460, 110, 320, 30);
+        prompt1.setBounds(430, 80, 340, 30);
 
+        prompt2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         prompt2.setForeground(new java.awt.Color(0, 0, 0));
+        prompt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prompt2.setText("daily total then press add.");
         calorieTrackerMainPanel.add(prompt2);
-        prompt2.setBounds(530, 140, 170, 16);
+        prompt2.setBounds(510, 110, 170, 20);
 
+        prompt3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         prompt3.setForeground(new java.awt.Color(0, 0, 0));
+        prompt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prompt3.setText("Total Calories Today");
         calorieTrackerMainPanel.add(prompt3);
-        prompt3.setBounds(540, 310, 150, 16);
+        prompt3.setBounds(490, 280, 220, 25);
 
         calorieInput.setOpaque(true);
         calorieInput.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +146,7 @@ public class CalorieTracker extends javax.swing.JFrame {
             }
         });
         calorieTrackerMainPanel.add(calorieInput);
-        calorieInput.setBounds(480, 180, 240, 50);
+        calorieInput.setBounds(480, 150, 240, 50);
 
         totalCalories.setEditable(false);
         totalCalories.addActionListener(new java.awt.event.ActionListener() {
@@ -142,16 +155,23 @@ public class CalorieTracker extends javax.swing.JFrame {
             }
         });
         calorieTrackerMainPanel.add(totalCalories);
-        totalCalories.setBounds(480, 340, 240, 50);
+        totalCalories.setBounds(480, 320, 240, 50);
 
-        jButton1.setText("View History");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_history.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         calorieTrackerMainPanel.add(jButton1);
-        jButton1.setBounds(540, 420, 120, 23);
+        jButton1.setBounds(650, 410, 80, 38);
+
+        btnAddDay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_add-day.png"))); // NOI18N
+        btnAddDay.setContentAreaFilled(false);
+        btnAddDay.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        calorieTrackerMainPanel.add(btnAddDay);
+        btnAddDay.setBounds(480, 410, 80, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,9 +196,9 @@ public class CalorieTracker extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void calorieAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieAddButtonActionPerformed
+    private void btnCalorieAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalorieAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_calorieAddButtonActionPerformed
+    }//GEN-LAST:event_btnCalorieAddActionPerformed
 
     private void calorieInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieInputActionPerformed
         // TODO add your handling code here:
@@ -228,7 +248,8 @@ public class CalorieTracker extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton calorieAddButton;
+    private javax.swing.JButton btnAddDay;
+    private javax.swing.JButton btnCalorieAdd;
     private javax.swing.JFormattedTextField calorieInput;
     private javax.swing.JPanel calorieTrackerMainPanel;
     private javax.swing.JButton homeButton;

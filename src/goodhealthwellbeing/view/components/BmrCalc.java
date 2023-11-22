@@ -27,10 +27,8 @@ public class BmrCalc extends javax.swing.JFrame {
             BmrCalc.this.setVisible(false);
         });
         
-        //Code to be ran when user clicks on calculate, returns users bmr
         btnBmrCalc.addActionListener((ActionEvent e) -> {
             
-            //The object created depends on the users gender selection
             if(rdoMale.isSelected()){
                 
                 Bmr bmr = new BmrMaleOutput();
@@ -45,21 +43,18 @@ public class BmrCalc extends javax.swing.JFrame {
                 activeCheck(bmr);
                 
             }
-                //Pop up error if gender is not selected
                 else{JOptionPane.showMessageDialog(null, "Please select Male or Female");}
         });
     }
     
     DecimalFormat fmt = new DecimalFormat("#");
     
-    //Method to load entered user info into the bmr objects
     public void setInfo(Bmr bmr){
         bmr.setAge(Integer.parseInt(txtAge.getText()));
         bmr.setHeight(Integer.parseInt(txtHeight.getText()));
         bmr.setWeight(Integer.parseInt(txtWeight.getText()));
     }
     
-    //Method to increase calolries if Active checkbox is selected
     public void activeCheck(Bmr bmr){
         if(chkActive.isSelected()){
             txtBmrOutput.setText(fmt.format((bmr.getBmr() + 500)));
