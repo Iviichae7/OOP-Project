@@ -6,7 +6,6 @@ import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserHealthMetricsManager;
 import goodhealthwellbeing.output.HealthMetricsOutput;
 import goodhealthwellbeing.view.ui.Modules;
-import org.jetbrains.annotations.NotNull;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -692,7 +691,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         targetGoalOutput.setText("Lose Weight");
     }
 
-    private @NotNull String getSelectedHealthGoal() {
+    private String getSelectedHealthGoal() {
         return healthmetricsRadioLoseWeight.isSelected() ? "Lose Weight" :
                 (healthmetricsRadioGainWeight.isSelected() ? "Gain Weight" :
                         (healthmetricsRadioStayHealthy.isSelected() ? "Stay Healthy" :
