@@ -62,25 +62,25 @@ public class HealthMetricsHistoryManager {
     /**
      * Builds a formatted string to the file from the HealthMetricsOutput and health goal.
      *
-     * @param output The HealthMetricsOutput object to format.
+     * @param output     The HealthMetricsOutput object to format.
      * @param healthGoal The health goal of the user for example "Lose Weight", "Gain weight" etc.
      * @return A formatted string.
      */
     private String buildContent(HealthMetricsOutput output, String healthGoal) {
-        return 
-               "_".repeat(40) + "\n" +
-               "User Input\n" +
-               "Weight: " + output.weightOutput + "\n" +
-               "Steps: " + output.stepsOutput + "\n" +
-               "Target Weight: " + output.targetOutput + "\n" +
-               "Exercise Duration: " + output.durationOutput + "\n\n" +
-               "Recommendations for User\n" +
-               "Health Goal: " + healthGoal + "\n" +
-               "Target Weight: " + output.targetWeight + "\n" +
-               "Target Steps: " + output.targetSteps + "\n" +
-               "Target Duration: " + output.targetDuration + "\n" +
-               "_".repeat(40) + "\n";
+        return
+                "_".repeat(40) + "\n" +
+                        "User Input\n" +
+                        "Weight: " + output.weightOutput + "\n" +
+                        "Steps: " + output.stepsOutput + "\n" +
+                        "Target Weight: " + output.targetOutput + "\n" +
+                        "Exercise Duration: " + output.durationOutput + "\n\n" +
+                        "Recommendations for User\n" +
+                        "Health Goal: " + healthGoal + "\n" +
+                        "Target Weight: " + output.targetWeight + "\n" +
+                        "Target Steps: " + output.targetSteps + "\n" +
+                        "Target Duration: " + output.targetDuration + "\n" +
+                        "_".repeat(40) + "\n";
     }
-    
+
 }
 

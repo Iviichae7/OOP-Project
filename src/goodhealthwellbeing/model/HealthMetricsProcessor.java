@@ -7,10 +7,6 @@ import goodhealthwellbeing.util.TargetStepCalculator;
 import goodhealthwellbeing.util.TargetWeightCalculator;
 
 /**
- * @author Michael Babik
-*/
-
-/**
  * This class is responsible for processing health metrics inputs.
  * It uses different calculators to compute target steps exercise duration and target weight based on user inputs.
  */
@@ -51,6 +47,6 @@ public class HealthMetricsProcessor {
 
         // Creates and returns the HealthMetricsOutput POJO object with calculated values.
         return new HealthMetricsOutput(currentWeight + " kg", steps + " Steps", targetWeight + " kg", exerciseDuration,
-                                       targetWeightStr, targetSteps + " Steps", targetExerciseDuration);
+                targetWeightStr, targetSteps + " Steps", targetExerciseDuration);
     }
 }

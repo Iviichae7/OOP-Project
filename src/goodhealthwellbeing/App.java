@@ -11,10 +11,10 @@ import goodhealthwellbeing.view.ui.Login;
 public class App {
 
     public static void main(String[] args) {
-        
+
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
         });
     }
-    
+
 }

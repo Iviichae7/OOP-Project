@@ -1,11 +1,11 @@
 package goodhealthwellbeing.output;
 
-/**
- * @author Michael Babik
-*/
+/*
+  @author Michael Babik
+ */
 
 /**
- * Plain Old Java Object representing the output of health metrics. 
+ * Plain Old Java Object representing the output of health metrics.
  * It is used for encapsulating various health related metrics.
  */
 public class HealthMetricsOutput {
@@ -24,7 +24,7 @@ public class HealthMetricsOutput {
         this.durationOutput = durationOutput;
         this.stepsOutput = stepsOutput;
         this.targetOutput = targetOutput;
-        
+
         this.targetWeight = targetWeight;
         this.targetSteps = targetSteps;
         this.targetDuration = targetDuration;
