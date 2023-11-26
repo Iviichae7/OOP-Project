@@ -10,14 +10,14 @@ import goodhealthwellbeing.view.ui.Modules;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.ButtonGroup;
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane;
+import java.util.function.Consumer;
 
 public class HealthMetrics extends javax.swing.JFrame {
-    
-    private final ButtonGroup buttonGroup;
+
+    private final ButtonGroup buttonGroup = new ButtonGroup();;
     private final User currentUser;
     private final HealthMetricsProcessor processor = new HealthMetricsProcessor();
     private final UserHealthMetricsManager metricsManager = new UserHealthMetricsManager();
@@ -26,104 +26,139 @@ public class HealthMetrics extends javax.swing.JFrame {
     public HealthMetrics(User user) {
         this.currentUser = user;
         initComponents();
-        
-        buttonGroup = new ButtonGroup();
+        setupUI();
+        this.setLocationRelativeTo(null);
+    }
+
+    // Setting up the UI components and displaying the current user.
+    private void setupUI() {
+        setupButtonGroup();
+        setupActionListeners();
+        setupInputFieldValidation();
+        displayCurrentUser();
+    }
+
+    // Displays the current users full name.
+    private void displayCurrentUser() {
+        if (currentUser != null) {
+            currentUserLabel2.setText(currentUser.getFullName());
+        }
+    }
+
+    // Sets up the button group for health goals lose weight, gain weight etc. lose weight by default.
+    private void setupButtonGroup() {
         buttonGroup.add(healthmetricsRadioLoseWeight);
         buttonGroup.add(healthmetricsRadioGainWeight);
         buttonGroup.add(healthmetricsRadioStayHealthy);
         healthmetricsRadioLoseWeight.setSelected(true);
-        
-        if (currentUser != null) {
-            currentUserLabel2.setText(currentUser.getFullName());
+    }
+
+    // Sets up the listeners for all of the buttons. Save, reset and history.
+    private void setupActionListeners() {
+        healthmetricsSaveBtn.addActionListener(this::healthmetricsSaveBtnActionPerformed);
+        healthmetricsResetBtn.addActionListener(this::healthmetricsResetBtnActionPerformed);
+        healthmetricHistoryBtn.addActionListener(this::healthmetricHistoryBtnActionPerformed);
+        hmBackBtn.addActionListener(this::hmBackBtnActionPerformed);
+    }
+
+    // Validation key listeners for the input fields
+    private void setupInputFieldValidation() {
+        setupKeyListener(healthmetricsCurrentWeightInput, this::validateWeightInput);
+        setupKeyListener(healthmetricsStepsInput, this::validateStepsInput);
+        setupKeyListener(healthmetricsTargetWeightInput, this::validateTargetWeightInput);
+        setupKeyListener(healthmetricsExcerciseInput, this::validateExerciseInput);
+    }
+
+    /**
+     * A key listener for a given JTextField to perform custom validation logic.
+     * Whenever a key is released in the text field the current text of the field
+     * is retrieved and passed to the specified validation logic.
+     * Listening to key release events and a Consumer interface to abstract the validation logic.
+     */
+    private void setupKeyListener(JTextField field, Consumer<String> validationLogic) {
+        field.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                validationLogic.accept(field.getText());
+            }
+        });
+    }
+
+    // Visual Validation logic for the weight input field.
+    private void validateWeightInput(String input) {
+
+        try {
+            int weight = Integer.parseInt(input);
+            boolean isValid = weight > 0 && weight <= 200;
+            invalidWeight.setVisible(!isValid);
+
+            if (!isValid) {
+                invalidWeight.setText("Invalid Weight entered!");
+            } else {
+                invalidWeight.setText("");
+            }
+        } catch (NumberFormatException ex) {
+            invalidWeight.setVisible(true);
+            invalidWeight.setText("Invalid format.");
         }
-        
-        this.setLocationRelativeTo(null);
+    }
 
-        healthmetricsSaveBtn.addActionListener((java.awt.event.ActionEvent evt) -> {
-            healthmetricsSaveBtnActionPerformed(evt);
-        });
-        
-        healthmetricsCurrentWeightInput.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                String inputText = healthmetricsCurrentWeightInput.getText();
+    // Visual Validation logic for the steps input field.
+    private void validateStepsInput(String input) {
 
-                try {
-                    int weight = Integer.parseInt(inputText);
-                    boolean isValid = weight > 0 && weight <= 200;
-                    invalidWeight.setVisible(!isValid);
-                    if (!isValid) {
-                        invalidWeight.setText("Invalid Weight entered!");
-                    } else {
-                        invalidWeight.setText("");
-                    }
-                } catch (NumberFormatException ex) {
-                    invalidWeight.setVisible(true);
-                    invalidWeight.setText("Invalid format.");
-                }
-            }
-        });
-        
-        healthmetricsStepsInput.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-                String inputText = healthmetricsStepsInput.getText();
+        try {
+            int steps = Integer.parseInt(input);
+            boolean isValid = steps >= 0 && steps <= 40000;
+            invalidSteps.setVisible(!isValid);
 
-                try {
-                    int steps = Integer.parseInt(inputText);
-                    boolean isValid = steps >= 0 && steps <= 40000;
-                    invalidSteps.setVisible(!isValid);
-                    if (!isValid) {
-                        invalidSteps.setText("Must be 0 - 40,000.");
-                    } else {
-                        invalidSteps.setText("");
-                    }
-                } catch (NumberFormatException ex) {
-                    invalidSteps.setVisible(true);
-                    invalidSteps.setText("Invalid format.");
-                }
+            if (!isValid) {
+                invalidSteps.setText("Must be 0 - 40,000.");
+            } else {
+                invalidSteps.setText("");
             }
-        });
-        
-        healthmetricsTargetWeightInput.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                try {
-                    int targetWeight = Integer.parseInt(healthmetricsTargetWeightInput.getText());
-                    int currentWeight = Integer.parseInt(healthmetricsCurrentWeightInput.getText());
-                    boolean isValid = targetWeight >= currentWeight - 30 && targetWeight <= currentWeight + 30;
-                    invalidTargetWeight.setVisible(!isValid);
-                    if (!isValid) {
-                        invalidTargetWeight.setText("Goal unachievable.");
-                    } else {
-                        invalidTargetWeight.setText("");
-                    }
-                } catch (NumberFormatException ex) {
-                    invalidTargetWeight.setVisible(true);
-                    invalidTargetWeight.setText("Invalid format.");
-                }
+        } catch (NumberFormatException ex) {
+            invalidSteps.setVisible(true);
+            invalidSteps.setText("Invalid format.");
+        }
+    }
+
+    // Visual Validation logic for the target weight input field.
+    private void validateTargetWeightInput(String input) {
+
+        try {
+            int targetWeight = Integer.parseInt(input);
+            int currentWeight = Integer.parseInt(healthmetricsCurrentWeightInput.getText());
+            boolean isValid = targetWeight >= currentWeight - 30 && targetWeight <= currentWeight + 30;
+            invalidTargetWeight.setVisible(!isValid);
+
+            if (!isValid) {
+                invalidTargetWeight.setText("Goal unachievable.");
+            } else {
+                invalidTargetWeight.setText("");
             }
-        });
-        
-        healthmetricsExcerciseInput.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                try {
-                    int exerciseMinutes = Integer.parseInt(healthmetricsExcerciseInput.getText());
-                    boolean isValid = exerciseMinutes > 0 && exerciseMinutes <= 180;
-                    invalidTime.setVisible(!isValid);
-                    if (!isValid) {
-                        invalidTime.setText("Must be 0 - 180 minutes.");
-                    } else {
-                        invalidTime.setText("");
-                    }
-                } catch (NumberFormatException ex) {
-                    invalidTime.setVisible(true);
-                    invalidTime.setText("Invalid format.");
-                }
+        } catch (NumberFormatException ex) {
+            invalidTargetWeight.setVisible(true);
+            invalidTargetWeight.setText("Invalid format.");
+        }
+    }
+
+    // Visual Validation logic for the exercise minutes input field.
+    private void validateExerciseInput(String input) {
+
+        try {
+            int exerciseMinutes = Integer.parseInt(input);
+            boolean isValid = exerciseMinutes > 0 && exerciseMinutes <= 180;
+            invalidTime.setVisible(!isValid);
+
+            if (!isValid) {
+                invalidTime.setText("Must be 0 - 180 minutes.");
+            } else {
+                invalidTime.setText("");
             }
-        });
+        } catch (NumberFormatException ex) {
+            invalidTime.setVisible(true);
+            invalidTime.setText("Invalid format.");
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -371,11 +406,6 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricHistoryBtn.setBorder(null);
         healthmetricHistoryBtn.setBorderPainted(false);
         healthmetricHistoryBtn.setContentAreaFilled(false);
-        healthmetricHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthmetricHistoryBtnActionPerformed(evt);
-            }
-        });
 
         seperator1.setForeground(new java.awt.Color(204, 204, 204));
 
@@ -572,26 +602,32 @@ public class HealthMetrics extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Back button to return to the modules page.
     private void hmBackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmBackBtnActionPerformed
         Modules modules = Modules.getInstance();
         modules.setVisible(true);
-        
         this.dispose();
     }//GEN-LAST:event_hmBackBtnActionPerformed
 
+    // Save button to save the current user's health metrics.
     private void healthmetricsSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricsSaveBtnActionPerformed
+        // Get the user input.
         String currentWeightStr = healthmetricsCurrentWeightInput.getText();
         String stepsStr = healthmetricsStepsInput.getText();
         String targetWeightStr = healthmetricsTargetWeightInput.getText();
         String exerciseMinutesStr = healthmetricsExcerciseInput.getText();
         String healthGoal = getSelectedHealthGoal();
-        
+
+        // Validate the inputs.
         if (!validateInputs(currentWeightStr, stepsStr, targetWeightStr, exerciseMinutesStr)) {
             return;
         }
 
+        // Process the inputs and display the outputs.
         HealthMetricsOutput output = processor.processInputs(currentWeightStr, stepsStr, targetWeightStr, healthGoal, exerciseMinutesStr);
         displayOutputs(output);
+
+        // Save the users health metrics.
         metricsManager.saveUserMetrics(currentUser, output);
     }//GEN-LAST:event_healthmetricsSaveBtnActionPerformed
 
@@ -600,14 +636,16 @@ public class HealthMetrics extends javax.swing.JFrame {
      * Ensures that the inputs are within specified valid ranges and are in the correct format.
      */
     private boolean validateInputs(String currentWeightStr, String stepsStr, String targetWeightStr, String exerciseMinutesStr) {
+
         try {
             int currentWeight = Integer.parseInt(currentWeightStr);
             int steps = Integer.parseInt(stepsStr);
             int targetWeight = Integer.parseInt(targetWeightStr);
             int exerciseMinutes = Integer.parseInt(exerciseMinutesStr);
-            
+
             errorData.setText("");
 
+            // The actual validation logic for the inputs, where if the inputs are invalid the user cant save and an error message is displayed.
             return !(currentWeight <= 0 || currentWeight > 200 ||
                      steps < 0 || steps > 40000 ||
                      targetWeight < currentWeight - 30 ||
@@ -619,8 +657,13 @@ public class HealthMetrics extends javax.swing.JFrame {
         }
     }
 
-    
+    /**
+     * Writes the current health metrics to a file and read the file in text file format.
+     * The file is located in the data folder of the project.
+     */
     private void healthmetricHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricHistoryBtnActionPerformed
+
+        // Get the current health metrics.
         HealthMetricsOutput output = new HealthMetricsOutput(
             weightOutput.getText(),
             stepsOutput.getText(),
@@ -632,76 +675,79 @@ public class HealthMetrics extends javax.swing.JFrame {
         );
         String healthGoal = getSelectedHealthGoal();
 
+        // Write the metrics to a file.
         try {
             historyManager.writeMetricsToFile(output, healthGoal);
-
-            String fileContent = historyManager.readMetricsFromFile();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error while writing/reading the file: " + e.getMessage(),
                 "File Error", JOptionPane.ERROR_MESSAGE);
         }
 
+        // Open the txt file
         try {
             File file = new File("OOP-Project/src/goodhealthwellbeing/data/healthmetrics_history.txt");
+            // Check if the file is supported on the system.
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
                 Desktop.getDesktop().open(file);
             } else {
                 JOptionPane.showMessageDialog(this, "Not supported on your system.",
-                    "Unsupported Operation", JOptionPane.ERROR_MESSAGE);
+                        "Unsupported Operation", JOptionPane.ERROR_MESSAGE);
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error while opening the file: " + e.getMessage(),
-                "File Error", JOptionPane.ERROR_MESSAGE);
+                    "File Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_healthmetricHistoryBtnActionPerformed
 
+    // Reset button to reset all of the input and output fields.
     private void healthmetricsResetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthmetricsResetBtnActionPerformed
+        resetInputs();
+        resetOutputs();
+        buttonGroup.clearSelection();
+        healthmetricsRadioLoseWeight.setSelected(true);
+    }//GEN-LAST:event_healthmetricsResetBtnActionPerformed
+
+    // Resets all of the input fields.
+    private void resetInputs() {
         healthmetricsCurrentWeightInput.setText("");
         healthmetricsStepsInput.setText("");
         healthmetricsTargetWeightInput.setText("");
         healthmetricsExcerciseInput.setText("");
-
-        weightOutput.setText("Weight");
-        stepsOutput.setText("Steps");
-        targetOutput.setText("Target");
-        durationOutput.setText("Duration");
-
-        weightGoalOutput.setText("TargetWeight");
-        stepsGoalOutput.setText("TargetSteps");
-        durationGoalOutput.setText("TargetDuration");
-        targetGoalOutput.setText("Lose Weight");
-
         invalidWeight.setText("");
         invalidSteps.setText("");
         invalidTargetWeight.setText("");
         invalidTime.setText("");
         errorData.setText("");
-
-        buttonGroup.clearSelection();
-        healthmetricsRadioLoseWeight.setSelected(true);
-    }//GEN-LAST:event_healthmetricsResetBtnActionPerformed
-
-    private String getSelectedHealthGoal() {
-        if (healthmetricsRadioLoseWeight.isSelected()) {
-            return "Lose Weight";
-        } else if (healthmetricsRadioGainWeight.isSelected()) {
-            return "Gain Weight";
-        } else if (healthmetricsRadioStayHealthy.isSelected()) {
-            return "Stay Healthy";
-        }
-        return "";
     }
 
+    // Resets all of the output fields.
+    private void resetOutputs() {
+        weightOutput.setText("Weight");
+        stepsOutput.setText("Steps");
+        targetOutput.setText("Target");
+        durationOutput.setText("Duration");
+        weightGoalOutput.setText("TargetWeight");
+        stepsGoalOutput.setText("TargetSteps");
+        durationGoalOutput.setText("TargetDuration");
+        targetGoalOutput.setText("Lose Weight");
+    }
+
+    // Save button to save the current users health metrics.
+    private String getSelectedHealthGoal() {
+        return healthmetricsRadioLoseWeight.isSelected() ? "Lose Weight" :
+                (healthmetricsRadioGainWeight.isSelected() ? "Gain Weight" :
+                        (healthmetricsRadioStayHealthy.isSelected() ? "Stay Healthy" :
+                                ""));
+    }
+
+    // Displays the outputs for the current users health metrics.
     private void displayOutputs(HealthMetricsOutput output) {
         weightOutput.setText(output.weightOutput);
         stepsOutput.setText(output.stepsOutput);
         targetOutput.setText(output.targetOutput);
         durationOutput.setText(output.durationOutput);
-
         weightGoalOutput.setText(healthmetricsTargetWeightInput.getText() + " kg");
-
         targetGoalOutput.setText(getSelectedHealthGoal());
-
         durationGoalOutput.setText(output.targetDuration);
         stepsGoalOutput.setText(output.targetSteps);
     }

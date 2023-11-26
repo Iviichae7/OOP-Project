@@ -2,16 +2,17 @@ package goodhealthwellbeing.util;
 
 /**
  * @author Michael Babik
-*/
+ */
 
 public class DurationFormatter {
 
-    
+
     /**
      * Converts a string minutes into a formatted string showing
-     * the equivalent duration in hours and minutes. 
-     * @param minutesInput
-     * @return 
+     * the equivalent duration in hours and minutes.
+     * @param minutesInput the string to be converted
+     *                     into hours and minutes
+     *                     e.g. "120" -> "2 hrs 0 mins".
      */
     public static String convertMinutesToHoursAndMinutes(String minutesInput) {
         try {

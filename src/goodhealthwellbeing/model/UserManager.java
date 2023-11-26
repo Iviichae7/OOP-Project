@@ -18,8 +18,7 @@ public class UserManager {
 
     /**
      * A method to get the instance of the UserManager class.
-     * 
-     * @return
+     * If the instance is null it creates a new instance of the UserManager class.
      */
     public static UserManager getUser() {
         if (userInstance == null) {
@@ -33,7 +32,7 @@ public class UserManager {
      * exist.
      * If a user with the same email address already exists in the collection
      * the new user is not added to prevent duplicates.
-     * 
+     *
      * @param user
      */
     public void addUser(User user) {
@@ -48,7 +47,7 @@ public class UserManager {
      * Loops through the collection of users and returns the user whose email
      * matches the provided email address. If no matching user is found, returns
      * null.
-     * 
+     *
      * @param email
      * @return
      */
@@ -66,7 +65,7 @@ public class UserManager {
      * First it retrieve a user with the given email. If the user is found
      * it then checks if the provided password matches the user's password. If both
      * the email and password are correct it returns true, otherwise false.
-     * 
+     *
      * @param email
      * @param password
      * @return
@@ -79,7 +78,7 @@ public class UserManager {
         }
         return false;
     }
-    
+
     // Method to set the current user
     public void setCurrentUser(User user) {
         this.currentUser = user;

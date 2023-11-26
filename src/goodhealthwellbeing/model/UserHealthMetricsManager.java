@@ -4,8 +4,8 @@ import goodhealthwellbeing.output.HealthMetricsOutput;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Michael Babik
+/*
+  @author Michael Babik
 */
 
 /**
@@ -17,7 +17,7 @@ public class UserHealthMetricsManager {
 
     // A map to store users health metrics with their email as the key.
     // The maps value is an instance of HealthMetricsOutput representing the health metrics for that user.
-    private Map<String, HealthMetricsOutput> userHealthMetrics;
+    private final Map<String, HealthMetricsOutput> userHealthMetrics;
 
     public UserHealthMetricsManager() {
         userHealthMetrics = new HashMap<>();
