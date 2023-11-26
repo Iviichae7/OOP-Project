@@ -62,6 +62,8 @@ public class BmrCalc extends javax.swing.JFrame {
             txtBmrOutput.setText(fmt.format((bmr.getBmr())));
         }
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,6 +174,7 @@ public class BmrCalc extends javax.swing.JFrame {
         txtWeight.setBounds(500, 290, 210, 40);
 
         txtBmrOutput.setEditable(false);
+        txtBmrOutput.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         bmrCalcMainPanel.add(txtBmrOutput);
         txtBmrOutput.setBounds(480, 420, 240, 50);
 

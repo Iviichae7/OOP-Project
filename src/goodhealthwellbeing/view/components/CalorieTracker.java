@@ -1,8 +1,8 @@
 
 package goodhealthwellbeing.view.components;
 
-import goodhealthwellbeing.util.CalorieList;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 /**
  * Nutrition.java
@@ -10,11 +10,13 @@ import java.awt.event.ActionEvent;
  */
 public class CalorieTracker extends javax.swing.JFrame {
 
+    private int totalCalories;
     /**
      * Creates new form CalorieTracker
      */
-    public CalorieTracker() {
+    public CalorieTracker(){
         initComponents();
+        totalCalories = 0;
         
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
@@ -23,11 +25,28 @@ public class CalorieTracker extends javax.swing.JFrame {
         });
         
         btnCalorieAdd.addActionListener((ActionEvent e) -> {
-            CalorieList calList = CalorieList.getInstance();
-            calList.addCalories(Integer.parseInt(calorieInput.getText()));
+            
+            calories.add(calorieInput.getText());
+            totalCalories = 0;
+            calorieInput.setText("");
+            for(int i = 0; i < calories.size(); i++){
+                totalCalories += Integer.parseInt(calories.get(i));
+            }
+            txtTotalCalories.setText(Integer.toString(totalCalories));
+            
+        });
+        
+        btnAddDay.addActionListener((ActionEvent e) -> {
+            
+        });
+        
+        btnCalorieAdd.addActionListener((ActionEvent e) -> {
+            
         });
     }
-
+    
+    public ArrayList<String> calories = new ArrayList<>();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +66,7 @@ public class CalorieTracker extends javax.swing.JFrame {
         lblPrompt2 = new javax.swing.JLabel();
         lblTotalCalories = new javax.swing.JLabel();
         calorieInput = new javax.swing.JFormattedTextField();
-        totalCalories = new javax.swing.JFormattedTextField();
+        txtTotalCalories = new javax.swing.JFormattedTextField();
         btnHistory = new javax.swing.JButton();
         btnAddDay = new javax.swing.JButton();
 
@@ -147,14 +166,15 @@ public class CalorieTracker extends javax.swing.JFrame {
         calorieTrackerMainPanel.add(calorieInput);
         calorieInput.setBounds(480, 150, 240, 50);
 
-        totalCalories.setEditable(false);
-        totalCalories.addActionListener(new java.awt.event.ActionListener() {
+        txtTotalCalories.setEditable(false);
+        txtTotalCalories.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtTotalCalories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalCaloriesActionPerformed(evt);
+                txtTotalCaloriesActionPerformed(evt);
             }
         });
-        calorieTrackerMainPanel.add(totalCalories);
-        totalCalories.setBounds(480, 340, 240, 50);
+        calorieTrackerMainPanel.add(txtTotalCalories);
+        txtTotalCalories.setBounds(480, 340, 240, 50);
 
         btnHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_history.png"))); // NOI18N
         btnHistory.setContentAreaFilled(false);
@@ -208,9 +228,9 @@ public class CalorieTracker extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_calorieInputActionPerformed
 
-    private void totalCaloriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCaloriesActionPerformed
+    private void txtTotalCaloriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalCaloriesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalCaloriesActionPerformed
+    }//GEN-LAST:event_txtTotalCaloriesActionPerformed
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
@@ -248,10 +268,8 @@ public class CalorieTracker extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CalorieTracker().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CalorieTracker().setVisible(true);
         });
     }
 
@@ -268,6 +286,6 @@ public class CalorieTracker extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalCalories;
     private javax.swing.JLabel loginLogo;
     private javax.swing.JLabel logoRights;
-    private javax.swing.JFormattedTextField totalCalories;
+    private javax.swing.JFormattedTextField txtTotalCalories;
     // End of variables declaration//GEN-END:variables
 }
