@@ -4,18 +4,40 @@
  */
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.model.StressAndAnxiety;
+import javax.swing.JOptionPane;
+
 /**
  *
  * MD MAHMUDUL HASAN
  */
-public class StressAndAnxiety extends javax.swing.JFrame {
+public class StressAndAnxietyGUI extends javax.swing.JFrame {
+    
+    private final StressAndAnxiety stressAndAnxiety;
 
     /**
      * Creates new form StressAndAnxiety
      */
-    public StressAndAnxiety() {
+    public StressAndAnxietyGUI() {
         initComponents();
         setLocationRelativeTo(null);
+        stressAndAnxiety = new StressAndAnxiety();
+    }
+    
+    private void handleSubmit(){
+         // Get user input from GUI and save in separate variables
+            String answer1 = jTextField1.getText().toLowerCase();
+            String answer2 = jTextField2.getText().toLowerCase();
+            String answer3 = jTextField3.getText().toLowerCase();
+            String answer4 = jTextField4.getText().toLowerCase();
+            String answer5 = jTextField5.getText().toLowerCase();
+            String completeAnswer = answer1 + " " + answer2 + " " + answer3 + " " + answer4 + " " + answer5;
+            
+        stressAndAnxiety.setAnswer(completeAnswer);
+        stressAndAnxiety.checkLevel();
+        int level=stressAndAnxiety.getLevel();
+        String message=stressAndAnxiety.getMessage();
+        JOptionPane.showMessageDialog(null, message+" Current level"+level);
     }
 
     /**
@@ -69,7 +91,7 @@ public class StressAndAnxiety extends javax.swing.JFrame {
 
         jTextField1.setText("yes/no");
 
-        jLabel4.setText(" 4. Are you having any panic attackes?");
+        jLabel4.setText(" 5. Are you having any panic attackes?");
 
         jTextField2.setText("yes/no");
 
@@ -86,6 +108,11 @@ public class StressAndAnxiety extends javax.swing.JFrame {
         jTextField5.setText("yes/no");
 
         jButton1.setText("SUBMIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,6 +231,11 @@ public class StressAndAnxiety extends javax.swing.JFrame {
         mentalHealth.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        handleSubmit();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,20 +253,21 @@ public class StressAndAnxiety extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StressAndAnxiety.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StressAndAnxietyGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StressAndAnxiety.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StressAndAnxietyGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StressAndAnxiety.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StressAndAnxietyGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StressAndAnxiety.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StressAndAnxietyGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StressAndAnxiety().setVisible(true);
+                new StressAndAnxietyGUI().setVisible(true);
             }
         });
     }
