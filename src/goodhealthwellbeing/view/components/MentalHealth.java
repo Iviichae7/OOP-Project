@@ -153,7 +153,7 @@ public class MentalHealth extends javax.swing.JFrame {
     private void stressAndAnxietyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stressAndAnxietyBtnActionPerformed
         // TODO add your handling code here:
         dispose();
-        StressAndAnxiety stressAndAnxiety=new StressAndAnxiety();
+        StressAndAnxietyGUI stressAndAnxiety=new StressAndAnxietyGUI();
         stressAndAnxiety.setVisible(true);
     }//GEN-LAST:event_stressAndAnxietyBtnActionPerformed
 
