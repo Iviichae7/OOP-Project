@@ -25,7 +25,7 @@ public class StressAndAnxiety {
 
     public void setAnswer(String answer) {
         this.answer = answer;
-        System.out.println(answer);
+        
     }
     
     public void checkLevel(){
