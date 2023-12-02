@@ -4,19 +4,46 @@
  */
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.model.Depression;
+import javax.swing.JOptionPane;
+
 /**
  *
  * MD MAHMUDUL HASAN
  */
-public class Depression extends javax.swing.JFrame {
+public class DepressionGUI extends javax.swing.JFrame {
+    
+    
+    private final Depression depression;
+    
 
     /**
      * Creates new form Depression
      */
-    public Depression() {
+    public DepressionGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        depression=new Depression();
     }
+    
+    
+    private void handleSubmit(){
+         // Get user input from GUI and save in separate variables
+            String answer1 = jTextField1.getText().toLowerCase();
+            String answer2 = jTextField2.getText().toLowerCase();
+            String answer3 = jTextField3.getText().toLowerCase();
+            String answer4 = jTextField4.getText().toLowerCase();
+            String answer5 = jTextField5.getText().toLowerCase();
+            String completeAnswer = answer1 + " " + answer2 + " " + answer3 + " " + answer4 + " " + answer5;
+            
+        depression.setAnswer(completeAnswer);
+        depression.checkLevel();
+        int level=depression.getLevel();
+        String message=depression.getMessage();
+        JOptionPane.showMessageDialog(null, message+" Current level"+level);
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,6 +113,11 @@ public class Depression extends javax.swing.JFrame {
         jTextField5.setText("yes/no");
 
         jButton1.setText("SUBMIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,9 +233,14 @@ public class Depression extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
-        MentalHealth mentalHealth =new MentalHealth();
+        MentalHealthGUI mentalHealth =new MentalHealthGUI();
         mentalHealth.setVisible(true); 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        handleSubmit();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,20 +259,21 @@ public class Depression extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Depression.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepressionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Depression.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepressionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Depression.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepressionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Depression.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepressionGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Depression().setVisible(true);
+                new DepressionGUI().setVisible(true);
             }
         });
     }

@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 
 import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserManager;
-import goodhealthwellbeing.view.components.MentalHealth;
+import goodhealthwellbeing.view.components.MentalHealthGUI;
 import goodhealthwellbeing.view.components.HealthMetrics;
-import goodhealthwellbeing.view.components.MentalHealth;
+import goodhealthwellbeing.view.components.MentalHealthGUI;
 import goodhealthwellbeing.view.components.Nutrition;
 
 
@@ -166,7 +166,7 @@ public class Modules extends javax.swing.JFrame {
 
     private void modulesWellBeingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulesWellBeingBtnActionPerformed
         dispose();
-        MentalHealth mentalHealth =new MentalHealth();
+        MentalHealthGUI mentalHealth =new MentalHealthGUI();
         mentalHealth.setVisible(true);
 
     }//GEN-LAST:event_modulesWellBeingBtnActionPerformed

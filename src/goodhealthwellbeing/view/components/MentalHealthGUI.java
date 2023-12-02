@@ -10,12 +10,12 @@ import goodhealthwellbeing.view.ui.Modules;
  *
  *MD MAHMUDUL HASAN
  */
-public class MentalHealth extends javax.swing.JFrame {
+public class MentalHealthGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MentalHealth
      */
-    public MentalHealth() {
+    public MentalHealthGUI() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -59,7 +59,7 @@ public class MentalHealth extends javax.swing.JFrame {
         modulesRights.setForeground(new java.awt.Color(255, 255, 255));
         modulesRights.setText("© 2023 Good Health & Well Being. All Rights Reserved");
         loginLeftPanel.add(modulesRights);
-        modulesRights.setBounds(30, 431, 345, 17);
+        modulesRights.setBounds(30, 431, 346, 17);
 
         modulesMainPanel.add(loginLeftPanel);
         loginLeftPanel.setBounds(0, 0, 400, 500);
@@ -160,7 +160,7 @@ public class MentalHealth extends javax.swing.JFrame {
     private void depressionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depressionBtnActionPerformed
         // TODO add your handling code here:
         dispose();
-        Depression depression=new Depression();
+        DepressionGUI depression=new DepressionGUI();
         depression.setVisible(true);
     }//GEN-LAST:event_depressionBtnActionPerformed
 
@@ -203,20 +203,21 @@ public class MentalHealth extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MentalHealth.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MentalHealthGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MentalHealth.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MentalHealthGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MentalHealth.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MentalHealthGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MentalHealth.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MentalHealthGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MentalHealth().setVisible(true);
+                new MentalHealthGUI().setVisible(true);
             }
         });
     }

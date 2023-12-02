@@ -6,17 +6,14 @@ package goodhealthwellbeing.model;
 
 /**
  *
- * @MD MAHMUDUL HASAN
+ * @author macbook
  */
-
-public class StressAndAnxiety extends MentalHealth{
+public class Depression extends MentalHealth{
     
-    
-    public StressAndAnxiety(){
-        message="";
+    public Depression(){
         answer="";
+        message="";
         level=0;
-        
     }
 
     public String getAnswer() {
@@ -25,15 +22,14 @@ public class StressAndAnxiety extends MentalHealth{
 
     public void setAnswer(String answer) {
         this.answer = answer;
-        
     }
+
     
+    
+    @Override
     public void checkLevel(){
-         /*if (answer.equals("yes")) {
-            level++;
-        }*/
-         
-         String concatenatedAnswers = answer;
+        
+        String concatenatedAnswers = answer;
            // Split the concatenated string into individual answers
         String[] answers = concatenatedAnswers.split(" ");
         // Check each answer and increment the level for "yes"
@@ -48,15 +44,15 @@ public class StressAndAnxiety extends MentalHealth{
         
          if (level == 0 || level == 1) {
              
-            message="Your Stress level is low. Please follow our breathing excercise.";
+            message="Your depression level is low. Please follow our breathing excercise.";
             
         } else if (level == 2) {
             
-            message="Your stress level is moderate.";
+            message="Your depression level is moderate.";
             
         } else if (level == 3 || level <=5) {
             
-            message="Stress level High detected please go to find support section to get help now!";
+            message="Depression level High detected please go to find support section to get help now!";
             
         } else {
             
@@ -64,8 +60,10 @@ public class StressAndAnxiety extends MentalHealth{
         }
         
         
+        
     }
-
+    
+    
     public String getMessage() {
         return message;
     }
@@ -73,15 +71,4 @@ public class StressAndAnxiety extends MentalHealth{
     public int getLevel() {
         return level;
     }
-//    @Override
-//    public String toString(){
-//        
-//        return message+" "+level;
-//    }
-    
-
-    
-    
-     
-    
 }
