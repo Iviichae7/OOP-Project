@@ -69,7 +69,7 @@ public class Depression extends javax.swing.JFrame {
 
         jTextField1.setText("yes/no");
 
-        jLabel4.setText(" 4. Do you have any kind of suicidal thoughts?");
+        jLabel4.setText(" 5. Do you have any kind of suicidal thoughts?");
 
         jTextField2.setText("yes/no");
 
