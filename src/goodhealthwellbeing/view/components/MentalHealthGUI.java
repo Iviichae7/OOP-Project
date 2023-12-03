@@ -175,14 +175,14 @@ public class MentalHealthGUI extends javax.swing.JFrame {
     private void meditationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meditationBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Meditation meditation=new Meditation();
+        MeditationGUI meditation=new MeditationGUI();
         meditation.setVisible(true);
     }//GEN-LAST:event_meditationBtnActionPerformed
 
     private void supportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        FindSupport findSupport=new FindSupport();
+        FindSupportGUI findSupport=new FindSupportGUI();
         findSupport.setVisible(true);
     }//GEN-LAST:event_supportBtnActionPerformed
 

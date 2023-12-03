@@ -4,16 +4,19 @@
  */
 package goodhealthwellbeing.view.components;
 
+import java.awt.Desktop;
+import java.net.URI;
+
 /**
  *
- * @author macbook
+ * @MD MAHMUDUL HASAN
  */
-public class Meditation extends javax.swing.JFrame {
+public class MeditationGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Meditation
      */
-    public Meditation() {
+    public MeditationGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -68,6 +71,11 @@ public class Meditation extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,6 +125,14 @@ public class Meditation extends javax.swing.JFrame {
         mentalHealth.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+        Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=KQOAVZew5l8&ab_channel=PickUpLimes"));}
+        catch(Exception e)
+        {}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -134,20 +150,21 @@ public class Meditation extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Meditation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MeditationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Meditation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MeditationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Meditation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MeditationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Meditation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MeditationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Meditation().setVisible(true);
+                new MeditationGUI().setVisible(true);
             }
         });
     }
