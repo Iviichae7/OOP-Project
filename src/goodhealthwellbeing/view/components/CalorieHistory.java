@@ -3,7 +3,6 @@ package goodhealthwellbeing.view.components;
 import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -18,6 +17,7 @@ public class CalorieHistory extends javax.swing.JFrame {
      TotalCaloriesList tcl;
     /**
      * Creates new form CalorieHistory
+     * @throws java.io.FileNotFoundException
      */
     public CalorieHistory() throws FileNotFoundException {
         initComponents();
@@ -40,7 +40,7 @@ public class CalorieHistory extends javax.swing.JFrame {
     {
         dlm.clear();
         
-        for(int i = 0; i < tcl.getCalories().size(); i++)
+        for(int i = 1; i < tcl.getCalories().size(); i++)
         {
             dlm.addElement(tcl.getCalories().get(i));
         }
@@ -182,6 +182,7 @@ public class CalorieHistory extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 try {
                     new CalorieHistory().setVisible(true);
