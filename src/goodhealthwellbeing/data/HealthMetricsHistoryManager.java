@@ -1,7 +1,8 @@
 package goodhealthwellbeing.data;
 
 import goodhealthwellbeing.output.HealthMetricsOutput;
-
+import goodhealthwellbeing.model.User;
+import java.util.List;
 import java.io.*;
 import java.nio.file.*;
 import java.util.stream.Collectors;
@@ -16,10 +17,9 @@ import java.util.stream.Collectors;
  */
 public class HealthMetricsHistoryManager {
 
-    private static final String FILE_PATH = "OOP-Project/src/goodhealthwellbeing/data/healthmetrics_history.txt";
+    private static final String FILE_PATH = "src/goodhealthwellbeing/data/healthmetrics_history.txt";
 
-    public void writeMetricsToFile(HealthMetricsOutput output, String healthGoal) throws IOException {
-
+    public void writeMetricsToFile(HealthMetricsOutput output, String healthGoal, User user) throws IOException {
         // Creates the string path into a path object
         Path path = Paths.get(FILE_PATH);
 
@@ -30,7 +30,7 @@ public class HealthMetricsHistoryManager {
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
 
             // Builds the string
-            String content = buildContent(output, healthGoal);
+            String content = buildContent(output, healthGoal, user);
 
             // Writes the content to the file.
             writer.write(content);
@@ -38,6 +38,10 @@ public class HealthMetricsHistoryManager {
             // Adds a new line for separation between entries.
             writer.newLine();
         }
+    }
+
+    public String getFilePath() {
+        return FILE_PATH;
     }
 
     /**
@@ -59,6 +63,18 @@ public class HealthMetricsHistoryManager {
         }
     }
 
+    public void deleteUserMetrics(User user) throws IOException {
+        Path path = Paths.get(FILE_PATH);
+        if (!Files.exists(path)) {
+            throw new FileNotFoundException("The file " + FILE_PATH + " does not exist.");
+        }
+
+        List<String> lines = Files.readAllLines(path);
+        lines.removeIf(line -> line.contains(user.getEmail()));
+        lines.removeIf(line -> line.contains(user.getFullName()));
+        Files.write(path, lines);
+    }
+
     /**
      * Builds a formatted string to the file from the HealthMetricsOutput and health goal.
      *
@@ -66,15 +82,16 @@ public class HealthMetricsHistoryManager {
      * @param healthGoal The health goal of the user for example "Lose Weight", "Gain weight" etc.
      * @return A formatted string.
      */
-    private String buildContent(HealthMetricsOutput output, String healthGoal) {
+    private String buildContent(HealthMetricsOutput output, String healthGoal, User user) {
         return
                 "_".repeat(40) + "\n" +
+                        "User Email: " + user.getEmail() + "\n" +
                         "User Input\n" +
                         "Weight: " + output.weightOutput + "\n" +
                         "Steps: " + output.stepsOutput + "\n" +
                         "Target Weight: " + output.targetOutput + "\n" +
                         "Exercise Duration: " + output.durationOutput + "\n\n" +
-                        "Recommendations for User\n" +
+                        "Recommendations for User: " + user.getFullName() + "\n" +
                         "Health Goal: " + healthGoal + "\n" +
                         "Target Weight: " + output.targetWeight + "\n" +
                         "Target Steps: " + output.targetSteps + "\n" +

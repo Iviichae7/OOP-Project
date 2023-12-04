@@ -1,8 +1,15 @@
 package goodhealthwellbeing.model;
 
 import goodhealthwellbeing.output.HealthMetricsOutput;
+import goodhealthwellbeing.data.HealthMetricsHistoryManager;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.nio.file.*;
+import java.io.FileNotFoundException;
+
 
 /*
   @author Michael Babik
@@ -37,5 +44,18 @@ public class UserHealthMetricsManager {
      */
     public HealthMetricsOutput getUserMetrics(User user) {
         return userHealthMetrics.get(user.getEmail());
+    }
+
+    public void deleteUserMetrics(User user) throws IOException, IOException {
+        HealthMetricsHistoryManager historyManager = new HealthMetricsHistoryManager();
+        String filePath = historyManager.getFilePath();
+        Path path = Paths.get(filePath);
+        if (!Files.exists(path)) {
+            throw new FileNotFoundException("The file " + filePath + " does not exist.");
+        }
+
+        List<String> lines = Files.readAllLines(path);
+        lines.removeIf(line -> line.contains(user.getEmail())); // Assuming the user's email is unique and is written in the file
+        Files.write(path, lines);
     }
 }

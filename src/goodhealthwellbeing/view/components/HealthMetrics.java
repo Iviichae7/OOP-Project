@@ -9,6 +9,7 @@ import goodhealthwellbeing.view.ui.Modules;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -59,6 +60,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsResetBtn.addActionListener(this::healthmetricsResetBtnActionPerformed);
         healthmetricHistoryBtn.addActionListener(this::healthmetricHistoryBtnActionPerformed);
         hmBackBtn.addActionListener(this::hmBackBtnActionPerformed);
+        deleteBtn.addActionListener(this::deleteBtnActionPerformed);
     }
 
     // Validation key listeners for the input fields
@@ -213,6 +215,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         invalidSteps = new javax.swing.JLabel();
         errorData = new javax.swing.JLabel();
         healthmetricsResetBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -398,36 +401,74 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         healthmetricsRightPanel.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRightPanel.setPreferredSize(new java.awt.Dimension(500, 500));
+        healthmetricsRightPanel.setLayout(null);
 
         healthmetricsHistoryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         healthmetricsHistoryLabel.setText("History");
+        healthmetricsRightPanel.add(healthmetricsHistoryLabel);
+        healthmetricsHistoryLabel.setBounds(36, 336, 70, 30);
 
         healthmetricHistoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
         healthmetricHistoryBtn.setBorder(null);
         healthmetricHistoryBtn.setBorderPainted(false);
         healthmetricHistoryBtn.setContentAreaFilled(false);
+//        healthmetricHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                healthmetricHistoryBtnActionPerformed(evt);
+//            }
+//        });
+        healthmetricsRightPanel.add(healthmetricHistoryBtn);
+        healthmetricHistoryBtn.setBounds(36, 384, 409, 60);
 
         seperator1.setForeground(new java.awt.Color(204, 204, 204));
+        healthmetricsRightPanel.add(seperator1);
+        seperator1.setBounds(112, 349, 331, 19);
+        healthmetricsRightPanel.add(seperator2);
+        seperator2.setBounds(36, 17, 140, 13);
+        healthmetricsRightPanel.add(seperator3);
+        seperator3.setBounds(295, 17, 150, 13);
 
         healthmetricsCurrentWeightLabel.setText("Current Weight");
+        healthmetricsRightPanel.add(healthmetricsCurrentWeightLabel);
+        healthmetricsCurrentWeightLabel.setBounds(36, 56, 164, 17);
+        healthmetricsRightPanel.add(healthmetricsCurrentWeightInput);
+        healthmetricsCurrentWeightInput.setBounds(36, 78, 168, 26);
 
         healthmetricsTargetWeightLabel.setText("Target Weight");
+        healthmetricsRightPanel.add(healthmetricsTargetWeightLabel);
+        healthmetricsTargetWeightLabel.setBounds(36, 130, 168, 17);
+        healthmetricsRightPanel.add(healthmetricsExcerciseInput);
+        healthmetricsExcerciseInput.setBounds(270, 151, 170, 30);
 
         healthmetricsStepsLabel.setText("Steps per Day");
+        healthmetricsRightPanel.add(healthmetricsStepsLabel);
+        healthmetricsStepsLabel.setBounds(270, 56, 170, 20);
 
         healthmetricsStepsInput.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         healthmetricsStepsInput.setMinimumSize(new java.awt.Dimension(15, 24));
+        healthmetricsRightPanel.add(healthmetricsStepsInput);
+        healthmetricsStepsInput.setBounds(270, 78, 170, 26);
 
         healthmetricsExcerciseLabel.setText("Excercise Duration");
+        healthmetricsRightPanel.add(healthmetricsExcerciseLabel);
+        healthmetricsExcerciseLabel.setBounds(270, 130, 170, 17);
+        healthmetricsRightPanel.add(healthmetricsTargetWeightInput);
+        healthmetricsTargetWeightInput.setBounds(36, 151, 168, 30);
 
         healthmetricsRadioLoseWeight.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioLoseWeight.setText("Lose Weight");
+        healthmetricsRightPanel.add(healthmetricsRadioLoseWeight);
+        healthmetricsRadioLoseWeight.setBounds(36, 227, 134, 21);
 
         healthmetricsRadioGainWeight.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioGainWeight.setText("Gain Weight");
+        healthmetricsRightPanel.add(healthmetricsRadioGainWeight);
+        healthmetricsRadioGainWeight.setBounds(200, 227, 122, 21);
 
         healthmetricsRadioStayHealthy.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioStayHealthy.setText("Stay Healthy");
+        healthmetricsRightPanel.add(healthmetricsRadioStayHealthy);
+        healthmetricsRadioStayHealthy.setBounds(340, 227, 120, 21);
 
         healthmetricsSaveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_save (2).png"))); // NOI18N
         healthmetricsSaveBtn.setBorder(null);
@@ -438,25 +479,39 @@ public class HealthMetrics extends javax.swing.JFrame {
                 healthmetricsSaveBtnActionPerformed(evt);
             }
         });
+        healthmetricsRightPanel.add(healthmetricsSaveBtn);
+        healthmetricsSaveBtn.setBounds(368, 299, 75, 32);
 
         currentUserLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         currentUserLabel2.setForeground(new java.awt.Color(0, 0, 0));
         currentUserLabel2.setText("Michael Babik");
+        healthmetricsRightPanel.add(currentUserLabel2);
+        currentUserLabel2.setBounds(190, 10, 110, 20);
 
         invalidTime.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         invalidTime.setForeground(new java.awt.Color(255, 51, 51));
+        healthmetricsRightPanel.add(invalidTime);
+        invalidTime.setBounds(270, 191, 170, 18);
 
         invalidTargetWeight.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         invalidTargetWeight.setForeground(new java.awt.Color(255, 51, 51));
+        healthmetricsRightPanel.add(invalidTargetWeight);
+        invalidTargetWeight.setBounds(36, 191, 168, 19);
 
         invalidWeight.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         invalidWeight.setForeground(new java.awt.Color(255, 51, 51));
+        healthmetricsRightPanel.add(invalidWeight);
+        invalidWeight.setBounds(36, 106, 168, 20);
 
         invalidSteps.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         invalidSteps.setForeground(new java.awt.Color(255, 51, 51));
+        healthmetricsRightPanel.add(invalidSteps);
+        invalidSteps.setBounds(270, 106, 170, 20);
 
         errorData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         errorData.setForeground(new java.awt.Color(255, 0, 0));
+        healthmetricsRightPanel.add(errorData);
+        errorData.setBounds(40, 260, 224, 20);
 
         healthmetricsResetBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_reset (1).png"))); // NOI18N
         healthmetricsResetBtn.setBorder(null);
@@ -467,119 +522,19 @@ public class HealthMetrics extends javax.swing.JFrame {
                 healthmetricsResetBtnActionPerformed(evt);
             }
         });
+        healthmetricsRightPanel.add(healthmetricsResetBtn);
+        healthmetricsResetBtn.setBounds(287, 299, 75, 32);
 
-        javax.swing.GroupLayout healthmetricsRightPanelLayout = new javax.swing.GroupLayout(healthmetricsRightPanel);
-        healthmetricsRightPanel.setLayout(healthmetricsRightPanelLayout);
-        healthmetricsRightPanelLayout.setHorizontalGroup(
-            healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addComponent(seperator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(currentUserLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(healthmetricHistoryBtn)
-                    .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                            .addComponent(healthmetricsCurrentWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(70, 70, 70)
-                            .addComponent(healthmetricsStepsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, healthmetricsRightPanelLayout.createSequentialGroup()
-                            .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(healthmetricsTargetWeightInput)
-                                .addComponent(healthmetricsCurrentWeightInput)
-                                .addComponent(invalidTargetWeight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(healthmetricsTargetWeightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
-                            .addGap(66, 66, 66)
-                            .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(healthmetricsExcerciseInput)
-                                .addComponent(healthmetricsExcerciseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                .addComponent(invalidTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(healthmetricsStepsInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                            .addComponent(invalidWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(66, 66, 66)
-                            .addComponent(invalidSteps, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addComponent(healthmetricsRadioLoseWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(healthmetricsRadioGainWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(healthmetricsRadioStayHealthy, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                            .addComponent(healthmetricsHistoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addComponent(seperator1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                            .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(27, 27, 27)
-                            .addComponent(healthmetricsResetBtn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(healthmetricsSaveBtn))))
-                .addGap(20, 20, 20))
-        );
-        healthmetricsRightPanelLayout.setVerticalGroup(
-            healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(currentUserLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seperator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthmetricsCurrentWeightLabel)
-                    .addComponent(healthmetricsStepsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(healthmetricsStepsInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(healthmetricsCurrentWeightInput, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addGap(2, 2, 2)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(invalidWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                    .addComponent(invalidSteps, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthmetricsTargetWeightLabel)
-                    .addComponent(healthmetricsExcerciseLabel))
-                .addGap(4, 4, 4)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(healthmetricsExcerciseInput, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(healthmetricsTargetWeightInput))
-                .addGap(10, 10, 10)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(invalidTargetWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(invalidTime, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthmetricsRadioLoseWeight)
-                    .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(healthmetricsRadioGainWeight)
-                        .addComponent(healthmetricsRadioStayHealthy)))
-                .addGap(45, 45, 45)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(healthmetricsResetBtn)
-                    .addComponent(healthmetricsSaveBtn))
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(healthmetricsHistoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(seperator1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addComponent(healthmetricHistoryBtn))
-        );
+        deleteBtn.setBackground(new java.awt.Color(255, 0, 0));
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        healthmetricsRightPanel.add(deleteBtn);
+        deleteBtn.setBounds(40, 300, 76, 27);
 
         healthmetricMainPanel.add(healthmetricsRightPanel);
         healthmetricsRightPanel.setBounds(320, 0, 480, 500);
@@ -629,6 +584,14 @@ public class HealthMetrics extends javax.swing.JFrame {
 
         // Save the users health metrics.
         metricsManager.saveUserMetrics(currentUser, output);
+
+        // Write the metrics to a file.
+        try {
+            historyManager.writeMetricsToFile(output, healthGoal, currentUser);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error while writing/reading the file: " + e.getMessage(),
+                    "File Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_healthmetricsSaveBtnActionPerformed
 
     /**
@@ -675,17 +638,17 @@ public class HealthMetrics extends javax.swing.JFrame {
         );
         String healthGoal = getSelectedHealthGoal();
 
-        // Write the metrics to a file.
-        try {
-            historyManager.writeMetricsToFile(output, healthGoal);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error while writing/reading the file: " + e.getMessage(),
-                "File Error", JOptionPane.ERROR_MESSAGE);
-        }
-
         // Open the txt file
         try {
-            File file = new File("OOP-Project/src/goodhealthwellbeing/data/healthmetrics_history.txt");
+            String filePath = historyManager.getFilePath();
+            File file = new File(filePath);
+
+            if (!file.exists()) {
+                JOptionPane.showMessageDialog(this, "No data available.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             // Check if the file is supported on the system.
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
                 Desktop.getDesktop().open(file);
@@ -706,6 +669,16 @@ public class HealthMetrics extends javax.swing.JFrame {
         buttonGroup.clearSelection();
         healthmetricsRadioLoseWeight.setSelected(true);
     }//GEN-LAST:event_healthmetricsResetBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        try {
+            historyManager.deleteUserMetrics(currentUser);
+            metricsManager.deleteUserMetrics(currentUser);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error while deleting the user data: " + e.getMessage(),
+                    "Delete Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     // Resets all of the input fields.
     private void resetInputs() {
@@ -754,6 +727,7 @@ public class HealthMetrics extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel currentUserLabel2;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JLabel duration;
     private javax.swing.JLabel durationGoal;
     private javax.swing.JLabel durationGoalOutput;
