@@ -1,8 +1,15 @@
 
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * Nutrition.java
@@ -10,13 +17,29 @@ import java.util.ArrayList;
  */
 public class CalorieTracker extends javax.swing.JFrame {
 
-    private int totalCalories;
+    public int totalCalories;
+    public String calories;
+    public File file;
+    public File file2;
+    TotalCaloriesList tcl;
     /**
      * Creates new form CalorieTracker
      */
     public CalorieTracker(){
         initComponents();
         totalCalories = 0;
+        file = new File("TotalCalories.txt");
+        file2 = new File("CalorieHistory.txt");
+        tcl = TotalCaloriesList.getInstance();
+        calories = "";
+        
+        try {
+            calorieLoad();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CalorieTracker.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        txtTotalCalories.setText(Integer.toString(totalCalories));
         
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
@@ -26,26 +49,70 @@ public class CalorieTracker extends javax.swing.JFrame {
         
         btnCalorieAdd.addActionListener((ActionEvent e) -> {
             
-            calories.add(calorieInput.getText());
-            totalCalories = 0;
-            calorieInput.setText("");
-            for(int i = 0; i < calories.size(); i++){
-                totalCalories += Integer.parseInt(calories.get(i));
-            }
+            calories = calorieInput.getText();
+            totalCalories += Integer.parseInt(calories);
             txtTotalCalories.setText(Integer.toString(totalCalories));
+            calorieInput.setText("");
             
+            try {
+                calorieSave();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CalorieTracker.class.getName()).log(Level.SEVERE, null, ex);
+            }    
         });
         
         btnAddDay.addActionListener((ActionEvent e) -> {
-            
+            try {
+                totalCalorieSave();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CalorieTracker.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            totalCalories = 0;
+            try {
+                calorieSave();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CalorieTracker.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            txtTotalCalories.setText(Integer.toString(totalCalories));
         });
         
-        btnCalorieAdd.addActionListener((ActionEvent e) -> {
-            
+        btnHistory.addActionListener((ActionEvent e) -> {
+            CalorieHistory calHis = new CalorieHistory();
+            calHis.setVisible(true);
+            CalorieTracker.this.setVisible(false);
         });
     }
     
-    public ArrayList<String> calories = new ArrayList<>();
+    public void calorieLoad() throws FileNotFoundException
+    {
+        try{
+            Scanner in = new Scanner(file);
+            while(in.hasNextLine())
+            {
+                totalCalories = Integer.parseInt(in.nextLine());
+            }    
+            in.close();
+        }catch(FileNotFoundException e){JOptionPane.showMessageDialog(null, e.toString());}
+    }
+    
+    public void calorieSave() throws FileNotFoundException{
+        PrintStream out = new PrintStream(file);
+            out.println(Integer.toString(totalCalories));
+            out.close();
+    }
+    
+    public void totalCalorieSave() throws FileNotFoundException {
+        tcl.getCalories().clear();
+        // Use FileOutputStream with append mode
+        PrintStream out2 = new PrintStream(new FileOutputStream(file2, true));
+        Date date = new Date();
+        tcl.addCalories(Integer.toString(totalCalories));
+        for (int i = 0; i < tcl.getCalories().size(); i++) {
+            out2.println(date.toString() + " - " + tcl.getCalories().get(i));
+        }
+        out2.close();
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
