@@ -4,7 +4,6 @@ package goodhealthwellbeing.view.components;
 import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * Nutrition.java
+ * CalorieTracker.java
  * @author Ryan Stokes
  */
 public class CalorieTracker extends javax.swing.JFrame {
@@ -20,7 +19,7 @@ public class CalorieTracker extends javax.swing.JFrame {
     public int totalCalories;
     public String calories;
     public File file;
-    public File file2;
+    public static File file2;
     TotalCaloriesList tcl;
     /**
      * Creates new form CalorieTracker
@@ -77,7 +76,12 @@ public class CalorieTracker extends javax.swing.JFrame {
         });
         
         btnHistory.addActionListener((ActionEvent e) -> {
-            CalorieHistory calHis = new CalorieHistory();
+            CalorieHistory calHis = null;
+            try {
+                calHis = new CalorieHistory();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(CalorieTracker.class.getName()).log(Level.SEVERE, null, ex);
+            }
             calHis.setVisible(true);
             CalorieTracker.this.setVisible(false);
         });
@@ -86,31 +90,31 @@ public class CalorieTracker extends javax.swing.JFrame {
     public void calorieLoad() throws FileNotFoundException
     {
         try{
-            Scanner in = new Scanner(file);
-            while(in.hasNextLine())
-            {
-                totalCalories = Integer.parseInt(in.nextLine());
-            }    
-            in.close();
+            try (Scanner in = new Scanner(file)) {
+                while(in.hasNextLine())
+                {
+                    totalCalories = Integer.parseInt(in.nextLine());
+                }
+            }
         }catch(FileNotFoundException e){JOptionPane.showMessageDialog(null, e.toString());}
     }
     
     public void calorieSave() throws FileNotFoundException{
-        PrintStream out = new PrintStream(file);
+        try (PrintStream out = new PrintStream(file)) {
             out.println(Integer.toString(totalCalories));
-            out.close();
+        }
     }
     
     public void totalCalorieSave() throws FileNotFoundException {
         tcl.getCalories().clear();
-        // Use FileOutputStream with append mode
-        PrintStream out2 = new PrintStream(new FileOutputStream(file2, true));
-        Date date = new Date();
-        tcl.addCalories(Integer.toString(totalCalories));
-        for (int i = 0; i < tcl.getCalories().size(); i++) {
-            out2.println(date.toString() + " - " + tcl.getCalories().get(i));
+        try ( // Use FileOutputStream with append mode
+                PrintStream out2 = new PrintStream(new FileOutputStream(file2, true))) {
+            Date date = new Date();
+            tcl.addCalories(Integer.toString(totalCalories));
+            for (int i = 0; i < tcl.getCalories().size(); i++) {
+                out2.println(date.toString() + " - " + tcl.getCalories().get(i));
+            }
         }
-        out2.close();
     }
     
     

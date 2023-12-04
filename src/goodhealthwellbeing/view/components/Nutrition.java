@@ -3,10 +3,7 @@ package goodhealthwellbeing.view.components;
 
 import java.awt.event.ActionEvent;
 
-import goodhealthwellbeing.view.ui.Modules;
-
-/*
- * 11/11/23
+/** 
  * Nutrition.java
  * @author ryans
  */
@@ -33,12 +30,6 @@ public class Nutrition extends javax.swing.JFrame {
             cal.setVisible(true);
             Nutrition.this.setVisible(false);
         });
-        
-        btnHome.addActionListener((ActionEvent e) -> {
-            Modules modules = Modules.getInstance();
-            modules.setVisible(true);
-            Nutrition.this.setVisible(false);
-        });
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +40,6 @@ public class Nutrition extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         loginLogo = new javax.swing.JLabel();
         logoRights = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         btnCalTrack = new javax.swing.JButton();
         btnMacroInfo = new javax.swing.JButton();
         nutritionPrompt = new javax.swing.JLabel();
@@ -94,19 +84,6 @@ public class Nutrition extends javax.swing.JFrame {
 
         nutrtionMainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
-
-        btnHome.setBackground(new java.awt.Color(255, 255, 255));
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_back.png"))); // NOI18N
-        btnHome.setBorder(null);
-        btnHome.setBorderPainted(false);
-        btnHome.setContentAreaFilled(false);
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        nutrtionMainPanel.add(btnHome);
-        btnHome.setBounds(420, 10, 50, 30);
 
         btnCalTrack.setBackground(new java.awt.Color(255, 255, 255));
         btnCalTrack.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -181,10 +158,6 @@ public class Nutrition extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeActionPerformed
-
     private void btnCalTrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalTrackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCalTrackActionPerformed
@@ -237,7 +210,6 @@ public class Nutrition extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBmr;
     private javax.swing.JButton btnCalTrack;
-    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnMacroInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

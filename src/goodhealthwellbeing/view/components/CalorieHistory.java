@@ -1,24 +1,51 @@
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
- *
+ * CalorieHistory.java
  * @author Ryan Stokes
  */
 public class CalorieHistory extends javax.swing.JFrame {
 
+     DefaultListModel dlm;
+     TotalCaloriesList tcl;
     /**
      * Creates new form CalorieHistory
      */
-    public CalorieHistory() {
+    public CalorieHistory() throws FileNotFoundException {
         initComponents();
+        dlm = new DefaultListModel();
+        tcl = TotalCaloriesList.getInstance();
+        tcl.loadFile();
+        loadCals();
         
         homeButton.addActionListener((ActionEvent e) -> {
             CalorieTracker calTrack = new CalorieTracker();
             calTrack.setVisible(true);
             CalorieHistory.this.setVisible(false);
         });
+    }
+    
+    public void totalCalorieLoad(){
+    }
+    
+    private void loadCals()
+    {
+        dlm.clear();
+        
+        for(int i = 0; i < tcl.getCalories().size(); i++)
+        {
+            dlm.addElement(tcl.getCalories().get(i));
+        }
+        
+        this.jList1.setModel(dlm);
     }
 
     /**
@@ -101,7 +128,7 @@ public class CalorieHistory extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         calorieTrackerMainPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(430, 120, 340, 360);
+        jScrollPane1.setBounds(430, 120, 340, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,7 +183,11 @@ public class CalorieHistory extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CalorieHistory().setVisible(true);
+                try {
+                    new CalorieHistory().setVisible(true);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(CalorieHistory.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
