@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
  */
 public class CalorieHistory extends javax.swing.JFrame {
 
+    //Object Cretaion
      DefaultListModel dlm;
      TotalCaloriesList tcl;
     /**
@@ -21,11 +22,15 @@ public class CalorieHistory extends javax.swing.JFrame {
      */
     public CalorieHistory() throws FileNotFoundException {
         initComponents();
+        //Object Assignment
         dlm = new DefaultListModel();
         tcl = TotalCaloriesList.getInstance();
+        //Loads data into the arraylist
         tcl.loadFile();
+        //Runs loadCals method which adds data to the jList
         loadCals();
         
+        //Button used to return to the previous form
         homeButton.addActionListener((ActionEvent e) -> {
             CalorieTracker calTrack = new CalorieTracker();
             calTrack.setVisible(true);
@@ -33,9 +38,7 @@ public class CalorieHistory extends javax.swing.JFrame {
         });
     }
     
-    public void totalCalorieLoad(){
-    }
-    
+    //Method which loads the singleton arraylist in TotalCalories into the jList using DefaultListModel
     private void loadCals()
     {
         dlm.clear();

@@ -8,9 +8,8 @@ import goodhealthwellbeing.util.*;
 import java.awt.event.ActionEvent;
 
 /**
- * 11/11/23
  * Nutrition.java
- * @author ryans
+ * @author Ryan Stokes
  */
 public class MacroSelect extends javax.swing.JFrame {
 
@@ -20,7 +19,8 @@ public class MacroSelect extends javax.swing.JFrame {
     
     public MacroSelect() {
         initComponents();
-          
+        
+        //Button used to return to the previous form
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
@@ -28,16 +28,19 @@ public class MacroSelect extends javax.swing.JFrame {
             
         });
         
+        //Becomes instance of Carbohydrate
         carbButton.addActionListener((ActionEvent e) -> {
             Macro macro = new CarbohydrateOutput();
             setInfo(macro);
         });
         
+        //Becomes instance of Protein
         proteinButton.addActionListener((ActionEvent e) -> {
             Macro macro = new ProteinOutput();
             setInfo(macro);
         });
         
+        //Becomes instance of Fat
         fatButton.addActionListener((ActionEvent e) -> {
             Macro macro = new FatOutput();
             setInfo(macro);
@@ -45,7 +48,6 @@ public class MacroSelect extends javax.swing.JFrame {
     }
     
     //Method to set the values depending on object created
-    
     public void setInfo(Macro macro){
         lblEnergy.setText(macro.getEnergy());
         txtDescription.setText(macro.getDescription());

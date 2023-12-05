@@ -16,10 +16,12 @@ import javax.swing.JOptionPane;
  */
 public class CalorieTracker extends javax.swing.JFrame {
 
-    public int totalCalories;
-    public String calories;
-    public File file;
-    public static File file2;
+    //Data Memebers
+    protected int totalCalories;
+    protected String calories;
+    protected File file;
+    protected static File file2;
+    //Singleton object initiation
     TotalCaloriesList tcl;
     /**
      * Creates new form CalorieTracker
@@ -40,19 +42,21 @@ public class CalorieTracker extends javax.swing.JFrame {
         
         txtTotalCalories.setText(Integer.toString(totalCalories));
         
+        //Button used to return to the previous form
         homeButton.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
             CalorieTracker.this.setVisible(false);
         });
         
+        //Button which adds calories to the total calorie amount, resets input to empty
         btnCalorieAdd.addActionListener((ActionEvent e) -> {
             
             calories = calorieInput.getText();
             totalCalories += Integer.parseInt(calories);
             txtTotalCalories.setText(Integer.toString(totalCalories));
             calorieInput.setText("");
-            
+            //Runs the calorieSave method which will save the total calories amount to a file, allowing for it to persist
             try {
                 calorieSave();
             } catch (FileNotFoundException ex) {
@@ -60,6 +64,7 @@ public class CalorieTracker extends javax.swing.JFrame {
             }    
         });
         
+        //Button that will add the total daily calories to a file which can be accessed int he history section
         btnAddDay.addActionListener((ActionEvent e) -> {
             try {
                 totalCalorieSave();
@@ -75,6 +80,7 @@ public class CalorieTracker extends javax.swing.JFrame {
             txtTotalCalories.setText(Integer.toString(totalCalories));
         });
         
+        //Button which navigates to the calorie history form
         btnHistory.addActionListener((ActionEvent e) -> {
             CalorieHistory calHis = null;
             try {
@@ -87,6 +93,7 @@ public class CalorieTracker extends javax.swing.JFrame {
         });
     }
     
+    //Method which loads the total calorie amount that persists until add day is pressed
     public void calorieLoad() throws FileNotFoundException
     {
         try{
@@ -99,12 +106,14 @@ public class CalorieTracker extends javax.swing.JFrame {
         }catch(FileNotFoundException e){JOptionPane.showMessageDialog(null, e.toString());}
     }
     
+    //Method to save the total calories to a file so it persists until add day is pressed
     public void calorieSave() throws FileNotFoundException{
         try (PrintStream out = new PrintStream(file)) {
             out.println(Integer.toString(totalCalories));
         }
     }
     
+    //Method which adds the total calories to the history arraylist when add day is pressed, totalcalories is reset
     public void totalCalorieSave() throws FileNotFoundException {
         tcl.getCalories().clear();
         try ( // Use FileOutputStream with append mode

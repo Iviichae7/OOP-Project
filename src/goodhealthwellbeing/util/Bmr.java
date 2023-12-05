@@ -4,6 +4,8 @@ package goodhealthwellbeing.util;
  * Bmr.java
  * @author Ryan Stokes
  */
+
+//Abstract Class Bmr
 public abstract class Bmr {
     
     protected int age;
@@ -11,10 +13,12 @@ public abstract class Bmr {
     protected double weight;
     protected double bmr;
 
+    //Abstract method is overriden in sub classes
     public double getBmr() {
         return bmr;
     }
 
+    //Setters
     public void setHeight(double height) {
         this.height = height;
     }

@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 
 /** 
  * Nutrition.java
- * @author ryans
+ * @author Ryan Stokes
  */
 public class Nutrition extends javax.swing.JFrame {
 
@@ -13,6 +13,7 @@ public class Nutrition extends javax.swing.JFrame {
         
         initComponents();
         
+        //Buttons to naviagte to the different resources available in the nutrition section
         btnBmr.addActionListener((ActionEvent e) -> {
             BmrCalc bmr = new BmrCalc();
             bmr.setVisible(true);

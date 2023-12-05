@@ -8,6 +8,7 @@ import goodhealthwellbeing.util.Macro;
  */
 public class ProteinOutput extends Macro {
 
+    //Default Constructor
     public ProteinOutput(String macronutrient, String energy, String description, String sources) {
         
         this.macronutrient = macronutrient;
@@ -16,6 +17,7 @@ public class ProteinOutput extends Macro {
         this.sources = sources;
     }
 
+    //Constructor
     public ProteinOutput() {
         
         macronutrient = "Protein";
@@ -29,6 +31,7 @@ public class ProteinOutput extends Macro {
         sources = "Red Meat | Chicken | Fish | Dairy | Nuts";
     }
 
+    //Getters to override superclass getter methods
     @Override
     public String getMacronutrient() {
         return macronutrient;
