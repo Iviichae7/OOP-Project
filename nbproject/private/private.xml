@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/data/HealthMetricsHistoryManager.java</file>
-            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/output/HealthMetricsOutput.java</file>
-            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/view/components/HealthMetrics.java</file>
-            <file>file:/Users/michaelbabik/Desktop/GoodHealthWellBeing/OOP-Project/src/goodhealthwellbeing/model/UserHealthMetricsManager.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/components/StressAndAnxietyGUI.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/model/StressAndAnxiety.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/view/components/FindSupportGUI.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/output/HealthMetricsOutput.java</file>
+            <file>file:/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/src/goodhealthwellbeing/data/HealthMetricsHistoryManager.java</file>
         </group>
     </open-files>
 </project-private>
