@@ -121,17 +121,18 @@ public class CalorieHistory extends javax.swing.JFrame {
         homeButton.setBounds(420, 30, 50, 30);
 
         lblPrompt1.setBackground(new java.awt.Color(0, 0, 0));
-        lblPrompt1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPrompt1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblPrompt1.setForeground(new java.awt.Color(0, 0, 0));
         lblPrompt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrompt1.setText("Calorie History");
         calorieTrackerMainPanel.add(lblPrompt1);
-        lblPrompt1.setBounds(410, 80, 380, 30);
+        lblPrompt1.setBounds(410, 70, 380, 30);
 
+        jList1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
         calorieTrackerMainPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(430, 120, 340, 300);
+        jScrollPane1.setBounds(430, 120, 340, 340);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

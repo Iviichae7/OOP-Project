@@ -4,7 +4,6 @@ package goodhealthwellbeing.view.components;
 import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
 import java.io.*;
-import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -118,10 +117,9 @@ public class CalorieTracker extends javax.swing.JFrame {
         tcl.getCalories().clear();
         try ( // Use FileOutputStream with append mode
                 PrintStream out2 = new PrintStream(new FileOutputStream(file2, true))) {
-            Date date = new Date();
             tcl.addCalories(Integer.toString(totalCalories));
             for (int i = 0; i < tcl.getCalories().size(); i++) {
-                out2.println(date.toString() + " - " + tcl.getCalories().get(i));
+                out2.println(java.time.LocalDate.now() + " - " + tcl.getCalories().get(i));
             }
         }
     }

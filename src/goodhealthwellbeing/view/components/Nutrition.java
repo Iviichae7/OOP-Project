@@ -7,6 +7,11 @@ import java.awt.event.ActionEvent;
  * Nutrition.java
  * @author Ryan Stokes
  */
+
+//Nutrition Section of goodhealthwellbeing App, individual submission for Ryan Stokes for Checkpoint 3
+
+//git link is to a branch of our main repo that comtains just my work for the checkpoint
+
 public class Nutrition extends javax.swing.JFrame {
 
     public Nutrition() {
