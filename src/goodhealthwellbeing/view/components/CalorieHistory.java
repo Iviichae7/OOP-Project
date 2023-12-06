@@ -1,24 +1,54 @@
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.util.TotalCaloriesList;
 import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
- *
+ * CalorieHistory.java
  * @author Ryan Stokes
  */
 public class CalorieHistory extends javax.swing.JFrame {
 
+    //Object Cretaion
+     DefaultListModel dlm;
+     TotalCaloriesList tcl;
     /**
      * Creates new form CalorieHistory
+     * @throws java.io.FileNotFoundException
      */
-    public CalorieHistory() {
+    public CalorieHistory() throws FileNotFoundException {
         initComponents();
+        //Object Assignment
+        dlm = new DefaultListModel();
+        tcl = TotalCaloriesList.getInstance();
+        //Loads data into the arraylist
+        tcl.loadFile();
+        //Runs loadCals method which adds data to the jList
+        loadCals();
         
+        //Button used to return to the previous form
         homeButton.addActionListener((ActionEvent e) -> {
             CalorieTracker calTrack = new CalorieTracker();
             calTrack.setVisible(true);
             CalorieHistory.this.setVisible(false);
         });
+    }
+    
+    //Method which loads the singleton arraylist in TotalCalories into the jList using DefaultListModel
+    private void loadCals()
+    {
+        dlm.clear();
+        
+        for(int i = 1; i < tcl.getCalories().size(); i++)
+        {
+            dlm.addElement(tcl.getCalories().get(i));
+        }
+        
+        this.jList1.setModel(dlm);
     }
 
     /**
@@ -156,7 +186,11 @@ public class CalorieHistory extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CalorieHistory().setVisible(true);
+                try {
+                    new CalorieHistory().setVisible(true);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(CalorieHistory.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

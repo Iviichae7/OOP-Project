@@ -1,4 +1,3 @@
-
 package goodhealthwellbeing.view.components;
 
 import goodhealthwellbeing.output.BmrFemaleOutput;
@@ -9,7 +8,7 @@ import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
- * Nutrition.java
+ * BmrCalc.java
  * @author Ryan Stokes
  */
 public class BmrCalc extends javax.swing.JFrame {
@@ -20,14 +19,17 @@ public class BmrCalc extends javax.swing.JFrame {
     public BmrCalc() {
         initComponents();
         
+        //Button used to return to the previous form
         btnBack.addActionListener((ActionEvent e) -> {
             Nutrition nutrition = new Nutrition();
             nutrition.setVisible(true);
             BmrCalc.this.setVisible(false);
         });
         
+        //Button to provide the user with bmr depending on radio button selection
         btnBmrCalc.addActionListener((ActionEvent e) -> {
             
+            //Male Selection
             if(rdoMale.isSelected()){
                 
                 Bmr bmr = new BmrMaleOutput();
@@ -35,6 +37,7 @@ public class BmrCalc extends javax.swing.JFrame {
                 activeCheck(bmr);
                 
             }
+            //Female Selection
             else if(rdoFemale.isSelected()){
                 
                 Bmr bmr = new BmrFemaleOutput();
@@ -42,18 +45,22 @@ public class BmrCalc extends javax.swing.JFrame {
                 activeCheck(bmr);
                 
             }
+            //Validation - Error message if one of gender options not selected
                 else{JOptionPane.showMessageDialog(null, "Please select Male or Female");}
         });
     }
     
+    //Format result to 0 decimal places
     DecimalFormat fmt = new DecimalFormat("#");
     
+    //Method which sets the info needed for the calculation depending on instance of Bmr.java
     public void setInfo(Bmr bmr){
         bmr.setAge(Integer.parseInt(txtAge.getText()));
         bmr.setHeight(Integer.parseInt(txtHeight.getText()));
         bmr.setWeight(Integer.parseInt(txtWeight.getText()));
     }
     
+    //Method which will add 500 calories on to final result if Active is checked, also formats result.
     public void activeCheck(Bmr bmr){
         if(chkActive.isSelected()){
             txtBmrOutput.setText(fmt.format((bmr.getBmr() + 500)));
@@ -62,9 +69,6 @@ public class BmrCalc extends javax.swing.JFrame {
             txtBmrOutput.setText(fmt.format((bmr.getBmr())));
         }
     }
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

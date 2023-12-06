@@ -1,21 +1,23 @@
-
 package goodhealthwellbeing.view.components;
 
 import java.awt.event.ActionEvent;
 
-import goodhealthwellbeing.view.ui.Modules;
-
-/*
- * 11/11/23
+/** 
  * Nutrition.java
- * @author ryans
+ * @author Ryan Stokes
  */
+
+//Nutrition Section of goodhealthwellbeing App, individual submission for Ryan Stokes for Checkpoint 3
+
+//git link is to a branch of our main repo that comtains just my work for the checkpoint
+
 public class Nutrition extends javax.swing.JFrame {
 
     public Nutrition() {
         
         initComponents();
         
+        //Buttons to naviagte to the different resources available in the nutrition section
         btnBmr.addActionListener((ActionEvent e) -> {
             BmrCalc bmr = new BmrCalc();
             bmr.setVisible(true);
@@ -31,12 +33,6 @@ public class Nutrition extends javax.swing.JFrame {
         btnCalTrack.addActionListener((ActionEvent e) -> {
             CalorieTracker cal = new CalorieTracker();
             cal.setVisible(true);
-            Nutrition.this.setVisible(false);
-        });
-        
-        btnHome.addActionListener((ActionEvent e) -> {
-            Modules modules = Modules.getInstance();
-            modules.setVisible(true);
             Nutrition.this.setVisible(false);
         });
     }
