@@ -3,6 +3,7 @@ package goodhealthwellbeing.model;
 import java.util.ArrayList;
 
 /**
+ * UserManager.java
  * @author Michael Babik
  */
 

@@ -11,8 +11,9 @@ import java.nio.file.*;
 import java.io.FileNotFoundException;
 
 
-/*
-  @author Michael Babik
+/**
+ * UserHealthMetricsManager.java
+ * @author Michael Babik
 */
 
 /**
@@ -54,8 +55,9 @@ public class UserHealthMetricsManager {
             throw new FileNotFoundException("The file " + filePath + " does not exist.");
         }
 
+        // List<String> lines = Files.readAllLines(path) written by @Github Co-pilot
         List<String> lines = Files.readAllLines(path);
-        lines.removeIf(line -> line.contains(user.getEmail())); // Assuming the user's email is unique and is written in the file
+        lines.removeIf(line -> line.contains(user.getEmail()));
         Files.write(path, lines);
     }
 }

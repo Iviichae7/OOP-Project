@@ -8,6 +8,11 @@ import goodhealthwellbeing.model.UserManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * Register.java
+ * @author Michael Babik
+ */
+
 public class Register extends javax.swing.JFrame {
 
     private final UserManager userManager;

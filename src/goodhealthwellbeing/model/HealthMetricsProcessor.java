@@ -7,6 +7,11 @@ import goodhealthwellbeing.util.TargetStepCalculator;
 import goodhealthwellbeing.util.TargetWeightCalculator;
 
 /**
+ * HealthMetricsProcessor.java
+ * @author Michael Babik
+ */
+
+/**
  * This class is responsible for processing health metrics inputs.
  * It uses different calculators to compute target steps exercise duration and target weight based on user inputs.
  */

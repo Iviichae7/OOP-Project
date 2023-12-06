@@ -2,12 +2,14 @@ package goodhealthwellbeing.controller;
 
 import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserManager;
+/**
+ * SignupUser.java
+ * @author Michael Babik
+ */
 
 /**
  * Handles the user signup process.
  * Validates the user input and registers new users.
- *
- * @author Michael Babik
  */
 
 public class SignupUser {

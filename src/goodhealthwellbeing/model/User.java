@@ -1,6 +1,7 @@
 package goodhealthwellbeing.model;
 
 /**
+ * User.java
  * @author Michael Babik
  */
 

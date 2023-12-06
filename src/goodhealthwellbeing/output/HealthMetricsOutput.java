@@ -1,7 +1,8 @@
 package goodhealthwellbeing.output;
 
-/*
-  @author Michael Babik
+/**
+ * HealthMetricsOutput.java
+ * @author Michael Babik
  */
 
 /**

@@ -1,6 +1,7 @@
 package goodhealthwellbeing.util;
 
 /**
+ * ExerciseDurationCalculator.java
  * @author Michael Babik
  */
 

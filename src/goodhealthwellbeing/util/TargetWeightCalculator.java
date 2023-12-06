@@ -1,6 +1,7 @@
 package goodhealthwellbeing.util;
 
 /**
+ * TargetWeightCalculator.java
  * @author Michael Babik
  */
 

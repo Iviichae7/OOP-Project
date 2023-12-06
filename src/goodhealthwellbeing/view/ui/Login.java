@@ -4,6 +4,11 @@ import java.awt.event.ActionEvent;
 
 import goodhealthwellbeing.model.UserManager;
 
+/**
+ * Login.java
+ * @author Michael Babik
+ */
+
 public class Login extends javax.swing.JFrame {
 
     private final UserManager userManager;

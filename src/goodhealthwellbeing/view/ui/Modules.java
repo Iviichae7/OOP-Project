@@ -5,10 +5,13 @@ import java.awt.event.ActionEvent;
 import goodhealthwellbeing.model.User;
 import goodhealthwellbeing.model.UserManager;
 import goodhealthwellbeing.view.components.MentalHealthGUI;
-import goodhealthwellbeing.view.components.HealthMetrics;
-import goodhealthwellbeing.view.components.MentalHealthGUI;
+import goodhealthwellbeing.view.components.health_module.HealthMetrics;
 import goodhealthwellbeing.view.components.Nutrition;
 
+/**
+ * Modules.java
+ * @author Michael Babik
+ */
 
 /**
  * This class manages different modules such as Health Metrics, Nutrition, and Mental Health, allowing

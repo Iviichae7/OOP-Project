@@ -1,6 +1,7 @@
 package goodhealthwellbeing.util;
 
 /**
+ * TargetStepCalculator.java
  * @author Michael Babik
  */
 

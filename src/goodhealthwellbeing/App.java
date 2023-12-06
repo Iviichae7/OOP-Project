@@ -4,6 +4,7 @@ package goodhealthwellbeing;
 import goodhealthwellbeing.view.ui.Login;
 
 /**
+ * App.java
  * @author Michael Babik
  * @author Md Hassan
  * @author Ryan Stokes

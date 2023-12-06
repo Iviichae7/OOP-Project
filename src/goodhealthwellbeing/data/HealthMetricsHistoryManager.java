@@ -5,11 +5,11 @@ import goodhealthwellbeing.model.User;
 import java.util.List;
 import java.io.*;
 import java.nio.file.*;
-import java.util.stream.Collectors;
 
-/*
-  @author Michael Babik
-*/
+/**
+  * HealthMetricsHistoryManager.java
+  * @author Michael Babik
+ */
 
 /**
  * Manages the history of health metrics.
@@ -40,29 +40,12 @@ public class HealthMetricsHistoryManager {
         }
     }
 
-    public String getFilePath() {
-        return FILE_PATH;
-    }
-
     /**
      * Reads and returns the entire health metrics history from the file as a single string.
      *
      * @return A string containing all the health metrics data from the file.
      * @throws IOException If an I/O error occurs or the file doesn't exist.
      */
-    public String readMetricsFromFile() throws IOException {
-
-        Path path = Paths.get(FILE_PATH);
-
-        if (!Files.exists(path)) {
-            throw new FileNotFoundException("The file " + FILE_PATH + " does not exist.");
-        }
-        try (BufferedReader reader = Files.newBufferedReader(path)) {
-            // Collect all lines in the file into a single string separated by new lines.
-            return reader.lines().collect(Collectors.joining("\n"));
-        }
-    }
-
     public void deleteUserMetrics(User user) throws IOException {
         Path path = Paths.get(FILE_PATH);
         if (!Files.exists(path)) {
@@ -73,6 +56,10 @@ public class HealthMetricsHistoryManager {
         lines.removeIf(line -> line.contains(user.getEmail()));
         lines.removeIf(line -> line.contains(user.getFullName()));
         Files.write(path, lines);
+    }
+
+    public String getFilePath() {
+        return FILE_PATH;
     }
 
     /**

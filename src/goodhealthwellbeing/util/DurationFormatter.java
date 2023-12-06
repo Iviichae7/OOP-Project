@@ -1,6 +1,7 @@
 package goodhealthwellbeing.util;
 
 /**
+ * DurationFormatter.java
  * @author Michael Babik
  */
 
