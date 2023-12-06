@@ -205,11 +205,8 @@ public class Nutrition extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Nutrition().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Nutrition().setVisible(true);
         });
     }
 

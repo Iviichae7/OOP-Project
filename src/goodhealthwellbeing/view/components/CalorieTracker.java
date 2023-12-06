@@ -26,11 +26,17 @@ public class CalorieTracker extends javax.swing.JFrame {
      * Creates new form CalorieTracker
      */
     public CalorieTracker(){
+        
         initComponents();
-        totalCalories = 0;
-        file = new File("TotalCalories.txt");
+        
+        
+       totalCalories = 0;
+       
+       file = new File("TotalCalories.txt");
         file2 = new File("CalorieHistory.txt");
+        
         tcl = TotalCaloriesList.getInstance();
+        
         calories = "";
         
         try {

@@ -16,19 +16,24 @@ public class CalorieHistory extends javax.swing.JFrame {
     //Object Cretaion
      DefaultListModel dlm;
      TotalCaloriesList tcl;
+     
     /**
      * Creates new form CalorieHistory
      * @throws java.io.FileNotFoundException
      */
+     
     public CalorieHistory() throws FileNotFoundException {
         initComponents();
+        
         //Object Assignment
         dlm = new DefaultListModel();
         tcl = TotalCaloriesList.getInstance();
+        
         //Loads data into the arraylist
         tcl.loadFile();
-        //Runs loadCals method which adds data to the jList
-        loadCals();
+        
+        //Runs loadList method which adds data to the jList
+        loadList();
         
         //Button used to return to the previous form
         homeButton.addActionListener((ActionEvent e) -> {
@@ -39,7 +44,7 @@ public class CalorieHistory extends javax.swing.JFrame {
     }
     
     //Method which loads the singleton arraylist in TotalCalories into the jList using DefaultListModel
-    private void loadCals()
+    private void loadList()
     {
         dlm.clear();
         

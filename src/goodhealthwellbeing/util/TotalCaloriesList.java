@@ -50,12 +50,11 @@ public final class TotalCaloriesList {
     public void loadFile() throws FileNotFoundException
     {
         try{
-        Scanner in = new Scanner(file);
-        while(in.hasNextLine())
-        {
-            totalCalories.add(in.nextLine());
-        }    
-        in.close();
+            try (Scanner in = new Scanner(file)) {
+                while(in.hasNextLine())
+                {
+                    totalCalories.add(in.nextLine());
+                }   }
         }catch(FileNotFoundException e){JOptionPane.showMessageDialog(null, e.toString());}
     }
 }
