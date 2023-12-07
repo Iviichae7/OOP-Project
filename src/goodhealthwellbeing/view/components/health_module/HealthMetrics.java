@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 public class HealthMetrics extends javax.swing.JFrame {
 
-    // Variables declaration
+    // Variables objects declaration
     private final ButtonGroup buttonGroup = new ButtonGroup();;
     private final User currentUser;
     private final HealthMetricsProcessor processor = new HealthMetricsProcessor();
@@ -71,7 +71,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         ui.setupButtonGroup(buttonGroup, healthmetricsRadioLoseWeight, healthmetricsRadioGainWeight, healthmetricsRadioStayHealthy);
     }
 
-    // Sets up the listeners for all the buttons. Save, reset and history.
+    // Sets up the listeners for all the buttons. Save, reset, history, back and delete.
     private void setupActionListeners() {
         healthmetricsSaveBtn.addActionListener(this::healthmetricsSaveBtnActionPerformed);
         healthmetricsResetBtn.addActionListener(this::healthmetricsResetBtnActionPerformed);

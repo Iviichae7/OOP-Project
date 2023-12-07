@@ -11,7 +11,7 @@ public class TargetStepCalculator {
      * Calculates the adjusted target steps based on the user's current steps
      * and their health goal.
      * @param currentSteps the user's current steps
-     *                        e.g. "12000" -> 12000 steps
+     *                        e.g. "1123" -> 12000 steps
      * @param healthGoal the user's health goal
      *                        e.g. "Lose Weight"
      * @return the adjusted target steps
@@ -20,7 +20,7 @@ public class TargetStepCalculator {
 
         double weight = 1.0;
 
-        /*
+        /**
           If the user's health goal is to lose weight, then the target steps
           should be increased by 30%.
           If the user's health goal is to gain weight, then the target steps
