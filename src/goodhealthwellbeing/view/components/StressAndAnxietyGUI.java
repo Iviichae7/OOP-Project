@@ -4,6 +4,7 @@
  */
 package goodhealthwellbeing.view.components;
 
+import goodhealthwellbeing.model.LevelHistory;
 import goodhealthwellbeing.model.StressAndAnxiety;
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 public class StressAndAnxietyGUI extends javax.swing.JFrame {
     
     private final StressAndAnxiety stressAndAnxiety;
+    private final LevelHistory levelHistory;
 
     /**
      * Creates new form StressAndAnxiety
@@ -22,6 +24,8 @@ public class StressAndAnxietyGUI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         stressAndAnxiety = new StressAndAnxiety();
+        levelHistory=LevelHistory.getInstance();
+        
     }
     
     private void handleSubmit(){
@@ -38,6 +42,8 @@ public class StressAndAnxietyGUI extends javax.swing.JFrame {
         int level=stressAndAnxiety.getLevel();
         String message=stressAndAnxiety.getMessage();
         JOptionPane.showMessageDialog(null, message+" Current level"+level);
+        levelHistory.createFile();
+        levelHistory.writeFile();
     }
 
     /**
