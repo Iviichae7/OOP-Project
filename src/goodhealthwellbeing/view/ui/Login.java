@@ -13,6 +13,9 @@ public class Login extends javax.swing.JFrame {
 
     private final UserManager userManager;
 
+    /**
+     * Creates new form Login
+     */
     public Login() {
 
         userManager = UserManager.getUser();

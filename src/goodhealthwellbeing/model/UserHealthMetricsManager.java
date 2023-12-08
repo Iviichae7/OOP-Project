@@ -47,6 +47,10 @@ public class UserHealthMetricsManager {
         return userHealthMetrics.get(user.getEmail());
     }
 
+    /**
+     * Deletes health metrics for a specific user.
+     * Uses the users email to find and delete their associated health metrics.
+     */
     public void deleteUserMetrics(User user) throws IOException, IOException {
         HealthMetricsHistoryManager historyManager = new HealthMetricsHistoryManager();
         String filePath = historyManager.getFilePath();

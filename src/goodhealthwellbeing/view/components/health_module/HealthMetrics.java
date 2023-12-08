@@ -50,6 +50,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         comboMenu.setModel(new DefaultComboBoxModel<>(new String[]{"Target Weight", "Target Steps", "Target Duration"}));
     }
 
+    // Getter for the current user.
     public User getCurrentUser() {
         return currentUser;
     }

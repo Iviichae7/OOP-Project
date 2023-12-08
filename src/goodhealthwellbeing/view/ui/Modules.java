@@ -22,6 +22,9 @@ public class Modules extends javax.swing.JFrame {
     // Static instance for implementing Singleton pattern.
     private static Modules instance;
 
+/**
+     * Creates new form Modules
+     */
     Modules() {
         initComponents();
         

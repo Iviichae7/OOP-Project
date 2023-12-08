@@ -18,6 +18,9 @@ public class Register extends javax.swing.JFrame {
     private final UserManager userManager;
     private final SignupUser signupUser;
 
+    /**
+     * Creates new form Register
+     */
     public Register() {
 
         userManager = UserManager.getUser();
@@ -27,6 +30,7 @@ public class Register extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
 
+        // Set up action listeners for buttons.
         signupLoginBtn.addActionListener((ActionEvent e) -> {
             Login login = new Login();
             login.setVisible(true);
@@ -36,7 +40,8 @@ public class Register extends javax.swing.JFrame {
         signupBtn.addActionListener((ActionEvent e) -> {
             signupLoginBtnActionPerformed(e);
         });
-        
+
+        // Set up key listeners for text fields.
         signupNameInput.addKeyListener(new KeyAdapter() {
         
             @Override
@@ -52,7 +57,8 @@ public class Register extends javax.swing.JFrame {
             }
         
         });
-        
+
+        // Set up key listeners for email field.
         signupEmailInput.addKeyListener(new KeyAdapter(){
             
             @Override
@@ -67,7 +73,8 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         });
-        
+
+        // Set up key listeners for password field.
         signupPasswordInput.addKeyListener(new KeyAdapter(){
         
             @Override
@@ -233,6 +240,10 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method is an event handler for the signupLoginBtn button.
+     * It is triggered when the signupLoginBtn button is clicked.
+     */
     private void signupLoginBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_signupLoginBtnActionPerformed
 
         String fullName = signupNameInput.getText();
@@ -259,6 +270,8 @@ public class Register extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_signupLoginBtnActionPerformed
 
+    // hideRegistrationComponents() hides all the components that are not needed
+    // when the user signs up and the registration is successful.
     private void hideRegistrationComponents() {
         registerEmailString.setVisible(false);
         registerString.setVisible(false);

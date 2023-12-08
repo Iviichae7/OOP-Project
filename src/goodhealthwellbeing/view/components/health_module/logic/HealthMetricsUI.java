@@ -13,10 +13,12 @@ public class HealthMetricsUI {
 
     private final HealthMetrics healthMetrics;
 
+    // Constructor
     public HealthMetricsUI(HealthMetrics healthMetrics) {
         this.healthMetrics = healthMetrics;
     }
 
+    // Displays the current user in the label.
     public void displayCurrentUser(JLabel currentUserLabel2) {
         if (healthMetrics.getCurrentUser() != null) {
             currentUserLabel2.setText(healthMetrics.getCurrentUser().getFullName());
