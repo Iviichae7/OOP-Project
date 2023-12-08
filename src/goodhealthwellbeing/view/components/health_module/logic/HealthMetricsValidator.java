@@ -9,6 +9,7 @@ import javax.swing.*;
 public class HealthMetricsValidator {
 
     // Visual Validation logic for the weight input field.
+    // If the input is not a number or is not in the valid range, an error message is displayed.
     public void validateWeightInput(String input, JLabel invalidWeight) {
 
         try {
@@ -27,7 +28,8 @@ public class HealthMetricsValidator {
         }
     }
 
-    // Visual Validation logic for the steps input field.
+    // Visual Validation logic for the step input field.
+    // If the input is not a number or is not in the valid range, an error message is displayed.
     public void validateStepsInput(String input, JLabel invalidSteps) {
 
         try {
@@ -47,6 +49,7 @@ public class HealthMetricsValidator {
     }
 
     // Visual Validation logic for the target weight input field.
+    // If the input is not a number or is not in the valid range, an error message is displayed.
     public void validateTargetWeightInput(String input, JLabel invalidTargetWeight, JTextField healthmetricsCurrentWeightInput) {
 
         try {
@@ -67,6 +70,7 @@ public class HealthMetricsValidator {
     }
 
     // Visual Validation logic for the exercise minutes input field.
+    // If the input is not a number or is not in the valid range, an error message is displayed.
     public void validateExerciseInput(String input, JLabel invalidTime) {
 
         try {
@@ -99,7 +103,8 @@ public class HealthMetricsValidator {
 
             errorData.setText("");
 
-            // The actual validation logic for the inputs, where if the inputs are invalid the user cant save and an error message is displayed.
+            // The actual validation logic for the inputs, where if the inputs are invalid,
+            // the user cant save, and an error message is displayed.
             return !(currentWeight <= 0 || currentWeight > 200 ||
                     steps < 0 || steps > 40000 ||
                     targetWeight < currentWeight - 30 ||

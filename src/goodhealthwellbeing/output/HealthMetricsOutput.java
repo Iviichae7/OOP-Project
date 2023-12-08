@@ -7,7 +7,7 @@ package goodhealthwellbeing.output;
 
 /**
  * Plain Old Java Object representing the output of health metrics.
- * It is used for encapsulating various health related metrics.
+ * It is used for encapsulating various health-related metrics.
  */
 public class HealthMetricsOutput {
     public final String weightOutput;

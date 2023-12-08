@@ -76,7 +76,7 @@ public class HealthMetricsHistoryManager {
                         "User Input\n" +
                         "Weight: " + output.weightOutput + "\n" +
                         "Steps: " + output.stepsOutput + "\n" +
-                        "Target Weight: " + output.targetOutput + "\n" +
+                        "Target: " + output.targetOutput + "\n" +
                         "Exercise Duration: " + output.durationOutput + "\n\n" +
                         "Recommendations for User: " + user.getFullName() + "\n" +
                         "Health Goal: " + healthGoal + "\n" +

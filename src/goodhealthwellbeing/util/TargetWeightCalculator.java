@@ -19,11 +19,12 @@ public class TargetWeightCalculator {
      */
     public String calculate(double currentWeight, double targetWeight, String healthGoal) {
 
-        /* If the user's health goal is to lose weight, then the target weight
-           should be decreased by 5 kg.
-           If the user's health goal is to gain weight, then the target weight
-           should be increased by 5 kg.
-           Otherwise, the target weight should be the same as the user's target weight.
+        /**
+         * If the user's health goal is to lose weight, then the target weight
+         * should be decreased by 5 kg.
+         * If the user's health goal is to gain weight, then the target weight
+         * should be increased by 5 kg.
+         * Otherwise, the target weight should be the same as the user's target weight.
         */
         if ("Lose Weight".equals(healthGoal)) {
             return (currentWeight - 5) + " kg";
