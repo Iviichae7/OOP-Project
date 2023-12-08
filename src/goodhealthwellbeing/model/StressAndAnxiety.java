@@ -12,11 +12,16 @@ package goodhealthwellbeing.model;
 public class StressAndAnxiety extends MentalHealth{
     
     
-    public StressAndAnxiety(){
+    private StressAndAnxiety(){
         message="";
         answer="";
         level=0;
         
+    }
+    private static StressAndAnxiety INSTANCE= new StressAndAnxiety();
+    
+    public static StressAndAnxiety getInstance(){
+        return INSTANCE;
     }
 
     public String getAnswer() {

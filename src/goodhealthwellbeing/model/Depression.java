@@ -10,11 +10,17 @@ package goodhealthwellbeing.model;
  */
 public class Depression extends MentalHealth{
     
-    public Depression(){
+    private Depression(){
         answer="";
         message="";
         level=0;
     }
+    private static Depression INSTANCE=new Depression();
+    
+    public static Depression getInstance(){
+        return INSTANCE;
+    }
+    
 
     public String getAnswer() {
         return answer;

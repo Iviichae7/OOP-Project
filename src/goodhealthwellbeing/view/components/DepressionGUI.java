@@ -5,6 +5,7 @@
 package goodhealthwellbeing.view.components;
 
 import goodhealthwellbeing.model.Depression;
+import goodhealthwellbeing.model.LevelHistory;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ public class DepressionGUI extends javax.swing.JFrame {
     
     
     private final Depression depression;
+    private final LevelHistory levelHistory;
     
 
     /**
@@ -23,7 +25,8 @@ public class DepressionGUI extends javax.swing.JFrame {
     public DepressionGUI() {
         initComponents();
         this.setLocationRelativeTo(null);
-        depression=new Depression();
+        depression = Depression.getInstance();
+        levelHistory=LevelHistory.getInstance();
     }
     
     
@@ -41,6 +44,7 @@ public class DepressionGUI extends javax.swing.JFrame {
         int level=depression.getLevel();
         String message=depression.getMessage();
         JOptionPane.showMessageDialog(null, message+" Current level"+level);
+        levelHistory.writeFile();
     }
 
     

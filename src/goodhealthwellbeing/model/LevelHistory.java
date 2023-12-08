@@ -13,22 +13,25 @@ import java.io.IOException;
  *
  * @MD MAHMUDUL HASAN
  */
-public class LevelHistory {
+public class LevelHistory  {
 
     private final File file;
-    private final StressAndAnxiety sta;
-    private final Depression dp;
+    private final StressAndAnxiety stressAndAnxiety;
+    private final Depression depression;
+    
     int stressLevel;
     int depressionLevel;
+    
 
     private static LevelHistory INSTANCE = new LevelHistory();
 
     private LevelHistory() {
         file = new File("levelHistory.txt");
-        sta = new StressAndAnxiety();
-        dp = new Depression();
-        stressLevel = sta.getLevel();
-        depressionLevel = dp.getLevel();
+        stressAndAnxiety =  StressAndAnxiety.getInstance();
+        depression = Depression.getInstance();
+        
+        stressLevel = 0;
+        depressionLevel = 0;
     }
 
     public static LevelHistory getInstance() {
@@ -44,9 +47,12 @@ public class LevelHistory {
     }
 
     public void writeFile() {
-        try ( BufferedWriter fw = new BufferedWriter(new FileWriter("/Users/macbook/Desktop/Health_and_wellbeing/OOP-Project/levelHistory.txt", true))) {
+        stressLevel = stressAndAnxiety.getLevel(); // had to update the value of stress level here so that it can fetch the value once the check level has been called if not the result will be 0
+        depressionLevel = depression.getLevel();
+        try ( BufferedWriter fw = new BufferedWriter(new FileWriter("levelHistory.txt", true))) {
             fw.write("Stress level found: " + stressLevel + "\n");
             fw.write("Depression level found: " + depressionLevel + "\n");
+            fw.close();
         } catch (IOException e) {
 
         }

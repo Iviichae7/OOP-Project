@@ -23,7 +23,7 @@ public class StressAndAnxietyGUI extends javax.swing.JFrame {
     public StressAndAnxietyGUI() {
         initComponents();
         setLocationRelativeTo(null);
-        stressAndAnxiety = new StressAndAnxiety();
+        stressAndAnxiety =StressAndAnxiety.getInstance();
         levelHistory=LevelHistory.getInstance();
         
     }
