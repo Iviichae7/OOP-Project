@@ -16,6 +16,10 @@ import java.io.IOException;
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -33,6 +37,7 @@ public class HealthMetrics extends javax.swing.JFrame {
     private final HealthMetricsHistoryManager historyManager = new HealthMetricsHistoryManager();
     private final HealthMetricsValidator validator = new HealthMetricsValidator();
     private final HealthMetricsUI ui = new HealthMetricsUI(this);
+    private String selectedMetric;
 
     // Constructor
     public HealthMetrics(User user) {
@@ -41,6 +46,8 @@ public class HealthMetrics extends javax.swing.JFrame {
         removeDuplicateListeners();
         setupUI();
         this.setLocationRelativeTo(null);
+
+        comboMenu.setModel(new DefaultComboBoxModel<>(new String[]{"Target Weight", "Target Steps", "Target Duration"}));
     }
 
     public User getCurrentUser() {
@@ -78,6 +85,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricHistoryBtn.addActionListener(this::healthmetricHistoryBtnActionPerformed);
         hmBackBtn.addActionListener(this::hmBackBtnActionPerformed);
         deleteBtn.addActionListener(this::deleteBtnActionPerformed);
+        searchButton.addActionListener(this::searchButtonActionPerformed);
     }
 
     // Validation key listeners for the input fields
@@ -202,6 +210,8 @@ public class HealthMetrics extends javax.swing.JFrame {
         errorData = new javax.swing.JLabel();
         healthmetricsResetBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
+        comboMenu = new javax.swing.JComboBox<>();
+        searchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -425,7 +435,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         healthmetricsRadioStayHealthy.setBackground(new java.awt.Color(255, 255, 255));
         healthmetricsRadioStayHealthy.setText("Stay Healthy");
 
-        healthmetricsSaveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_save (2).png"))); // NOI18N
+        healthmetricsSaveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_save.png"))); // NOI18N
         healthmetricsSaveBtn.setBorder(null);
         healthmetricsSaveBtn.setBorderPainted(false);
         healthmetricsSaveBtn.setContentAreaFilled(false);
@@ -455,7 +465,7 @@ public class HealthMetrics extends javax.swing.JFrame {
         errorData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         errorData.setForeground(new java.awt.Color(255, 0, 0));
 
-        healthmetricsResetBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_reset (1).png"))); // NOI18N
+        healthmetricsResetBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_reset.png"))); // NOI18N
         healthmetricsResetBtn.setBorder(null);
         healthmetricsResetBtn.setBorderPainted(false);
         healthmetricsResetBtn.setContentAreaFilled(false);
@@ -478,76 +488,95 @@ public class HealthMetrics extends javax.swing.JFrame {
             }
         });
 
+        comboMenu.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        comboMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboMenuActionPerformed(evt);
+            }
+        });
+
+        searchButton.setBackground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button_search.png"))); // NOI18N
+        searchButton.setBorderPainted(false);
+        searchButton.setContentAreaFilled(false);
+        searchButton.setFocusPainted(false);
+
         javax.swing.GroupLayout healthmetricsRightPanelLayout = new javax.swing.GroupLayout(healthmetricsRightPanel);
         healthmetricsRightPanel.setLayout(healthmetricsRightPanelLayout);
         healthmetricsRightPanelLayout.setHorizontalGroup(
             healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(seperator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(currentUserLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricsCurrentWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(healthmetricsStepsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricsCurrentWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(healthmetricsStepsInput, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(invalidWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(invalidSteps, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricsTargetWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(healthmetricsExcerciseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricsTargetWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(healthmetricsExcerciseInput, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(invalidTargetWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(invalidTime, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricsRadioLoseWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(healthmetricsRadioGainWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(healthmetricsRadioStayHealthy, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(healthmetricHistoryBtn))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(healthmetricsResetBtn)
-                        .addGap(6, 6, 6)
-                        .addComponent(healthmetricsSaveBtn))
+                        .addGap(36, 36, 36)
+                        .addComponent(seperator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(currentUserLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(seperator3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricsCurrentWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(healthmetricsStepsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricsCurrentWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(healthmetricsStepsInput, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(invalidWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(invalidSteps, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricsTargetWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(healthmetricsExcerciseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricsTargetWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(healthmetricsExcerciseInput, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(invalidTargetWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(invalidTime, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricsRadioLoseWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(healthmetricsRadioGainWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(healthmetricsRadioStayHealthy, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(healthmetricHistoryBtn))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addComponent(healthmetricsHistoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(seperator1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteBtn)
-                    .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(seperator1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                                .addComponent(healthmetricsSaveBtn)
+                                .addGap(11, 11, 11)
+                                .addComponent(healthmetricsResetBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(deleteBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(65, 65, 65))
         );
         healthmetricsRightPanelLayout.setVerticalGroup(
             healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,14 +618,20 @@ public class HealthMetrics extends javax.swing.JFrame {
                     .addComponent(healthmetricsRadioLoseWeight)
                     .addComponent(healthmetricsRadioGainWeight)
                     .addComponent(healthmetricsRadioStayHealthy))
-                .addGap(5, 5, 5)
-                .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
                 .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthmetricsResetBtn)
-                    .addComponent(healthmetricsSaveBtn)
-                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(comboMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(errorData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(healthmetricsResetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(healthmetricsSaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(23, 23, 23)
                 .addGroup(healthmetricsRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(healthmetricsHistoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(healthmetricsRightPanelLayout.createSequentialGroup()
@@ -722,6 +757,61 @@ public class HealthMetrics extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
+    // Combo box to select the metric to search for
+    private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMenuActionPerformed
+        selectedMetric = (String) comboMenu.getSelectedItem();
+        this.selectedMetric = selectedMetric;
+    }//GEN-LAST:event_comboMenuActionPerformed
+
+    /**
+     * This method is for the search button. When the search button is clicked.
+     * It reads the metrics from a file, finds the section of the file that corresponds to the current user, and then
+     * searches within that section for the selected metric. The selected metric is a class member variable that is set
+     * when an item is selected in the JComboBox. If the selected metric is found in the user's section of the file,
+     * it is added to a list of matching lines. The matching lines are then joined into a single string and the user's
+     * full name is added to the beginning of the string.
+     */
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            // Read the metrics from the file
+            List<String> lines = Files.readAllLines(Paths.get(historyManager.getFilePath()));
+
+            // Find the start and end of the txt file section for the current user
+            int start = -1;
+            int end = -1;
+            
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).contains(currentUser.getEmail())) {
+                    start = i;
+                }
+                if (lines.get(i).contains("________________________________________")) {
+                    if (start != -1) {
+                        end = i;
+                        break;
+                    }
+                }
+            }
+            
+            // Search for the selected metric in the user's section
+            List<String> matchingLines = new ArrayList<>();
+            for (int i = start; i < end; i++) {
+                String line = lines.get(i);
+                if (line.contains(this.selectedMetric + ":")) {
+                    matchingLines.add(line);
+                }
+            }
+            
+            String message = String.join("\n", matchingLines);
+            message = "User: " + currentUser.getFullName() + "\n \n" + message;
+
+            // Display the result
+            JOptionPane.showMessageDialog(this, message, "Search Result", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error while reading the file: " + e.getMessage(),
+                    "File Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     // Removes duplicate listeners from the save and history buttons at runtime as it was causing issues.
     private void removeDuplicateListeners() {
         for (ActionListener act : healthmetricHistoryBtn.getActionListeners()) {
@@ -734,6 +824,7 @@ public class HealthMetrics extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboMenu;
     private javax.swing.JLabel currentUserLabel2;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JLabel duration;
@@ -766,6 +857,7 @@ public class HealthMetrics extends javax.swing.JFrame {
     private javax.swing.JLabel invalidTargetWeight;
     private javax.swing.JLabel invalidTime;
     private javax.swing.JLabel invalidWeight;
+    private javax.swing.JButton searchButton;
     private javax.swing.JSeparator seperator0;
     private javax.swing.JSeparator seperator1;
     private javax.swing.JSeparator seperator2;
